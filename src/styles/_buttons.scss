@@ -1,0 +1,19 @@
+@import "./variables";
+
+.linkReset {
+	text-decoration: none;
+	&:hover {
+		color: $dark;
+	}
+}
+.buttonPrimary {
+	@extend .linkReset;
+	display: inline-block;
+	background-color: orange;
+	color: $dark;
+	font-weight: 700;
+	padding: 1em;
+	border-radius: 0.5rem;
+	font-size: 2em;
+	margin: 1em;
+}
