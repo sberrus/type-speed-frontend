@@ -5,83 +5,75 @@ import style from "./SpeedTest.module.scss";
 
 type TesterProps = { finishTest: (stats: StatsType) => void };
 const Tester = ({ finishTest }: TesterProps) => {
-	const [isTesting, setIsTesting] = useState(true);
+	// hooks
+	const delay = useDelay();
+
+	// TODO: ASK FOR THE SOURCE OF WORDS
+	// states
 	const [wordToCopy, setWordToCopy] = useState(
 		"Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio incidunt voluptas possimus est facilis eligendi sint veniam et mollitia magni assumenda velit, corrupti quasi ipsa quia. Consectetur aspernatur saepe nisi."
 	);
-	const [pointer, setPointer] = useState(0);
+	// Logic states
+	const [isTesting, setIsTesting] = useState(true);
 	const [isTyping, setIsTyping] = useState(false);
-	const [correctWords, setCorrectWords] = useState("");
+	// data states
+	const [correctLetters, setCorrectLetters] = useState("");
 	const [errorCount, setErrorCount] = useState(0);
-	const keysOmitted = ["Shift", "CapsLock", "Enter", "Tab", "Control", "AltGraph", "Alt", "Escape", "Backspace"];
-
-	// delay hook
-	const delay = useDelay();
-
-	// test input behaviour
+	// data refs
+	const correctLettersRef = useRef("");
+	const errorCountRef = useRef(0);
+	// test input behaviour states
+	const [pointer, setPointer] = useState(0);
+	const keysToOmit = ["Shift", "CapsLock", "Enter", "Tab", "Control", "AltGraph", "Alt", "Escape", "Backspace"];
 	const inputRef = useRef<HTMLInputElement>(null);
 	const focusToInput = () => {
 		inputRef?.current?.focus();
 	};
 
 	/**
-	 * Main funtionality for each key press to compare if the key pressed is the same
-	 * as the key to compare.
+	 * checks if the user key pressed is the correct key
+	 * according to the pointer position.
 	 *
-	 * Also, this functionality catch every mistake and use that info for the stats
+	 * capture all the correct keys pressed and mistakes.
 	 */
-	const checkWord = (e: React.KeyboardEvent) => {
+	const checkLetter = (e: React.KeyboardEvent) => {
 		e.preventDefault();
-		// to prevent this keys for Uppercases
-		if (keysOmitted.includes(e.key)) {
-			console.log("ommited");
+		// prevent adding fake pressed in omitted keys
+		if (keysToOmit.includes(e.key)) {
 			return;
 		}
 
 		if (e.key !== wordToCopy[pointer]) {
 			setErrorCount((count) => count + 1);
+			errorCountRef.current = errorCountRef.current + 1;
 		}
 
 		// compare key pressed with pointer key
 		if (e.key === wordToCopy[pointer]) {
-			setCorrectWords((prevWords) => prevWords + e.key);
+			setCorrectLetters((prevLetters) => prevLetters + e.key);
+			correctLettersRef.current = correctLettersRef.current + e.key;
 			setPointer((prev) => prev + 1);
 			return;
 		}
 	};
 
-	const getStats = () => {
+	const start = async () => {
+		// Remove the input to avoid user interactions after timeout
+		await delay(5000);
+
+		console.log("Finished");
+		setIsTesting(false);
+
+		// get user stats
 		const stats: StatsType = {
 			id: "pruebas!",
-			errors_word_count: errorCount,
-			success_word_count: correctWords.length,
+			errors_letters_count: errorCountRef.current,
+			success_letters_count: correctLettersRef.current.length,
 		};
-		return stats;
-	};
-
-	const sendResults = () => {
-		console.log(getStats());
-	};
-
-	const start = async () => {
-		// empezar test y temporizador 1min.
-
-		// // Remove the input to avoid user interactions after timeout
+		// start finish animation
 		await delay(3000);
-		sendResults();
-
-		// console.log("done");
-		// setIsTesting(false);
-
-		// // get user stats
-		// const stats = getStats();
-		// console.log(stats);
-
-		// // Send data to ranking backend.
-		// // sendStatsToRanking();
-
-		// // send data to SpeedTest component.
-		// finishTest(stats);
+		// send data to SpeedTest component
+		finishTest(stats);
 	};
 
 	useEffect(() => {
@@ -96,7 +88,7 @@ const Tester = ({ finishTest }: TesterProps) => {
 			<div>
 				stats:
 				<br />
-				correct words: {correctWords.length}
+				correct words: {correctLetters.length}
 				<br />
 				errors: {errorCount}
 			</div>
@@ -107,7 +99,7 @@ const Tester = ({ finishTest }: TesterProps) => {
 							{wordToCopy}
 						</div>
 						<div defaultValue={wordToCopy} className={style.correctWords}>
-							{correctWords}
+							{correctLetters}
 							<span className={`${style.pointer} ${isTyping && style.isTyping}`}>{wordToCopy[pointer]}</span>
 						</div>
 						{/* input for test */}
@@ -116,9 +108,9 @@ const Tester = ({ finishTest }: TesterProps) => {
 							ref={inputRef}
 							className={`${style.inputText}`}
 							autoComplete="false"
-							defaultValue={correctWords}
+							defaultValue={correctLetters}
 							onKeyDownCapture={(e) => {
-								checkWord(e);
+								checkLetter(e);
 							}}
 							onFocus={() => {
 								setIsTyping(true);
@@ -131,7 +123,7 @@ const Tester = ({ finishTest }: TesterProps) => {
 				</>
 			) : (
 				<>
-					<h5>Test finalizado gracias por participar</h5>
+					<h5>Test finalizado gracias por participar!</h5>
 				</>
 			)}
 		</>
@@ -139,3 +131,5 @@ const Tester = ({ finishTest }: TesterProps) => {
 };
 
 export default Tester;
+
+// TODO: MAKE SOME TESTS AND TRY TO BREAK THE APP

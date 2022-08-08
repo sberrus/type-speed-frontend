@@ -1,11 +1,13 @@
 import { useState } from "react";
+// components
+import Stats from "./Stats";
 import Tester from "./Tester";
-
-type TestStateType = "WARMUP" | "TESTING" | "SHOWSTATS";
+// types
+export type TestStateType = "WARMUP" | "TESTING" | "SHOWSTATS";
 export type StatsType = {
 	id: string;
-	errors_word_count: number;
-	success_word_count: number;
+	errors_letters_count: number;
+	success_letters_count: number;
 };
 
 const SpeedTest = () => {
@@ -17,8 +19,8 @@ const SpeedTest = () => {
 	// Show Stats
 	const [stats, setStats] = useState<StatsType>({
 		id: "",
-		errors_word_count: 0,
-		success_word_count: 0,
+		errors_letters_count: 0,
+		success_letters_count: 0,
 	});
 
 	/**
@@ -26,6 +28,8 @@ const SpeedTest = () => {
 	 */
 	const finishTest = (stats: StatsType) => {
 		console.log("user stats", stats);
+		setStats(stats);
+		setTestState("SHOWSTATS");
 	};
 
 	/**
@@ -51,13 +55,12 @@ const SpeedTest = () => {
 		<>
 			{testState === "WARMUP" && (
 				<>
-					le quedan [x] oportunidades para hacer el test.
 					<button onClick={startTest}>Empezar test</button>
 					{isCounting && readyTime}
 				</>
 			)}
 			{testState === "TESTING" && <Tester finishTest={finishTest} />}
-			{testState === "SHOWSTATS" && <>show stats</>}
+			{testState === "SHOWSTATS" && <Stats setTestState={setTestState} stats={stats} />}
 		</>
 	);
 };
