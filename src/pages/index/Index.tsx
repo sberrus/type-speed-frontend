@@ -6,9 +6,11 @@ const Index = () => {
 		<div>
 			<div className={style.main}>
 				<Link to="type-speed-test" className={style.buttonPrimary}>
-					Ir a Speed Test
+					Ir a Speed Test ⌨️
 				</Link>
-				<p>Esto es solo para desarrollo luego trabajamos en la landing page</p>
+				<Link to="auth" className={style.buttonPrimary}>
+					Auth 🔒
+				</Link>
 			</div>
 		</div>
 	);
