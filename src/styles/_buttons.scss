@@ -3,17 +3,18 @@
 .linkReset {
 	text-decoration: none;
 	&:hover {
-		color: $dark;
+		color: $light;
 	}
 }
 .buttonPrimary {
 	@extend .linkReset;
 	display: inline-block;
-	background-color: orange;
-	color: $dark;
+	background-color: $dark;
+	color: $light;
+	border: 1px solid $light;
 	font-weight: 700;
-	padding: 1em;
+	padding: 0.5em;
 	border-radius: 0.5rem;
-	font-size: 2em;
-	margin: 1em;
+	font-size: 1.5em;
+	margin: 0.5em;
 }
