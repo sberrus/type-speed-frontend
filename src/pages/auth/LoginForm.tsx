@@ -1,6 +1,7 @@
 import useAuth from "context/useAuth";
-import React, { ChangeEvent, FormEvent, useState } from "react";
+import { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import { Button, Form } from "react-bootstrap";
+import { useLocation } from "react-router-dom";
 import { LoginStateTypes } from "./Login";
 
 type LoginFormProps = {
@@ -12,12 +13,14 @@ const LoginForm = ({ handleSwitchState }: LoginFormProps) => {
 	const [password, setPassword] = useState("");
 	// hooks
 	const auth = useAuth();
+	const { state } = useLocation();
 
-	// login
+	// onSubmit
 	const handleSubmit = (e: FormEvent) => {
 		e.preventDefault();
-		auth?.getUser(username, password);
+		auth?.getSession(username, password);
 	};
+
 	// inputs handlers
 	const handleUsername = (e: ChangeEvent<HTMLInputElement>) => {
 		setUsername(() => e.target.value);
@@ -25,6 +28,12 @@ const LoginForm = ({ handleSwitchState }: LoginFormProps) => {
 	const handlePassword = (e: ChangeEvent<HTMLInputElement>) => {
 		setPassword(() => e.target.value);
 	};
+
+	useEffect(() => {
+		console.log(state);
+		return () => {};
+	}, []);
+
 	return (
 		<Form onSubmit={handleSubmit}>
 			<Form.Group className="mb-3" controlId="username">

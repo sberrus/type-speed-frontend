@@ -1,25 +1,66 @@
 // data
 const baseUrl = "http://localhost:8080/api/auth";
 // types
-export type UserType = {
-	username: string;
+export type SessionType = {
+	user: {
+		username: string;
+	};
 	token: string;
 };
 
 export const login = async (username: string, password: string) => {
 	const route = "/login";
-	const res = await fetch(baseUrl + route, {
-		method: "POST",
-		headers: {
-			"content-type": "application/json",
-		},
-		body: JSON.stringify({
-			username,
-			password,
-		}),
-	});
+	try {
+		const res = await fetch(baseUrl + route, {
+			method: "POST",
+			headers: {
+				"content-type": "application/json",
+			},
+			body: JSON.stringify({
+				username,
+				password,
+			}),
+		});
 
-	const data = await res.json();
+		const data = await res.json();
+		if (res.status !== 200) {
+			throw new Error(data.errors[0].msg);
+		}
+		return data;
+	} catch (error) {
+		console.log(error);
+	}
+};
 
-	console.log(data);
+export const register = async (
+	username: string,
+	password: string,
+	passwordConfirm: string,
+	secretQuestion: string,
+	secret: string
+) => {
+	const route = "/register";
+	try {
+		const res = await fetch(baseUrl + route, {
+			method: "POST",
+			headers: {
+				"content-type": "application/json",
+			},
+			body: JSON.stringify({
+				username,
+				password,
+				password_confirm: passwordConfirm,
+				secret_question: secretQuestion,
+				secret,
+			}),
+		});
+
+		const data = await res.json();
+		if (res.status !== 200) {
+			throw new Error(data.errors[0].msg);
+		}
+		return data;
+	} catch (error) {
+		console.log(error);
+	}
 };

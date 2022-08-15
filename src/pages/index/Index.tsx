@@ -5,7 +5,7 @@ const Index = () => {
 	return (
 		<div>
 			<div className={style.main}>
-				<Link to="type-speed-test" className={style.buttonPrimary}>
+				<Link to="app" className={style.buttonPrimary}>
 					Ir a Speed Test ⌨️
 				</Link>
 				<Link to="auth" className={style.buttonPrimary}>

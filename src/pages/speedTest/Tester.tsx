@@ -1,7 +1,11 @@
-import useDelay from "@utils/useDelay";
+// imports
 import React, { useEffect, useRef, useState } from "react";
-import { StatsType } from "./SpeedTest";
+// hooks
+import useDelay from "hooks/useDelay";
+// styles
 import style from "./SpeedTest.module.scss";
+// types
+import { StatsType } from "./SpeedTest";
 
 type TesterProps = { finishTest: (stats: StatsType) => void };
 const Tester = ({ finishTest }: TesterProps) => {
