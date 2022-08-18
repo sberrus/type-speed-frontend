@@ -1,9 +1,92 @@
 @import "../../styles/buttons";
+@import "../../styles/variables";
+.wrapper {
+	background-color: orange;
+	min-height: 100vh;
+	color: $dark;
+	h2 {
+		line-height: 1.75rem;
+	}
+	h5 {
+		text-align: center;
+		font-size: 1.125rem;
+	}
+	.header {
+		display: flex;
+		justify-content: space-between;
+		border-bottom: 1px solid black;
+	}
 
-.main {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	flex-direction: column;
-	height: 100vh;
+	// main
+	.mainWrapper {
+		justify-content: center;
+		margin: 1em 0;
+		// aside ranking wrapper
+		.rankingWrapper {
+			position: sticky;
+			top: 1em;
+			height: 100%;
+			padding: 1.5em;
+			background-color: #fff;
+			border-radius: 2rem;
+			header {
+				text-align: center;
+			}
+			.imgContainer {
+				margin: auto;
+				width: 50%;
+				margin-bottom: 0.5em;
+				overflow: hidden;
+				aspect-ratio: 1;
+				img {
+					width: 100%;
+					height: auto;
+				}
+			}
+		}
+		// main content
+		.mainContent {
+			.heroSection {
+				border-radius: 2rem;
+				background-color: #fff;
+				padding: 1.5em;
+				h2 {
+					text-align: center;
+					margin-bottom: 1.5em;
+				}
+				.cta {
+					margin-bottom: 3em;
+					display: flex;
+					justify-content: space-between;
+					.ctaContent {
+						width: 70%;
+					}
+					.ctaImgContainer {
+						border: 1px solid black;
+						margin: 0.5em;
+						width: 30%;
+						img {
+							width: 100%;
+						}
+					}
+				}
+			}
+			.descriptionSection {
+				margin-top: 1em;
+				border-radius: 2rem;
+				background-color: #fff;
+				padding: 1em;
+				article {
+					margin-bottom: 3em;
+				}
+			}
+		}
+	}
+}
+// footer
+.footer {
+	padding: 0.5em;
+	text-align: center;
+	color: $light;
+	background-color: $dark;
 }
