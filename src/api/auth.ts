@@ -1,5 +1,5 @@
 // data
-const baseUrl = "http://localhost:8080/api/auth";
+const baseUrl = "http://typespeed.samdev.es/api/auth";
 // types
 export type SessionType = {
 	user: {
