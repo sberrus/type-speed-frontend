@@ -1,5 +1,6 @@
 // data
 const baseUrl = "https://typespeed.samdev.es/api/auth";
+//
 // types
 export type SessionType = {
 	user: {
