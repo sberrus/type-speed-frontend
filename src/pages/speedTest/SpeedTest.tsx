@@ -48,7 +48,7 @@ const SpeedTest = () => {
 			clearInterval(interval);
 			setIsCounting(false);
 			setTestState("TESTING");
-		}, 3000);
+		}, 0);
 	};
 
 	return (

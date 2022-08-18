@@ -1,131 +1,111 @@
-import useDelay from "@utils/useDelay";
-import React, { useEffect, useRef, useState } from "react";
-import { StatsType } from "./SpeedTest";
+// imports
+import { ChangeEvent, KeyboardEvent, useEffect, useRef, useState } from "react";
+// styles
 import style from "./SpeedTest.module.scss";
-
+// types
+import { StatsType } from "./SpeedTest";
+type WordsType = {
+	valid: boolean;
+	word: string;
+};
 type TesterProps = { finishTest: (stats: StatsType) => void };
+
 const Tester = ({ finishTest }: TesterProps) => {
-	// hooks
-	const delay = useDelay();
-
-	// TODO: ASK FOR THE SOURCE OF WORDS
 	// states
-	const [wordToCopy, setWordToCopy] = useState(
-		"Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio incidunt voluptas possimus est facilis eligendi sint veniam et mollitia magni assumenda velit, corrupti quasi ipsa quia. Consectetur aspernatur saepe nisi."
-	);
-	// Logic states
-	const [isTesting, setIsTesting] = useState(true);
-	const [isTyping, setIsTyping] = useState(false);
-	// data states
-	const [correctLetters, setCorrectLetters] = useState("");
-	const [errorCount, setErrorCount] = useState(0);
-	// data refs
-	const correctLettersRef = useRef("");
-	const errorCountRef = useRef(0);
-	// test input behaviour states
-	const [pointer, setPointer] = useState(0);
-	const keysToOmit = ["Shift", "CapsLock", "Enter", "Tab", "Control", "AltGraph", "Alt", "Escape", "Backspace"];
-	const inputRef = useRef<HTMLInputElement>(null);
+	const [wordToCopy, setWordToCopy] = useState(() => {
+		const word =
+			"Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maxime est doloremque odio deleniti quasi itaque repellendus ipsam ad. Laboriosam adipisci alias deleniti? Blanditiis sequi in nobis incidunt error recusandae adipisci.";
+		const wordSliced = word.trim().split(" ");
+		return wordSliced;
+	});
+	const [currentWord, setCurrentWord] = useState<WordsType>({ valid: true, word: "" });
+	const [wordsChecked, setWordsChecked] = useState<WordsType[]>([]);
+	// refs
+	const userInputRef = useRef<HTMLInputElement>(null);
 	const focusToInput = () => {
-		inputRef?.current?.focus();
+		userInputRef.current?.focus();
+	};
+	// methods
+	const handleUserInput = (e: ChangeEvent<HTMLInputElement>) => {
+		const subString = e.target.value.trim();
+		console.log(wordToCopy[0].includes(subString));
+		if (wordToCopy[0].includes(subString)) {
+			setCurrentWord({ valid: true, word: e.target.value });
+			return;
+		}
+		setCurrentWord({ valid: false, word: e.target.value });
 	};
 
-	/**
-	 * checks if the user key pressed is the correct key
-	 * according to the pointer position.
-	 *
-	 * capture all the correct keys pressed and mistakes.
-	 */
-	const checkLetter = (e: React.KeyboardEvent) => {
-		e.preventDefault();
-		// prevent adding fake pressed in omitted keys
-		if (keysToOmit.includes(e.key)) {
-			return;
-		}
+	const checkKeyPressed = (e: KeyboardEvent) => {
+		const nextWordActionKey = [" ", "Enter"];
 
-		if (e.key !== wordToCopy[pointer]) {
-			setErrorCount((count) => count + 1);
-			errorCountRef.current = errorCountRef.current + 1;
-		}
-
-		// compare key pressed with pointer key
-		if (e.key === wordToCopy[pointer]) {
-			setCorrectLetters((prevLetters) => prevLetters + e.key);
-			correctLettersRef.current = correctLettersRef.current + e.key;
-			setPointer((prev) => prev + 1);
-			return;
+		// compare words action
+		if (nextWordActionKey.includes(e.key)) {
+			if (currentWord?.word.trim() === wordToCopy[0]) {
+				addWordToCollection(true);
+			} else {
+				addWordToCollection(false);
+			}
 		}
 	};
 
-	const start = async () => {
-		// Remove the input to avoid user interactions after timeout
-		await delay(5000);
-
-		console.log("Finished");
-		setIsTesting(false);
-
-		// get user stats
-		const stats: StatsType = {
-			id: "pruebas!",
-			errors_letters_count: errorCountRef.current,
-			success_letters_count: correctLettersRef.current.length,
-		};
-		// start finish animation
-		await delay(3000);
-		// send data to SpeedTest component
-		finishTest(stats);
+	const addWordToCollection = (valid: boolean) => {
+		// add word to collection
+		setWordsChecked([...wordsChecked, { valid, word: currentWord.word.trim() || "" }]);
+		// reset current word
+		setCurrentWord({ valid: true, word: "" });
+		// delete word from sample
+		setWordToCopy((prev) => {
+			const wordCollectionCopy = [...prev];
+			wordCollectionCopy.shift();
+			return [...wordCollectionCopy];
+		});
 	};
 
 	useEffect(() => {
-		inputRef.current?.focus();
-		start();
+		userInputRef.current?.focus();
 		return () => {};
 	}, []);
 
-	//
 	return (
 		<>
-			<div>
-				stats:
-				<br />
-				correct words: {correctLetters.length}
-				<br />
-				errors: {errorCount}
-			</div>
-			{isTesting ? (
-				<>
-					<div className={style.typeTestContainer} onClick={focusToInput}>
-						<div defaultValue={wordToCopy} className={style.sampleText}>
-							{wordToCopy}
+			<div className={style.testWrapper} onClick={focusToInput}>
+				{/* results */}
+				<div className={style.sectionWrapper}>
+					<div className={style.userInputAnswer}>
+						<div className={style.userAnswers}>
+							{wordsChecked?.map((word, key) => (
+								<span key={key} className={`${word.valid ? style.validAnswer : style.wrongAnswer}`}>
+									{`${word.word}`}&nbsp;
+								</span>
+							))}
 						</div>
-						<div defaultValue={wordToCopy} className={style.correctWords}>
-							{correctLetters}
-							<span className={`${style.pointer} ${isTyping && style.isTyping}`}>{wordToCopy[pointer]}</span>
+						<div className={style.currentWord}>
+							{currentWord.valid ? (
+								<span className={style.validWord}>{currentWord.word}</span>
+							) : (
+								<span className={style.wrongWord}>{currentWord.word}</span>
+							)}
 						</div>
-						{/* input for test */}
-						<input
-							type="text"
-							ref={inputRef}
-							className={`${style.inputText}`}
-							autoComplete="false"
-							defaultValue={correctLetters}
-							onKeyDownCapture={(e) => {
-								checkLetter(e);
-							}}
-							onFocus={() => {
-								setIsTyping(true);
-							}}
-							onBlur={() => {
-								setIsTyping(false);
-							}}
-						/>
+						<div className={style.inputWrapper}>
+							<input
+								type="text"
+								autoComplete="off"
+								value={currentWord.word}
+								ref={userInputRef}
+								onChange={handleUserInput}
+								onKeyDown={checkKeyPressed}
+							/>
+						</div>
 					</div>
-				</>
-			) : (
-				<>
-					<h5>Test finalizado gracias por participar!</h5>
-				</>
-			)}
+				</div>
+				{/* next words */}
+				<div className={style.sectionWrapper}>
+					{wordToCopy.map((word, key) => (
+						<span key={key}>{word} </span>
+					))}
+				</div>
+			</div>
 		</>
 	);
 };
