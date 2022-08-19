@@ -23,11 +23,12 @@ const Login = () => {
 	};
 
 	useEffect(() => {
-		if (state.to) {
-			setLoginState(state.to);
+		if (state?.to) {
+			setLoginState(state?.to);
 		} else {
 			setLoginState("Login");
 		}
+		setLoginState("Login");
 		return () => {};
 	}, []);
 
