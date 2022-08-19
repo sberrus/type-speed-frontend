@@ -1,8 +1,6 @@
 @import "../../styles/buttons";
 @import "../../styles/variables";
 .wrapper {
-	background-color: orange;
-	min-height: 100vh;
 	color: $dark;
 	h2 {
 		line-height: 1.75rem;
@@ -11,10 +9,31 @@
 		text-align: center;
 		font-size: 1.125rem;
 	}
+
+	// header
 	.header {
-		display: flex;
-		justify-content: space-between;
-		border-bottom: 1px solid black;
+		padding: 0.5em;
+		position: sticky;
+		top: 0;
+		background-color: #fff;
+		z-index: 10;
+		.headerWrapper {
+			display: flex;
+			justify-content: space-between;
+			width: 77.5%;
+		}
+		.imgContainer {
+			height: 2em;
+			position: relative;
+			width: 50%;
+			img {
+				height: 100%;
+			}
+		}
+		.authContainer {
+			display: flex;
+			justify-content: center;
+		}
 	}
 
 	// main
@@ -24,7 +43,7 @@
 		// aside ranking wrapper
 		.rankingWrapper {
 			position: sticky;
-			top: 1em;
+			top: 3.75em;
 			height: 100%;
 			padding: 1.5em;
 			background-color: #fff;
