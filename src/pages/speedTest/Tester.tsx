@@ -1,3 +1,8 @@
+/**
+ * If you are reading this i have to appologize for reading this code. Im not so proud of it but its working.
+ * If you have any improvement (that im sure it could) plese let me know or make a pull request in github thanks.
+ */
+
 // imports
 import { ChangeEvent, KeyboardEvent, useEffect, useRef, useState } from "react";
 // styles
@@ -11,13 +16,23 @@ type WordsType = {
 type TesterProps = { finishTest: (stats: StatsType) => void };
 
 const Tester = ({ finishTest }: TesterProps) => {
+	const [wordSample, setWordSample] = useState(
+		"Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maxime est doloremque odio deleniti quasi itaque repellendus ipsam ad. Laboriosam adipisci alias deleniti? Blanditiis sequi in nobis incidunt error recusandae adipisci."
+	);
 	// states
-	const [wordToCopy, setWordToCopy] = useState(() => {
-		const word =
-			"Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maxime est doloremque odio deleniti quasi itaque repellendus ipsam ad. Laboriosam adipisci alias deleniti? Blanditiis sequi in nobis incidunt error recusandae adipisci.";
-		const wordSliced = word.trim().split(" ");
-		return wordSliced;
+	const [wordToLogic, setWordToCopy] = useState(() => {
+		const wordCollection = wordSample.trim().split(" ");
+		return wordCollection;
 	});
+	const [wordsLeft, setWordsLeft] = useState(() => {
+		const _wordsLeft = [...wordToLogic];
+		_wordsLeft.shift();
+		return _wordsLeft;
+	});
+	//
+	const [wordPointer, setWordPointer] = useState(0);
+	const [wordToCompare, setWordToCompare] = useState(wordToLogic[wordPointer]);
+	//
 	const [currentWord, setCurrentWord] = useState<WordsType>({ valid: true, word: "" });
 	const [wordsChecked, setWordsChecked] = useState<WordsType[]>([]);
 	// refs
@@ -28,8 +43,8 @@ const Tester = ({ finishTest }: TesterProps) => {
 	// methods
 	const handleUserInput = (e: ChangeEvent<HTMLInputElement>) => {
 		const subString = e.target.value.trim();
-		console.log(wordToCopy[0].includes(subString));
-		if (wordToCopy[0].includes(subString)) {
+		console.log(wordToLogic[0].includes(subString));
+		if (wordToLogic[0].includes(subString)) {
 			setCurrentWord({ valid: true, word: e.target.value });
 			return;
 		}
@@ -39,9 +54,16 @@ const Tester = ({ finishTest }: TesterProps) => {
 	const checkKeyPressed = (e: KeyboardEvent) => {
 		const nextWordActionKey = [" ", "Enter"];
 
+		if (e.key === wordToCompare[0]) {
+			setWordToCompare((prev) => {
+				const updated = [...prev];
+				updated.shift();
+				return updated.join("");
+			});
+		}
 		// compare words action
 		if (nextWordActionKey.includes(e.key)) {
-			if (currentWord?.word.trim() === wordToCopy[0]) {
+			if (currentWord?.word.trim() === wordToLogic[0]) {
 				addWordToCollection(true);
 			} else {
 				addWordToCollection(false);
@@ -60,6 +82,12 @@ const Tester = ({ finishTest }: TesterProps) => {
 			wordCollectionCopy.shift();
 			return [...wordCollectionCopy];
 		});
+		setWordsLeft((prev) => {
+			const wordsLeftCopy = [...prev];
+			wordsLeftCopy.shift();
+			return [...wordsLeftCopy];
+		});
+		setWordToCompare(wordToLogic[1]);
 	};
 
 	useEffect(() => {
@@ -101,7 +129,8 @@ const Tester = ({ finishTest }: TesterProps) => {
 				</div>
 				{/* next words */}
 				<div className={style.sectionWrapper}>
-					{wordToCopy.map((word, key) => (
+					{wordToCompare}{" "}
+					{wordsLeft.map((word, key) => (
 						<span key={key}>{word} </span>
 					))}
 				</div>
