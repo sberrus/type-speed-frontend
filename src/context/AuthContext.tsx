@@ -9,6 +9,7 @@ interface AppContextInterface {
 	session: SessionType | null;
 	getSession: GetSessionFunction;
 	logout: () => void;
+	isLogged: () => boolean;
 	registerUser: (
 		username: string,
 		password: string,
@@ -34,6 +35,8 @@ const AuthProvider = ({ children }: AuthContextProps) => {
 		return () => {};
 	}, []);
 
+	// methods
+	const isLogged = () => !!session;
 	const getSession: GetSessionFunction = async (username, password) => {
 		try {
 			try {
@@ -75,7 +78,11 @@ const AuthProvider = ({ children }: AuthContextProps) => {
 		}
 	};
 
-	return <AuthContext.Provider value={{ session, getSession, logout, registerUser }}>{children}</AuthContext.Provider>;
+	return (
+		<AuthContext.Provider value={{ session, getSession, logout, registerUser, isLogged }}>
+			{children}
+		</AuthContext.Provider>
+	);
 };
 
 export default AuthProvider;

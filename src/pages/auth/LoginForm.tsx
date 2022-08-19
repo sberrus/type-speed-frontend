@@ -30,7 +30,6 @@ const LoginForm = ({ handleSwitchState }: LoginFormProps) => {
 	};
 
 	useEffect(() => {
-		console.log(state);
 		return () => {};
 	}, []);
 
