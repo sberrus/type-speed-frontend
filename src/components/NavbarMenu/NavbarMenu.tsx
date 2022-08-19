@@ -18,14 +18,14 @@ const NavbarMenu = () => {
 	}, []);
 
 	return (
-		<Navbar bg="dark" variant="dark" expand="lg">
+		<Navbar bg="dark" variant="dark" expand="lg" className="p-3" sticky="top">
 			<Container>
 				<Link to="/">
 					<img alt="Just Eat Logo" src={JE_Logo} className="d-inline-block align-top" />
 				</Link>
 				<Navbar.Toggle aria-controls="navbarScroll" />
 				<Navbar.Collapse id="navbarScroll">
-					<Nav className="ms-auto my-2 my-lg-0" style={{ maxHeight: "100px" }} navbarScroll>
+					<Nav className="ms-auto my-2 my-lg-0" navbarScroll>
 						{auth?.isLogged() ? (
 							<>
 								<Button

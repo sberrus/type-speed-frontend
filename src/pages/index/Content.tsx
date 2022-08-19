@@ -3,7 +3,7 @@ import style from "./Index.module.scss";
 
 const Content = () => {
 	return (
-		<Col as="main" xs={8} className={style.mainContent}>
+		<Col as="main" lg={9} className={style.mainContent}>
 			{/* hero */}
 			<section className={style.heroSection}>
 				<h2>TORNEO JET SPEED</h2>

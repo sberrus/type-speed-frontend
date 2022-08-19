@@ -10,32 +10,6 @@
 		font-size: 1.125rem;
 	}
 
-	// header
-	.header {
-		padding: 0.5em;
-		position: sticky;
-		top: 0;
-		background-color: #fff;
-		z-index: 10;
-		.headerWrapper {
-			display: flex;
-			justify-content: space-between;
-			width: 77.5%;
-		}
-		.imgContainer {
-			height: 2em;
-			position: relative;
-			width: 50%;
-			img {
-				height: 100%;
-			}
-		}
-		.authContainer {
-			display: flex;
-			justify-content: center;
-		}
-	}
-
 	// main
 	.mainWrapper {
 		justify-content: center;
@@ -43,7 +17,7 @@
 		// aside ranking wrapper
 		.rankingWrapper {
 			position: sticky;
-			top: 3.75em;
+			top: 5.25em;
 			height: 100%;
 			padding: 1.5em;
 			background-color: #fff;
@@ -108,4 +82,11 @@
 	text-align: center;
 	color: $light;
 	background-color: $dark;
+}
+
+// responsive
+@media screen and (max-width: 992px) {
+	.rankingWrapper {
+		display: none;
+	}
 }

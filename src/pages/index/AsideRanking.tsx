@@ -4,7 +4,7 @@ import style from "./Index.module.scss";
 // TODO: CONNECT BBDD
 const AsideRanking = () => {
 	return (
-		<Col as="aside" xs={3} className={style.rankingWrapper}>
+		<Col as="aside" lg={3} className={style.rankingWrapper}>
 			<div className={style.imgContainer}>
 				<img src="" alt="imagen" />
 			</div>

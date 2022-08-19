@@ -7,11 +7,12 @@ import Login from "@pages/auth/Login";
 import PageNotFound from "@pages/PageNotFound";
 import ProtectedRoute from "./ProtectedRoute";
 import PublicRoute from "./PublicRoute";
+import AppTemplate from "templates/AppTemplate";
 
 const MainRouter = () => {
 	return (
 		<Routes>
-			<Route path="/">
+			<Route path="/" element={<AppTemplate />}>
 				{/* Public */}
 				<Route index element={<Index />} />
 				<Route
