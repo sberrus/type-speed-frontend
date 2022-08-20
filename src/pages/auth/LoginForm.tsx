@@ -2,7 +2,7 @@ import useAuth from "context/useAuth";
 import { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import { Button, Form } from "react-bootstrap";
 import { useLocation } from "react-router-dom";
-import { LoginStateTypes } from "./Login";
+import { LoginStateTypes } from "./Auth";
 
 type LoginFormProps = {
 	handleSwitchState: (state: LoginStateTypes) => void;

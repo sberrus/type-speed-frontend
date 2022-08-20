@@ -41,10 +41,10 @@ const NavbarMenu = () => {
 									</>
 								) : (
 									<>
-										<Link to="/auth" state={{ to: "Login" }}>
+										<Link to="/auth" state={{ loginState: "Login" }}>
 											<Button variant="outline-light">Login</Button>
 										</Link>
-										<Link to="/auth" state={{ to: "Register" }}>
+										<Link to="/auth" state={{ loginState: "Register" }}>
 											<Button variant="outline-light">Register</Button>
 										</Link>
 									</>

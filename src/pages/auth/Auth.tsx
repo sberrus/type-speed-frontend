@@ -7,13 +7,14 @@ import LoginForm from "./LoginForm";
 import RegisterForm from "./RegisterForm";
 
 export type LoginStateTypes = "Login" | "Register" | "Forgot-Password";
-interface CustomizedLocation {
-	to: LoginStateTypes;
+export interface StateType {
+	to?: string;
+	loginState?: LoginStateTypes;
 }
-const Login = () => {
+const Auth = () => {
 	// hooks
 	const location = useLocation();
-	const state = location.state as CustomizedLocation;
+	const state = location.state as StateType;
 	// states
 	const [loginState, setLoginState] = useState<LoginStateTypes>("Login");
 
@@ -23,10 +24,9 @@ const Login = () => {
 	};
 
 	useEffect(() => {
-		if (state?.to) {
-			setLoginState(state?.to);
-		} else {
-			setLoginState("Login");
+		console.log(state);
+		if (state?.loginState) {
+			return setLoginState(state?.loginState);
 		}
 		setLoginState("Login");
 		return () => {};
@@ -73,4 +73,4 @@ const Login = () => {
 	);
 };
 
-export default Login;
+export default Auth;
