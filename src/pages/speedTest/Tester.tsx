@@ -108,6 +108,7 @@ const Tester = ({ finishTest }: TesterProps) => {
 								</span>
 							))}
 						</div>
+
 						<div className={style.currentWord}>
 							{currentWord.valid ? (
 								<span className={style.validWord}>{currentWord.word}</span>
@@ -115,6 +116,7 @@ const Tester = ({ finishTest }: TesterProps) => {
 								<span className={style.wrongWord}>{currentWord.word}</span>
 							)}
 						</div>
+
 						<div className={style.inputWrapper}>
 							<input
 								type="text"
