@@ -3,16 +3,18 @@ import style from "./Index.module.scss";
 
 const Content = () => {
 	return (
-		<Col as="main" lg={9} className={style.mainContent}>
+		<Col as="main" lg={8} className={style.mainContent}>
 			{/* hero */}
 			<section className={style.heroSection}>
-				<h2>TORNEO JET SPEED</h2>
+				<h2 className={style.pageHeaderTitle}>TORNEO JET SPEED</h2>
 				<div className={style.cta}>
 					<div className={style.ctaImgContainer}>
 						<img src="" alt="JE cta Image" />
 					</div>
 					<div className={style.ctaContent}>
-						<h5>REGLAS Y COMO PARTICIPAR</h5>
+						<h5 className={style.secondaryHeading} data-text="REGLAS Y COMO PARTICIPAR">
+							REGLAS Y COMO PARTICIPAR
+						</h5>
 						<p>
 							Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iste magnam labore odit sed, tempora
 							possimus ad vel quia veritatis earum neque eligendi aliquid ipsa dolor assumenda voluptatibus
@@ -22,7 +24,9 @@ const Content = () => {
 				</div>
 				<div className={style.cta}>
 					<div className={style.ctaContent}>
-						<h5>REGLAS Y COMO PARTICIPAR</h5>
+						<h5 className={style.secondaryHeading} data-text="REGLAS Y COMO PARTICIPAR">
+							REGLAS Y COMO PARTICIPAR
+						</h5>
 						<p>
 							Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iste magnam labore odit sed, tempora
 							possimus ad vel quia veritatis earum neque eligendi aliquid ipsa dolor assumenda voluptatibus
@@ -38,7 +42,9 @@ const Content = () => {
 						<img src="" alt="JE cta Image" />
 					</div>
 					<div className={style.ctaContent}>
-						<h5>REGLAS Y COMO PARTICIPAR</h5>
+						<h5 className={style.secondaryHeading} data-text="REGLAS Y COMO PARTICIPAR">
+							REGLAS Y COMO PARTICIPAR
+						</h5>
 						<p>
 							Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iste magnam labore odit sed, tempora
 							possimus ad vel quia veritatis earum neque eligendi aliquid ipsa dolor assumenda voluptatibus
@@ -51,7 +57,9 @@ const Content = () => {
 			{/* description */}
 			<section className={style.descriptionSection}>
 				<article id="explicacion">
-					<h5>EXPLICACION DEL TORNEO</h5>
+					<h5 className={style.secondaryHeading} data-text="REGLAS Y COMO PARTICIPAR">
+						REGLAS Y COMO PARTICIPAR
+					</h5>
 					<p>
 						Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex, tempore veniam sapiente ab impedit nulla
 						molestias eveniet asperiores aut deleniti facilis explicabo aspernatur officiis. Voluptatem voluptates
@@ -63,7 +71,9 @@ const Content = () => {
 					</p>
 				</article>
 				<article id="reglas">
-					<h5>REGLAS DE COMO PARTICIPAR</h5>
+					<h5 className={style.secondaryHeading} data-text="REGLAS Y COMO PARTICIPAR">
+						REGLAS Y COMO PARTICIPAR
+					</h5>
 					<p>
 						Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia quaerat laborum porro aspernatur
 						eaque, aliquam aut totam praesentium qui! Numquam placeat a beatae magni commodi? Delectus accusamus
@@ -73,7 +83,9 @@ const Content = () => {
 					</p>
 				</article>
 				<article id="premios">
-					<h5>PREMIOS Y RECOMPENSAS</h5>
+					<h5 className={style.secondaryHeading} data-text="REGLAS Y COMO PARTICIPAR">
+						REGLAS Y COMO PARTICIPAR
+					</h5>
 					<p>
 						Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit ullam, quia alias reiciendis non eum.
 						Aspernatur iusto harum doloribus maxime adipisci corporis autem repudiandae enim? Beatae itaque

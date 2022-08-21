@@ -1,7 +1,10 @@
 @import "../../node_modules/bootstrap/scss/bootstrap.scss";
 // variables
 @import "./variables";
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@100;200;300;400;500;600;700&family=M+PLUS+Rounded+1c:wght@100;300;400;500;700;800;900&display=swap");
+
 body {
+	font-family: "IBM Plex Sans", sans-serif;
 	background-color: $orange;
 	color: $light;
 }

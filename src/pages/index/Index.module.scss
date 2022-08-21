@@ -1,5 +1,7 @@
 @import "../../styles/buttons";
 @import "../../styles/variables";
+@import "../../styles/titles";
+// globals
 .wrapper {
 	color: $dark;
 	h2 {
@@ -13,6 +15,7 @@
 	// main
 	.mainWrapper {
 		justify-content: center;
+		padding: 0.5em;
 		margin: 1em 0;
 		// aside ranking wrapper
 		.rankingWrapper {
@@ -20,6 +23,7 @@
 			top: 5.25em;
 			height: 100%;
 			padding: 1.5em;
+			margin-right: 1em;
 			background-color: #fff;
 			border-radius: 2rem;
 			header {
@@ -39,9 +43,9 @@
 		}
 		// main content
 		.mainContent {
+			background-color: #fff;
+			border-radius: 2rem;
 			.heroSection {
-				border-radius: 2rem;
-				background-color: #fff;
 				padding: 1.5em;
 				h2 {
 					text-align: center;
@@ -66,8 +70,6 @@
 			}
 			.descriptionSection {
 				margin-top: 1em;
-				border-radius: 2rem;
-				background-color: #fff;
 				padding: 1em;
 				article {
 					margin-bottom: 3em;
