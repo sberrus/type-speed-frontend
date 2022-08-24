@@ -18,7 +18,6 @@ const Index = () => {
 					<Content />
 				</Row>
 			</Container>
-			<Footer />
 		</div>
 	);
 };
