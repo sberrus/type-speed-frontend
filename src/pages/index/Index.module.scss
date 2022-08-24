@@ -1,6 +1,7 @@
 @import "../../styles/buttons";
 @import "../../styles/variables";
 @import "../../styles/titles";
+@import "../../styles/customBorders";
 // globals
 .wrapper {
 	color: $dark;
@@ -14,11 +15,11 @@
 
 	// main
 	.mainWrapper {
-		justify-content: center;
+		justify-content: space-around;
 		padding: 0.5em;
-		margin: 1em 0;
 		// aside ranking wrapper
 		.rankingWrapper {
+			@extend .primaryBorder;
 			position: sticky;
 			top: 5.25em;
 			height: 100%;
@@ -43,6 +44,7 @@
 		}
 		// main content
 		.mainContent {
+			@extend .primaryBorder;
 			background-color: #fff;
 			border-radius: 2rem;
 			.heroSection {

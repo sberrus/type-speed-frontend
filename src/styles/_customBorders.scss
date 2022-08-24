@@ -1,0 +1,6 @@
+$primary: #d85e1859;
+$secondary: #ffffff59;
+
+.primaryBorder {
+	box-shadow: 0 0 0 3px $primary, 0 0 0 6px $secondary;
+}

@@ -3,7 +3,6 @@ import { Container, Row } from "react-bootstrap";
 // components
 import AsideRanking from "./AsideRanking";
 import Content from "./Content";
-import Footer from "./Footer";
 // styles
 import style from "./Index.module.scss";
 
