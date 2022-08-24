@@ -1,0 +1,29 @@
+@import "../../styles/titles";
+.navbar {
+	background-color: #fff;
+	border-radius: 1rem;
+	top: 0.5em !important;
+	border: 1px solid #000;
+	.authButtons {
+		.button {
+			@extend .secondaryHeading;
+			border: none;
+			&::after {
+				top: 5.5px;
+				left: 0.5px;
+			}
+		}
+	}
+	.logoContainerLink {
+		position: relative;
+		margin-left: 1em;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: 2.5em;
+		img {
+			display: block;
+			height: 100%;
+		}
+	}
+}
