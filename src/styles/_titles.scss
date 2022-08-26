@@ -1,23 +1,15 @@
-.pageHeaderTitle {
+.textDecoratorPrimary {
 	font-family: "M PLUS Rounded 1c", sans-serif;
 	position: relative;
 	font-weight: 600;
 	color: #ffbf80;
-	text-shadow: #ff8000 -1px 1px, #ff8000 -2px 2px;
+	text-shadow: #ff8000 -0.5px 0.5px, #ff8000 -1.5px 1.5px, #ff8000 -2px 2px;
 }
 
-.secondaryHeading {
+.textDecoratorSecondary {
+	font-family: "M PLUS Rounded 1c", sans-serif;
 	position: relative;
-	color: #ff8000;
-	text-shadow: #ff8000 -0.5px 0.5px;
-	&:after {
-		content: attr(data-text);
-		position: absolute;
-		width: 100%;
-		height: 100%;
-		font-weight: 500;
-		color: hsla(0, 0%, 100%, 0.5);
-		top: -1px;
-		left: 0px;
-	}
+	font-weight: 600;
+	color: #ffffff80;
+	text-shadow: #ff8000 -1px 1px, #ff8000 -1.5px 1.5px;
 }

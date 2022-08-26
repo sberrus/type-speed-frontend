@@ -6,6 +6,7 @@ import JE_Logo from "@assets/img/JE_Logo_white.svg";
 import { useEffect } from "react";
 // styles
 import style from "./NavbarMenu.module.scss";
+import { TextDecoratorPrimary } from "@components/Decorators/CustomText";
 
 const NavbarMenu = () => {
 	const auth = useAuth();
@@ -43,13 +44,13 @@ const NavbarMenu = () => {
 								) : (
 									<>
 										<Link to="/auth" state={{ loginState: "Login" }}>
-											<Button className={`${style.button} me-1`} variant="outline-dark" data-text="Login">
-												Login
+											<Button className={`me-1`} variant="outline-dark" data-text="Login">
+												<TextDecoratorPrimary>Login</TextDecoratorPrimary>
 											</Button>
 										</Link>
 										<Link to="/auth" state={{ loginState: "Register" }}>
-											<Button className={`${style.button}`} variant="outline-dark" data-text="Register">
-												Register
+											<Button variant="outline-dark" data-text="Register">
+												<TextDecoratorPrimary>Register</TextDecoratorPrimary>
 											</Button>
 										</Link>
 									</>

@@ -1,4 +1,8 @@
-import { Col } from "react-bootstrap";
+// imports
+import { Button, Col } from "react-bootstrap";
+// components
+import { TextDecoratorPrimary, TextDecoratorSecondary } from "@components/Decorators/CustomText";
+// styles
 import style from "./Index.module.scss";
 
 const Content = () => {
@@ -6,14 +10,16 @@ const Content = () => {
 		<Col as="main" lg={8} className={style.mainContent}>
 			{/* hero */}
 			<section className={style.heroSection}>
-				<h2 className={style.pageHeaderTitle}>TORNEO JET SPEED</h2>
+				<h2>
+					<TextDecoratorPrimary>TORNEO JET SPEED</TextDecoratorPrimary>
+				</h2>
 				<div className={style.cta}>
 					<div className={style.ctaImgContainer}>
 						<img src="" alt="JE cta Image" />
 					</div>
 					<div className={style.ctaContent}>
-						<h5 className={style.secondaryHeading} data-text="REGLAS Y COMO PARTICIPAR">
-							REGLAS Y COMO PARTICIPAR
+						<h5>
+							<TextDecoratorPrimary>REGLAS Y COMO PARTICIPAR</TextDecoratorPrimary>
 						</h5>
 						<p>
 							Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iste magnam labore odit sed, tempora
@@ -24,8 +30,8 @@ const Content = () => {
 				</div>
 				<div className={style.cta}>
 					<div className={style.ctaContent}>
-						<h5 className={style.secondaryHeading} data-text="REGLAS Y COMO PARTICIPAR">
-							REGLAS Y COMO PARTICIPAR
+						<h5>
+							<TextDecoratorPrimary>REGLAS Y COMO PARTICIPAR</TextDecoratorPrimary>
 						</h5>
 						<p>
 							Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iste magnam labore odit sed, tempora
@@ -42,8 +48,8 @@ const Content = () => {
 						<img src="" alt="JE cta Image" />
 					</div>
 					<div className={style.ctaContent}>
-						<h5 className={style.secondaryHeading} data-text="REGLAS Y COMO PARTICIPAR">
-							REGLAS Y COMO PARTICIPAR
+						<h5>
+							<TextDecoratorPrimary>REGLAS Y COMO PARTICIPAR</TextDecoratorPrimary>
 						</h5>
 						<p>
 							Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iste magnam labore odit sed, tempora
@@ -57,8 +63,8 @@ const Content = () => {
 			{/* description */}
 			<section className={style.descriptionSection}>
 				<article id="explicacion">
-					<h5 className={style.secondaryHeading} data-text="REGLAS Y COMO PARTICIPAR">
-						REGLAS Y COMO PARTICIPAR
+					<h5>
+						<TextDecoratorPrimary>REGLAS Y COMO PARTICIPAR</TextDecoratorPrimary>
 					</h5>
 					<p>
 						Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex, tempore veniam sapiente ab impedit nulla
@@ -71,8 +77,8 @@ const Content = () => {
 					</p>
 				</article>
 				<article id="reglas">
-					<h5 className={style.secondaryHeading} data-text="REGLAS Y COMO PARTICIPAR">
-						REGLAS Y COMO PARTICIPAR
+					<h5>
+						<TextDecoratorPrimary>REGLAS Y COMO PARTICIPAR</TextDecoratorPrimary>
 					</h5>
 					<p>
 						Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia quaerat laborum porro aspernatur
@@ -83,8 +89,8 @@ const Content = () => {
 					</p>
 				</article>
 				<article id="premios">
-					<h5 className={style.secondaryHeading} data-text="REGLAS Y COMO PARTICIPAR">
-						REGLAS Y COMO PARTICIPAR
+					<h5>
+						<TextDecoratorPrimary>REGLAS Y COMO PARTICIPAR</TextDecoratorPrimary>
 					</h5>
 					<p>
 						Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit ullam, quia alias reiciendis non eum.

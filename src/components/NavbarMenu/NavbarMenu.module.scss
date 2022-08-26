@@ -6,17 +6,15 @@
 	border: 1px solid #000;
 	.authButtons {
 		.button {
-			@extend .secondaryHeading;
+			@extend .textDecoratorPrimary;
 			border: none;
-			&::after {
-				top: 5.5px;
-				left: 0.5px;
-			}
+			text-shadow: #ff8000 -0.5px 0.5px, #ff8000 -1px 1px;
 		}
 	}
 	.logoContainerLink {
 		position: relative;
-		margin-left: 1em;
+		margin-left: auto;
+		padding-left: 1em;
 		display: flex;
 		align-items: center;
 		justify-content: center;

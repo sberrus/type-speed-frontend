@@ -5,7 +5,9 @@ import ForgotPasswordForm from "./ForgotPasswordForm";
 // components
 import LoginForm from "./LoginForm";
 import RegisterForm from "./RegisterForm";
-
+// styles
+import style from "./Auth.module.scss";
+// types
 export type LoginStateTypes = "Login" | "Register" | "Forgot-Password";
 export interface StateType {
 	to?: string;
@@ -33,42 +35,39 @@ const Auth = () => {
 	}, []);
 
 	return (
-		<div>
-			<div>decorator</div>
-			<div>
-				<Container>
-					<Row>
-						<Col xs={8} className="m-auto">
-							{loginState === "Login" ? (
-								<Button
-									size="sm"
-									className="ms-auto d-block"
-									onClick={() => {
-										handleSwitchState("Register");
-									}}
-								>
-									Register
-								</Button>
-							) : (
-								<Button
-									size="sm"
-									className="ms-auto d-block"
-									onClick={() => {
-										handleSwitchState("Login");
-									}}
-								>
-									Login
-								</Button>
-							)}
-							<h3>{loginState}</h3>
-							<hr />
-							{loginState === "Login" && <LoginForm handleSwitchState={handleSwitchState} />}
-							{loginState === "Register" && <RegisterForm />}
-							{loginState === "Forgot-Password" && <ForgotPasswordForm />}
-						</Col>
-					</Row>
-				</Container>
-			</div>
+		<div className={style.authWrapper}>
+			<Container>
+				<Row>
+					<Col xs={8} className="m-auto">
+						{loginState === "Login" ? (
+							<Button
+								size="sm"
+								className="ms-auto d-block"
+								onClick={() => {
+									handleSwitchState("Register");
+								}}
+							>
+								Register
+							</Button>
+						) : (
+							<Button
+								size="sm"
+								className="ms-auto d-block"
+								onClick={() => {
+									handleSwitchState("Login");
+								}}
+							>
+								Login
+							</Button>
+						)}
+						<h3>{loginState}</h3>
+						<hr />
+						{loginState === "Login" && <LoginForm handleSwitchState={handleSwitchState} />}
+						{loginState === "Register" && <RegisterForm />}
+						{loginState === "Forgot-Password" && <ForgotPasswordForm />}
+					</Col>
+				</Row>
+			</Container>
 		</div>
 	);
 };
