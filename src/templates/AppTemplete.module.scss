@@ -8,20 +8,9 @@
 	border: 2px solid #d85e1880;
 }
 .mark3 {
+	background-image: url("../assets/img/bg.svg");
+	background-size: cover;
+	position: relative;
 	border: 4px solid #ffffff80;
-}
-
-.backgroundImgContainer {
-	position: absolute;
-	top: 0;
-	left: 0;
-	height: 100%;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	z-index: -1;
 	overflow: hidden;
-	.image {
-		width: 100%;
-	}
 }

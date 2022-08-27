@@ -4,7 +4,6 @@ import { Outlet } from "react-router-dom";
 // styles
 import style from "./AppTemplete.module.scss";
 // assets
-import BGImage from "@assets/img/bg.svg";
 import Footer from "@pages/index/Footer";
 const AppTemplate = () => {
 	return (
@@ -14,9 +13,6 @@ const AppTemplate = () => {
 					<div className={style.mark3}>
 						<NavbarMenu />
 						<Outlet />
-						<div className={style.backgroundImgContainer}>
-							<img src={BGImage} alt="background image" className={style.image} />
-						</div>
 					</div>
 				</div>
 			</div>

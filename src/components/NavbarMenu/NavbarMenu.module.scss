@@ -1,8 +1,9 @@
 @import "../../styles/titles";
 .navbar {
+	position: absolute;
+	top: 0;
+	left: 0;
 	background-color: #fff;
-	border-radius: 1rem;
-	top: 0.5em !important;
 	border: 1px solid #000;
 	.authButtons {
 		.button {

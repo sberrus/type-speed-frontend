@@ -1,9 +1,15 @@
 // imports
-import { Button, Col } from "react-bootstrap";
+import { Col, Container, Row } from "react-bootstrap";
 // components
 import { TextDecoratorPrimary, TextDecoratorSecondary } from "@components/Decorators/CustomText";
 // styles
 import style from "./Index.module.scss";
+// assets
+import Trophie from "@assets/img/Trophie.svg";
+import Banner from "@assets/img/Banner.jpg";
+
+// TODO: Componetizar botones para contenido
+// TODO: INCORPORAR COPY DE FIGMA
 
 const Content = () => {
 	return (
@@ -21,23 +27,29 @@ const Content = () => {
 						<h5>
 							<TextDecoratorPrimary>REGLAS Y COMO PARTICIPAR</TextDecoratorPrimary>
 						</h5>
-						<p>
-							Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iste magnam labore odit sed, tempora
-							possimus ad vel quia veritatis earum neque eligendi aliquid ipsa dolor assumenda voluptatibus
-							tempore corrupti nulla!
-						</p>
+						<ol>
+							<li>Registrate creando tu cuenta en nuestra web</li>
+							<li>Espera a que el torneo este activo</li>
+							<li>Participa en el evento</li>
+						</ol>
+						<a href="#reglas" className="float-end">
+							<TextDecoratorSecondary>Ver más</TextDecoratorSecondary>
+						</a>
 					</div>
 				</div>
 				<div className={style.cta}>
 					<div className={style.ctaContent}>
 						<h5>
-							<TextDecoratorPrimary>REGLAS Y COMO PARTICIPAR</TextDecoratorPrimary>
+							<TextDecoratorPrimary>PREMIOS Y RECOMPENSAS</TextDecoratorPrimary>
 						</h5>
-						<p>
-							Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iste magnam labore odit sed, tempora
-							possimus ad vel quia veritatis earum neque eligendi aliquid ipsa dolor assumenda voluptatibus
-							tempore corrupti nulla!
-						</p>
+						<ul>
+							<li>El primer lugar recibira.....</li>
+							<li>Los primero 3 en el ranking recibiran..... </li>
+							<li>Los primero 100 participantes tendran recompensa una...</li>
+						</ul>
+						<a href="#premios">
+							<TextDecoratorSecondary>Ver más</TextDecoratorSecondary>
+						</a>
 					</div>
 					<div className={style.ctaImgContainer}>
 						<img src="" alt="JE cta Image" />
@@ -49,56 +61,135 @@ const Content = () => {
 					</div>
 					<div className={style.ctaContent}>
 						<h5>
-							<TextDecoratorPrimary>REGLAS Y COMO PARTICIPAR</TextDecoratorPrimary>
+							<TextDecoratorPrimary>SOBRE EL EVENTO</TextDecoratorPrimary>
 						</h5>
 						<p>
-							Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iste magnam labore odit sed, tempora
-							possimus ad vel quia veritatis earum neque eligendi aliquid ipsa dolor assumenda voluptatibus
-							tempore corrupti nulla!
+							El torneo empezará un dia lunes desde inicio de horario laboral hasta el dia viernes que se
+							presentarán los........
 						</p>
+						<a href="#about" className="float-end">
+							<TextDecoratorSecondary>Ver más</TextDecoratorSecondary>
+						</a>
 					</div>
 				</div>
+			</section>
+
+			{/* gif decorattion center */}
+			<section className={style.gifContainer}>
+				<img src="" alt="[GIF DECORATOR]" />
 			</section>
 
 			{/* description */}
 			<section className={style.descriptionSection}>
 				<article id="explicacion">
-					<h5>
+					<div id="reglas" style={{ position: "absolute", top: "-100px" }}></div>
+					<h2 className="text-center">
 						<TextDecoratorPrimary>REGLAS Y COMO PARTICIPAR</TextDecoratorPrimary>
-					</h5>
+					</h2>
+					<Container>
+						<Row>
+							<Col xs={2}>
+								<div className={style.imgContainer}>
+									<img src="" alt="Decoration" />
+								</div>
+							</Col>
+							<Col xs={10}>
+								<div className={style.list}>
+									<ol>
+										<li>
+											<span>Crea tu cuenta con lo siguientes parámetros.</span>
+											<ul>
+												<li>Apodo</li>
+												<li>Contraseña</li>
+												<li>
+													PIN{" "}
+													<small>
+														<b>*importante para recuperar su contraseña</b>
+													</small>
+												</li>
+											</ul>
+										</li>
+										<li>Esperar a que el evento este activo.</li>
+										<li>Participa en el torneo y gana premios.</li>
+									</ol>
+									<p>Una vez presentes el Test se guardara tu mejor resultado en 3 categorias diferentes:</p>
+								</div>
+							</Col>
+						</Row>
+						<Row className="my-3">
+							<Col>
+								{" "}
+								<img src="" alt="PPM" />
+							</Col>
+							<Col>
+								{" "}
+								<img src="" alt="LPS" />
+							</Col>
+							<Col>
+								{" "}
+								<img src="" alt="%PRECISION" />
+							</Col>
+						</Row>
+						<p>
+							3.- Una vez precentes el test y este guarde tus mejores datos tendras que esperar hasta la
+							finalización y premiación para saber los resultados. <br />
+							<br />
+							Recuerda que siempre puedes presentar el test otra vez para mejorar tus resultados
+						</p>
+					</Container>
+				</article>
+				<article>
+					<div id="premios" style={{ position: "absolute", top: "-100px" }}></div>
+					<h2 className="text-center">
+						<div className={style.titleImgContainer}>
+							<img src={Trophie} alt="" />
+						</div>
+						<TextDecoratorPrimary>PREMIOS Y RECOMPENSAS</TextDecoratorPrimary>
+					</h2>
+					<Row>
+						<Col>
+							<h4>
+								<TextDecoratorPrimary>Recompensas:</TextDecoratorPrimary>
+							</h4>
+							<p>
+								Los primero 100 participantes tendran recompensa una pegatina conmemorativa que tendras que
+								reclamar contactando con el equipo organizador.
+							</p>
+						</Col>
+						<Col>
+							<h4>
+								<TextDecoratorPrimary>Premios:</TextDecoratorPrimary>
+							</h4>
+							<div className={style.list}>
+								<ul>
+									<li>El primer lugar recibira una GiftCard de 100€</li>
+									<li>
+										Los primero 3 en el ranking recibiran una pequeña KeyCap conmemorativa al respectivo
+										puesto.
+									</li>
+								</ul>
+							</div>
+						</Col>
+					</Row>
+				</article>
+				<article>
+					<div id="about" style={{ position: "absolute", top: "-100px" }}></div>
+					<h2 className="text-center">
+						<TextDecoratorPrimary>SOBRE EL EVENTO</TextDecoratorPrimary>
+					</h2>
+					<h4>
+						<TextDecoratorPrimary>Información:</TextDecoratorPrimary>
+					</h4>
 					<p>
-						Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex, tempore veniam sapiente ab impedit nulla
-						molestias eveniet asperiores aut deleniti facilis explicabo aspernatur officiis. Voluptatem voluptates
-						nesciunt non quaerat? Mollitia? Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi
-						provident dolor officia quod dolores mollitia laboriosam maiores, minima vero est architecto debitis
-						harum veniam quam a? Et, vel! Voluptatem, quisquam. Lorem ipsum dolor sit amet consectetur adipisicing
-						elit. Tenetur enim maiores est distinctio voluptatum, necessitatibus quisquam ad nihil eos odit harum
-						illum nesciunt beatae obcaecati natus itaque veniam rem? Magnam.
+						El torneo empezará un dia lunes XXX desde inicio de horario laboral (9:00) hasta el dia viernes XXX
+						sobre las 9:00 que se presentarán los resultados, cada participante puede presentar el test el dia que
+						quiera con tal y las veces que quiera con tal y esté entre el plazo de dias establecidos. Se guardaran
+						en el sistema de ranking el mejor PPm (palabras por minuto), el mejor LPS (letras por segundo) y el
+						mejor % de precisión. Estas 3 categorias seran premiadas a los 3 primeros lugares.
 					</p>
 				</article>
-				<article id="reglas">
-					<h5>
-						<TextDecoratorPrimary>REGLAS Y COMO PARTICIPAR</TextDecoratorPrimary>
-					</h5>
-					<p>
-						Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia quaerat laborum porro aspernatur
-						eaque, aliquam aut totam praesentium qui! Numquam placeat a beatae magni commodi? Delectus accusamus
-						optio pariatur ratione? Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quia assumenda
-						exercitationem magni reiciendis iure consequuntur voluptatem? Quisquam consequuntur repellat sunt
-						nesciunt, sint vero omnis odit, aut atque, cum sequi non!
-					</p>
-				</article>
-				<article id="premios">
-					<h5>
-						<TextDecoratorPrimary>REGLAS Y COMO PARTICIPAR</TextDecoratorPrimary>
-					</h5>
-					<p>
-						Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit ullam, quia alias reiciendis non eum.
-						Aspernatur iusto harum doloribus maxime adipisci corporis autem repudiandae enim? Beatae itaque
-						laborum debitis dolor? Lorem ipsum dolor sit amet consectetur, adipisicing elit. Porro natus,
-						praesentium alias quidem quia ea numquam temporibus ipsam reprehenderit harum quaerat eligendi debitis
-						corporis ullam magni labore laudantium modi libero.
-					</p>
+				<article className={style.bannerContainer}>
+					<img src={Banner} alt="Tournment Banner" />
 				</article>
 			</section>
 		</Col>
