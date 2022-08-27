@@ -1,14 +1,12 @@
 import { Col, ListGroup } from "react-bootstrap";
-import style2 from "./Index.module.scss";
 import style from "./AsideRanking.module.scss";
-import { TextDecoratorPrimary } from "@components/Decorators/CustomText";
 
 // TODO: CONNECT BBDD
 const AsideRanking = () => {
 	return (
-		<Col as="aside" lg={3} className={style2.rankingWrapper}>
+		<Col as="aside" lg={3} className={style.rankingWrapper}>
 			{/* aside ranking header */}
-			<div className={style.decorationWrapper}>
+			<div className={style.animationWrapper}>
 				{/* contenedor texto personalizado */}
 				<div className={style.textContainer}>
 					<h2 className={style.text}>Ranking</h2>
@@ -29,17 +27,37 @@ const AsideRanking = () => {
 				</div>
 			</div>
 			{/* list */}
-			<ListGroup numbered variant="flush">
-				<ListGroup.Item variant="light border-0">Cras justo odio</ListGroup.Item>
-				<ListGroup.Item variant="light border-0">Dapibus ac facilisis in</ListGroup.Item>
-				<ListGroup.Item variant="light border-0">Morbi leo risus</ListGroup.Item>
-				<ListGroup.Item variant="light border-0">Porta ac consectetur ac</ListGroup.Item>
-				<ListGroup.Item variant="light border-0">Vestibulum at eros</ListGroup.Item>
-				<ListGroup.Item variant="light border-0">Vestibulum at eros</ListGroup.Item>
-				<ListGroup.Item variant="light border-0">Vestibulum at eros</ListGroup.Item>
-				<ListGroup.Item variant="light border-0">Vestibulum at eros</ListGroup.Item>
-				<ListGroup.Item variant="light border-0">Vestibulum at eros</ListGroup.Item>
-				<ListGroup.Item variant="light border-0">Vestibulum at eros</ListGroup.Item>
+			<ListGroup numbered variant="flush" className={style.participantList}>
+				<ListGroup.Item variant="light border-0" className={style.topTenParticipant}>
+					<span className={style.participantName}>Cras justo odio</span>
+				</ListGroup.Item>
+				<ListGroup.Item variant="light border-0" className={style.topTenParticipant}>
+					Dapibus ac facilisis in
+				</ListGroup.Item>
+				<ListGroup.Item variant="light border-0" className={style.topTenParticipant}>
+					Morbi leo risus
+				</ListGroup.Item>
+				<ListGroup.Item variant="light border-0" className={style.topTenParticipant}>
+					Porta ac consectetur ac
+				</ListGroup.Item>
+				<ListGroup.Item variant="light border-0" className={style.topTenParticipant}>
+					Vestibulum at eros
+				</ListGroup.Item>
+				<ListGroup.Item variant="light border-0" className={style.topTenParticipant}>
+					Vestibulum at eros
+				</ListGroup.Item>
+				<ListGroup.Item variant="light border-0" className={style.topTenParticipant}>
+					Vestibulum at eros
+				</ListGroup.Item>
+				<ListGroup.Item variant="light border-0" className={style.topTenParticipant}>
+					Vestibulum at eros
+				</ListGroup.Item>
+				<ListGroup.Item variant="light border-0" className={style.topTenParticipant}>
+					Vestibulum at eros
+				</ListGroup.Item>
+				<ListGroup.Item variant="light border-0" className={style.topTenParticipant}>
+					Vestibulum at eros
+				</ListGroup.Item>
 			</ListGroup>
 		</Col>
 	);

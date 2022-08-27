@@ -17,31 +17,7 @@
 	.mainWrapper {
 		justify-content: space-around;
 		padding: 0.5em;
-		// aside ranking wrapper
-		.rankingWrapper {
-			@extend .primaryBorder;
-			position: sticky;
-			top: 5.25em;
-			height: 100%;
-			padding: 1.5em;
-			margin-right: 1em;
-			background-color: #fff;
-			border-radius: 2rem;
-			header {
-				text-align: center;
-			}
-			.imgContainer {
-				margin: auto;
-				width: 50%;
-				margin-bottom: 0.5em;
-				overflow: hidden;
-				aspect-ratio: 1;
-				img {
-					width: 100%;
-					height: auto;
-				}
-			}
-		}
+
 		//
 		.mainContent {
 			@extend .primaryBorder;
