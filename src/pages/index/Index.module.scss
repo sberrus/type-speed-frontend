@@ -102,10 +102,3 @@
 	color: $light;
 	background-color: $dark;
 }
-
-// responsive
-@media screen and (max-width: 992px) {
-	.rankingWrapper {
-		display: none;
-	}
-}
