@@ -8,10 +8,10 @@ import Footer from "@pages/index/Footer";
 const AppTemplate = () => {
 	return (
 		<>
+			<NavbarMenu />
 			<div className={style.mark1}>
 				<div className={style.mark2}>
 					<div className={style.mark3}>
-						<NavbarMenu />
 						<Outlet />
 					</div>
 				</div>
