@@ -16,9 +16,9 @@ const Stats = ({ setTestState, stats }: StatsProps) => {
 			<button onClick={handleClick}>Try Again</button>
 			<div>
 				<div>
-					Letters Per Second: {(stats.success_letters_count / 60).toFixed(2)} LPS <br />
-					Total Letters: {stats.success_letters_count} <br />
-					Total Errors: {stats.errors_letters_count} <br />
+					Palabras por minuto: {(stats.words_per_minute / 60).toFixed(2)} LPS <br />
+					Total palabras válidas: {stats.valid_words} <br />
+					Total palabras erroneas: {stats.wrong_words} <br />
 				</div>
 			</div>
 			<div>

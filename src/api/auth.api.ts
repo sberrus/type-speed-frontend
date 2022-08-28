@@ -61,7 +61,7 @@ export const register = async (
 			throw data.errors[0].msg;
 		}
 		return data;
-	} catch (error) {
+	} catch (error: any) {
 		console.log(error);
 		throw new Error(error);
 	}
