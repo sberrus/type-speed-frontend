@@ -26,6 +26,7 @@
 				border-bottom: 2px solid $orange;
 				border-left: 2px solid $orange;
 				border-radius: 0;
+				outline: none !important;
 				&::placeholder {
 					color: $orange;
 					opacity: 0.7;

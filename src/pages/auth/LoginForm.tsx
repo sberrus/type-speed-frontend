@@ -7,6 +7,7 @@ import { TextDecoratorPrimary, TextDecoratorSecondary } from "@components/Decora
 import useAuth from "context/useAuth";
 // styles
 import style from "./Auth.module.scss";
+import ErrorToast from "@components/ErrorToast";
 // types
 export type LoginFormProps = {
 	handleSwitchState: (state: LoginStateTypes) => void;
@@ -16,12 +17,15 @@ const LoginForm = ({ handleSwitchState }: LoginFormProps) => {
 	// states
 	const [username, setUsername] = useState("");
 	const [password, setPassword] = useState("");
+	const [isLoading, setIsLoading] = useState(false);
 	// hooks
 	const auth = useAuth();
 	// onSubmit
 	const handleSubmit = (e: FormEvent) => {
 		e.preventDefault();
+		setIsLoading(true);
 		auth?.getSession(username, password);
+		setIsLoading(false);
 	};
 
 	// inputs handlers
@@ -40,6 +44,7 @@ const LoginForm = ({ handleSwitchState }: LoginFormProps) => {
 		<>
 			<Form onSubmit={handleSubmit}>
 				<div className={style.form}>
+					<ErrorToast />
 					<h3 className="mb-4">
 						<TextDecoratorPrimary>Login</TextDecoratorPrimary>
 					</h3>
@@ -64,7 +69,7 @@ const LoginForm = ({ handleSwitchState }: LoginFormProps) => {
 				</div>
 				<div className={`${style.buttonContainer}`}>
 					<div className="mb-3">
-						<Button variant="outline-dark" className={`${style.button} w-100`} type="submit">
+						<Button variant="outline-dark" className={`${style.button} w-100`} type="submit" disabled={isLoading}>
 							<TextDecoratorPrimary>Iniciar Sesión</TextDecoratorPrimary>
 						</Button>
 					</div>
@@ -95,3 +100,5 @@ const LoginForm = ({ handleSwitchState }: LoginFormProps) => {
 };
 
 export default LoginForm;
+
+// TODO: IMPLEMENT REACT-HOOK-FORM FOR FORM VALIDATIONS

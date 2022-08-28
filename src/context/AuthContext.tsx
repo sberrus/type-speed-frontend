@@ -1,13 +1,15 @@
-import { login, register, SessionType } from "@api/auth";
+import { login, register, SessionType } from "@api/auth.api";
 import { createContext, useEffect, useState } from "react";
 // types
 type GetSessionFunction = {
 	(username: string, password: string): void;
 };
-
+type LoginErrorType = string | null;
 interface AppContextInterface {
 	session: SessionType | null;
 	getSession: GetSessionFunction;
+	loginError: LoginErrorType;
+	setLoginError: (_error: LoginErrorType) => void;
 	logout: () => void;
 	isLogged: () => boolean;
 	registerUser: (
@@ -26,6 +28,7 @@ export const AuthContext = createContext<AppContextInterface | null>(null);
 
 //
 const AuthProvider = ({ children }: AuthContextProps) => {
+	const [loginError, setLoginError] = useState<LoginErrorType>(null);
 	const [session, setSession] = useState<SessionType | null>(null);
 	useEffect(() => {
 		const jeSession = JSON.parse(localStorage.getItem("je-session") as string);
@@ -47,10 +50,12 @@ const AuthProvider = ({ children }: AuthContextProps) => {
 				}
 			} catch (error) {
 				console.log(error);
+				setLoginError(error + "");
 				return;
 			}
 		} catch (error) {
 			console.log(error);
+			return;
 		}
 	};
 
@@ -75,11 +80,12 @@ const AuthProvider = ({ children }: AuthContextProps) => {
 			}
 		} catch (error) {
 			console.log(error);
+			setLoginError(error + "");
 		}
 	};
 
 	return (
-		<AuthContext.Provider value={{ session, getSession, logout, registerUser, isLogged }}>
+		<AuthContext.Provider value={{ session, getSession, logout, registerUser, isLogged, loginError, setLoginError }}>
 			{children}
 		</AuthContext.Provider>
 	);

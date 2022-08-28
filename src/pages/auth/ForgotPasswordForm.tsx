@@ -1,17 +1,26 @@
 // imports
-import { TextDecoratorPrimary, TextDecoratorSecondary } from "@components/Decorators/CustomText";
+import { FormEvent } from "react";
 import { Button, Form } from "react-bootstrap";
-import { LoginFormProps } from "./LoginForm";
+// components
+import { TextDecoratorPrimary, TextDecoratorSecondary } from "@components/Decorators/CustomText";
+import ErrorToast from "@components/ErrorToast";
 // styles
 import style from "./Auth.module.scss";
+// types
+import { LoginFormProps } from "./LoginForm";
 
 const ForgotPasswordForm = ({ handleSwitchState }: LoginFormProps) => {
+	const handleSubmit = (e: FormEvent) => {
+		e.preventDefault();
+	};
+
 	return (
-		<Form>
+		<Form onSubmit={handleSubmit}>
 			<div className={style.form}>
 				<h3>
 					<TextDecoratorPrimary>Recuperar Contraseña</TextDecoratorPrimary>
 				</h3>
+				<ErrorToast />
 				<Form.Group className="mb-3" controlId="username">
 					<Form.Label className={style.label}>
 						<TextDecoratorSecondary>Usuario</TextDecoratorSecondary>

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Button, Col, Container, Row } from "react-bootstrap";
+import { Col, Container, Row } from "react-bootstrap";
 import { useLocation } from "react-router-dom";
 import ForgotPasswordForm from "./ForgotPasswordForm";
 // components
@@ -37,17 +37,19 @@ const Auth = () => {
 	}, []);
 
 	return (
-		<div className={style.authWrapper}>
-			<Container>
-				<Row>
-					<Col xs={12} md={8} className={style.formWrapper}>
-						{loginState === "Login" && <LoginForm handleSwitchState={handleSwitchState} />}
-						{loginState === "Register" && <RegisterForm handleSwitchState={handleSwitchState} />}
-						{loginState === "Forgot-Password" && <ForgotPasswordForm handleSwitchState={handleSwitchState} />}
-					</Col>
-				</Row>
-			</Container>
-		</div>
+		<>
+			<div className={style.authWrapper}>
+				<Container>
+					<Row>
+						<Col xs={12} md={8} className={style.formWrapper}>
+							{loginState === "Login" && <LoginForm handleSwitchState={handleSwitchState} />}
+							{loginState === "Register" && <RegisterForm handleSwitchState={handleSwitchState} />}
+							{loginState === "Forgot-Password" && <ForgotPasswordForm handleSwitchState={handleSwitchState} />}
+						</Col>
+					</Row>
+				</Container>
+			</div>
+		</>
 	);
 };
 

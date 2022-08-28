@@ -25,11 +25,11 @@ export const login = async (username: string, password: string) => {
 
 		const data = await res.json();
 		if (res.status !== 200) {
-			throw new Error(data.errors[0].msg);
+			throw data.errors[0].msg;
 		}
 		return data;
-	} catch (error) {
-		console.log(error);
+	} catch (error: any) {
+		throw new Error(error);
 	}
 };
 
@@ -58,10 +58,11 @@ export const register = async (
 
 		const data = await res.json();
 		if (res.status !== 200) {
-			throw new Error(data.errors[0].msg);
+			throw data.errors[0].msg;
 		}
 		return data;
 	} catch (error) {
 		console.log(error);
+		throw new Error(error);
 	}
 };
