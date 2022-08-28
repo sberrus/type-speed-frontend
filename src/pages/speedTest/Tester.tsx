@@ -4,6 +4,8 @@ import React, { useEffect, useRef, useState } from "react";
 import style from "./SpeedTest.module.scss";
 // types
 import { StatsType } from "./SpeedTest";
+import useDelay from "hooks/useDelay";
+import useAuth from "context/useAuth";
 type TesterProps = { finishTest: (stats: StatsType) => void };
 type WordsType = {
 	valid: boolean;
@@ -11,13 +13,17 @@ type WordsType = {
 };
 
 const Tester = ({ finishTest }: TesterProps) => {
+	// hooks
+	const delay = useDelay();
+	const auth = useAuth();
 	// words input to use for the test
 	const [incomingText, setIncomingText] = useState(
-		"Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maxime est doloremque odio deleniti quasi itaque repellendus ipsam ad. Laboriosam adipisci alias deleniti? Blanditiis sequi in nobis incidunt error recusandae adipisci."
+		"Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maxime est doloremque odio deleniti quasi itaque repellendus ipsam ad. Laboriosam adipisci alias deleniti? Blanditiis sequi in nobis incidunt error recusandae adipisci. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maxime est doloremque odio deleniti quasi itaque repellendus ipsam ad. Laboriosam adipisci alias deleniti? Blanditiis sequi in nobis incidunt error recusandae adipisci.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maxime est doloremque odio deleniti quasi itaque repellendus ipsam ad. Laboriosam adipisci alias deleniti? Blanditiis sequi in nobis incidunt error recusandae adipisci.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maxime est doloremque odio deleniti quasi itaque repellendus ipsam ad. Laboriosam adipisci alias deleniti? Blanditiis sequi in nobis incidunt error recusandae adipisci.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maxime est doloremque odio deleniti quasi itaque repellendus ipsam ad. Laboriosam adipisci alias deleniti? Blanditiis sequi in nobis incidunt error recusandae adipisci.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maxime est doloremque odio deleniti quasi itaque repellendus ipsam ad. Laboriosam adipisci alias deleniti? Blanditiis sequi in nobis incidunt error recusandae adipisci.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maxime est doloremque odio deleniti quasi itaque repellendus ipsam ad. Laboriosam adipisci alias deleniti? Blanditiis sequi in nobis incidunt error recusandae adipisci.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maxime est doloremque odio deleniti quasi itaque repellendus ipsam ad. Laboriosam adipisci alias deleniti? Blanditiis sequi in nobis incidunt error recusandae adipisci.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maxime est doloremque odio deleniti quasi itaque repellendus ipsam ad. Laboriosam adipisci alias deleniti? Blanditiis sequi in nobis incidunt error recusandae adipisci.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maxime est doloremque odio deleniti quasi itaque repellendus ipsam ad. Laboriosam adipisci alias deleniti? Blanditiis sequi in nobis incidunt error recusandae adipisci."
 	);
 	// words to display
-	const [wordsCollection, setWordsCollection] = useState<string[]>(() => {
-		const _wordsCollection = incomingText.trim().split(" ");
+	const [wordsCollection] = useState<string[]>(() => {
+		const replaceRegex = /[,.?]/g;
+		const _wordsCollection = incomingText.trim().replaceAll(replaceRegex, "").split(" ");
 		return _wordsCollection;
 	});
 
@@ -68,7 +74,11 @@ const Tester = ({ finishTest }: TesterProps) => {
 
 		// check if action key
 		if (actionKeys.includes(keyPressed)) {
-			setWordsChecked([...wordsChecked, userInput]);
+			if (userInput.word === wordsCollection[currentWordPointer]) {
+				setWordsChecked([...wordsChecked, userInput]);
+			} else {
+				setWordsChecked([...wordsChecked, { ...userInput, valid: false }]);
+			}
 			setUserInput({ valid: true, word: "" });
 			const _wordPointer = currentWordPointer + 1;
 			setCurrentWordPointer(_wordPointer);
@@ -86,20 +96,44 @@ const Tester = ({ finishTest }: TesterProps) => {
 			setCurrentLetterPointer((prev) => prev - 1);
 		}
 		// check if key pressed is same as currentLetterPointer
-		if (keyPressed === currentWord[currentLetterPointer]) {
+		if (keyPressed === currentWord[currentLetterPointer] && userInput.valid) {
 			setLetterMemory([...letterMemory, keyPressed]);
 			setCurrentLetterPointer((prev) => prev + 1);
 		}
 	};
 
+	const start = async () => {
+		const TESTING_TIME = 50000; //Cambiar a 60000 cuando vaya a producción
+		// test time
+		await delay(TESTING_TIME);
+		// Remove the input to avoid user interactions after timeout
+
+		// get user stats to send to backend
+		/**
+		 * palabras por minuto
+		 * letras por minuto
+		 * precision
+		 */
+		const words_per_minute = wordsChecked.filter((words) => words.valid === true).length;
+		console.log(words_per_minute);
+		const stats: StatsType = {
+			id: auth?.session?.user.username || "ERROR",
+			words_per_minute,
+			valid_words: wordsChecked.filter((words) => words.valid).length,
+			wrong_words: wordsChecked.filter((words) => !words.valid).length,
+		};
+		// send data to SpeedTest component
+		finishTest(stats);
+	};
 	useEffect(() => {
+		start();
+		userInputRef.current?.focus();
 		return () => {};
 	}, []);
 
 	return (
 		<>
 			<div className={style.testWrapper} onClick={focusToInput}>
-				{/* results */}
 				<div className={style.sectionWrapper}>
 					<div className={style.userInputAnswer}>
 						<div className={style.userAnswers}>
@@ -112,8 +146,7 @@ const Tester = ({ finishTest }: TesterProps) => {
 						</div>
 
 						<div className={style.currentWord}>
-							{/* displayed user input */}
-							{/* <span className={style.wrongWord}>palabra_correcta</span> */}
+							{/*  user input */}
 							<span className={userInput.valid ? style.validWord : style.wrongWord}>{userInput.word}</span>
 						</div>
 
@@ -131,14 +164,15 @@ const Tester = ({ finishTest }: TesterProps) => {
 				</div>
 				{/* next words */}
 				<div className={style.sectionWrapper}>
-					{/* comparing word */}
+					{/* word to compare */}
 					{currentWord.slice(currentLetterPointer, currentWord.length)}
-					{/* upcoming words */}
-					{wordsCollection.slice(currentWordPointer, wordsCollection.length).map((word, key) => (
-						<>
-							<span>{word}</span>{" "}
-						</>
-					))}
+					{/* upcoming words */}{" "}
+					{wordsCollection
+						.slice(1, wordsCollection.length)
+						.slice(currentWordPointer, wordsCollection.length)
+						.map((word, key) => (
+							<span key={key}>{word} </span>
+						))}
 				</div>
 			</div>
 		</>
@@ -148,4 +182,3 @@ const Tester = ({ finishTest }: TesterProps) => {
 export default Tester;
 
 // TODO: MAKE SOME TESTS AND TRY TO BREAK THE APP
-// TODO: FIX THE ISSUE WHEN DELETING WORDS FROM INPUT, NOT RETURNING THE WORD TO THE UPCOMING WORD

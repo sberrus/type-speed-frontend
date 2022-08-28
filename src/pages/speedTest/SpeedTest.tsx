@@ -6,8 +6,9 @@ import Tester from "./Tester";
 export type TestStateType = "WARMUP" | "TESTING" | "SHOWSTATS";
 export type StatsType = {
 	id: string;
-	errors_letters_count: number;
-	success_letters_count: number;
+	words_per_minute: number;
+	valid_words: number;
+	wrong_words: number;
 };
 
 const SpeedTest = () => {
@@ -19,8 +20,9 @@ const SpeedTest = () => {
 	// Show Stats
 	const [stats, setStats] = useState<StatsType>({
 		id: "",
-		errors_letters_count: 0,
-		success_letters_count: 0,
+		words_per_minute: 0,
+		valid_words: 0,
+		wrong_words: 0,
 	});
 
 	/**
