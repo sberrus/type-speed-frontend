@@ -1,8 +1,15 @@
-import useAuth from "context/useAuth";
+// imports
 import { ChangeEvent, FormEvent, useState } from "react";
 import { Button, Form } from "react-bootstrap";
+import { LoginFormProps } from "./LoginForm";
+import { TextDecoratorPrimary, TextDecoratorSecondary } from "@components/Decorators/CustomText";
+// context
+import useAuth from "context/useAuth";
+// styles
+import style from "./Auth.module.scss";
+import { LoginStateTypes } from "./Auth";
 
-const RegisterForm = () => {
+const RegisterForm = ({ handleSwitchState }: LoginFormProps) => {
 	const [username, setUsername] = useState("");
 	const [password, setPassword] = useState("");
 	const [passwordConfirm, setPasswordConfirm] = useState("");
@@ -11,6 +18,7 @@ const RegisterForm = () => {
 
 	const auth = useAuth();
 
+	// input handlers
 	const handleUsername = (e: ChangeEvent<HTMLInputElement>) => {
 		setUsername(e.target.value);
 	};
@@ -27,6 +35,7 @@ const RegisterForm = () => {
 		setSecret(e.target.value);
 	};
 
+	// submit handler
 	const handleSubmit = (e: FormEvent) => {
 		e.preventDefault();
 		// confirm passwords
@@ -41,34 +50,68 @@ const RegisterForm = () => {
 
 	return (
 		<Form onSubmit={handleSubmit}>
-			<Form.Group className="mb-3" controlId="username">
-				<Form.Label>Username</Form.Label>
-				<Form.Control type="text" placeholder="tortilla_de_patata" value={username} onChange={handleUsername} />
-			</Form.Group>
-			<Form.Group className="mb-3" controlId="password">
-				<Form.Label>Password</Form.Label>
-				<Form.Control type="password" value={password} onChange={handlePassword} />
-			</Form.Group>
-			<Form.Group className="mb-3" controlId="password">
-				<Form.Label>Confirm Password</Form.Label>
-				<Form.Control type="password" value={passwordConfirm} onChange={handlePasswordConfirm} />
-			</Form.Group>
-			<Form.Group className="mb-3" controlId="password">
-				<Form.Label>Secret Question</Form.Label>
-				<Form.Control type="text" placeholder="¿Cat name?" value={secretQuestion} onChange={handleSecretQuestion} />
-			</Form.Group>
-			<Form.Group className="mb-3" controlId="password">
-				<Form.Label>Secret</Form.Label>
-				<Form.Control
-					type="password"
-					placeholder="save this info in a safe place 🔒"
-					value={secret}
-					onChange={handleSecret}
-				/>
-			</Form.Group>
-			<Button variant="success" size="sm" type="submit" className="float-end d-inline-block">
-				Register
-			</Button>
+			{/* inputs */}
+			<div className={style.form}>
+				<h3 className="mb-4">
+					<TextDecoratorPrimary>Registrar Usuario</TextDecoratorPrimary>
+				</h3>
+				<Form.Group className="mb-3" controlId="username">
+					<Form.Label className={style.label}>
+						<TextDecoratorSecondary>Usuario</TextDecoratorSecondary>
+					</Form.Label>
+					<Form.Control type="text" placeholder="tortilla_de_patata" value={username} onChange={handleUsername} />
+				</Form.Group>
+				<Form.Group className="mb-3" controlId="password">
+					<Form.Label className={style.label}>
+						<TextDecoratorSecondary>Contraseña</TextDecoratorSecondary>
+					</Form.Label>
+					<Form.Control type="password" value={password} onChange={handlePassword} />
+				</Form.Group>
+				<Form.Group className="mb-3" controlId="password">
+					<Form.Label className={style.label}>
+						<TextDecoratorSecondary>Confirmar contraseña</TextDecoratorSecondary>
+					</Form.Label>
+					<Form.Control type="password" value={passwordConfirm} onChange={handlePasswordConfirm} />
+				</Form.Group>
+				<Form.Group className="mb-3" controlId="password">
+					<Form.Label className={style.label}>
+						<TextDecoratorSecondary>Pregunta secreta</TextDecoratorSecondary>
+					</Form.Label>
+					<Form.Control
+						type="text"
+						placeholder="¿nombre mascota?"
+						value={secretQuestion}
+						onChange={handleSecretQuestion}
+					/>
+				</Form.Group>
+				<Form.Group className="mb-3" controlId="password">
+					<Form.Label className={style.label}>
+						<TextDecoratorSecondary>Secreto</TextDecoratorSecondary>
+					</Form.Label>
+					<Form.Control type="password" placeholder="hachiko 🐶" value={secret} onChange={handleSecret} />
+				</Form.Group>
+			</div>
+
+			{/* buttons */}
+			<div className={style.buttonContainer}>
+				<div className="mb-3">
+					<Button variant="outline-dark" type="submit" className={`${style.button} w-100`}>
+						<TextDecoratorSecondary>Register</TextDecoratorSecondary>
+					</Button>
+				</div>
+				<div>
+					<Button
+						variant="outline-dark"
+						type="submit"
+						className={`${style.button} w-100`}
+						onClick={() => {
+							handleSwitchState("Login");
+						}}
+					>
+						<TextDecoratorSecondary>Volver a Login</TextDecoratorSecondary>
+					</Button>
+				</div>
+			</div>
 		</Form>
 	);
 };

@@ -13,6 +13,8 @@ export interface StateType {
 	to?: string;
 	loginState?: LoginStateTypes;
 }
+
+//
 const Auth = () => {
 	// hooks
 	const location = useLocation();
@@ -38,33 +40,10 @@ const Auth = () => {
 		<div className={style.authWrapper}>
 			<Container>
 				<Row>
-					<Col xs={8} className="m-auto">
-						{loginState === "Login" ? (
-							<Button
-								size="sm"
-								className="ms-auto d-block"
-								onClick={() => {
-									handleSwitchState("Register");
-								}}
-							>
-								Register
-							</Button>
-						) : (
-							<Button
-								size="sm"
-								className="ms-auto d-block"
-								onClick={() => {
-									handleSwitchState("Login");
-								}}
-							>
-								Login
-							</Button>
-						)}
-						<h3>{loginState}</h3>
-						<hr />
+					<Col xs={12} md={8} className={style.formWrapper}>
 						{loginState === "Login" && <LoginForm handleSwitchState={handleSwitchState} />}
-						{loginState === "Register" && <RegisterForm />}
-						{loginState === "Forgot-Password" && <ForgotPasswordForm />}
+						{loginState === "Register" && <RegisterForm handleSwitchState={handleSwitchState} />}
+						{loginState === "Forgot-Password" && <ForgotPasswordForm handleSwitchState={handleSwitchState} />}
 					</Col>
 				</Row>
 			</Container>
