@@ -1,97 +1,98 @@
-/**
- * If you are reading this i have to appologize for reading this code. Im not so proud of it but its working.
- * If you have any improvement (that im sure it could) plese let me know or make a pull request in github thanks.
- */
-
 // imports
-import { ChangeEvent, KeyboardEvent, useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 // styles
 import style from "./SpeedTest.module.scss";
 // types
 import { StatsType } from "./SpeedTest";
+type TesterProps = { finishTest: (stats: StatsType) => void };
 type WordsType = {
 	valid: boolean;
 	word: string;
 };
-type TesterProps = { finishTest: (stats: StatsType) => void };
 
 const Tester = ({ finishTest }: TesterProps) => {
-	const [wordSample, setWordSample] = useState(
+	// words input to use for the test
+	const [incomingText, setIncomingText] = useState(
 		"Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maxime est doloremque odio deleniti quasi itaque repellendus ipsam ad. Laboriosam adipisci alias deleniti? Blanditiis sequi in nobis incidunt error recusandae adipisci."
 	);
-	// states
-	const [wordToLogic, setWordToCopy] = useState(() => {
-		const wordCollection = wordSample.trim().split(" ");
-		return wordCollection;
+	// words to display
+	const [wordsCollection, setWordsCollection] = useState<string[]>(() => {
+		const _wordsCollection = incomingText.trim().split(" ");
+		return _wordsCollection;
 	});
-	const [wordsLeft, setWordsLeft] = useState(() => {
-		const _wordsLeft = [...wordToLogic];
-		_wordsLeft.shift();
-		return _wordsLeft;
-	});
-	//
-	const [wordPointer, setWordPointer] = useState(0);
-	const [wordToCompare, setWordToCompare] = useState(wordToLogic[wordPointer]);
-	//
-	const [currentWord, setCurrentWord] = useState<WordsType>({ valid: true, word: "" });
+
+	// current word to compare
+	const [currentWordPointer, setCurrentWordPointer] = useState(0);
+	const [currentWord, setCurrentWord] = useState([...wordsCollection[currentWordPointer]]);
+	const [currentLetterPointer, setCurrentLetterPointer] = useState(0);
+	const [letterMemory, setLetterMemory] = useState<string[]>([]);
+
+	// state for current user input
+	const [userInput, setUserInput] = useState<WordsType>({ valid: true, word: "" });
+
+	// words checked
 	const [wordsChecked, setWordsChecked] = useState<WordsType[]>([]);
+
 	// refs
 	const userInputRef = useRef<HTMLInputElement>(null);
+
+	// methods
 	const focusToInput = () => {
 		userInputRef.current?.focus();
 	};
-	// methods
-	const handleUserInput = (e: ChangeEvent<HTMLInputElement>) => {
-		const subString = e.target.value.trim();
-		console.log(wordToLogic[0].includes(subString));
-		if (wordToLogic[0].includes(subString)) {
-			setCurrentWord({ valid: true, word: e.target.value });
-			return;
+
+	/**
+	 * compare if userInput === currentWord[0]
+	 * if true set userInput style tu valid
+	 * if false set userInput style tu wrong
+	 */
+	const checkWord = (e: React.ChangeEvent<HTMLInputElement>) => {
+		const _userInput = e.target.value.trim();
+		const _currentWord = wordsCollection[currentWordPointer];
+
+		if (_currentWord.includes(_userInput)) {
+			setUserInput({ valid: true, word: _userInput });
+		} else {
+			setUserInput({ valid: false, word: _userInput });
 		}
-		setCurrentWord({ valid: false, word: e.target.value });
 	};
+	/**
+	 * compare if the key pressed by the user is the same as the first letter of currentWord
+	 * if true => save that letter in memory and shift it from current word -> userInput style still correct.
+	 * if false => change userInput word displayed to wrong style.
+	 */
 
-	const checkKeyPressed = (e: KeyboardEvent) => {
-		const nextWordActionKey = [" ", "Enter"];
+	const checkKey = (e: React.KeyboardEvent) => {
+		const keyPressed = e.key;
+		const actionKeys = [" ", "Enter"];
 
-		if (e.key === wordToCompare[0]) {
-			setWordToCompare((prev) => {
-				const updated = [...prev];
-				updated.shift();
-				return updated.join("");
+		// check if action key
+		if (actionKeys.includes(keyPressed)) {
+			setWordsChecked([...wordsChecked, userInput]);
+			setUserInput({ valid: true, word: "" });
+			const _wordPointer = currentWordPointer + 1;
+			setCurrentWordPointer(_wordPointer);
+			setCurrentWord([...wordsCollection[_wordPointer]]);
+			setCurrentLetterPointer(0);
+			setLetterMemory([]);
+		}
+
+		// check if current letter
+		if (keyPressed === "Backspace" && currentLetterPointer > 0 && userInput.valid) {
+			setLetterMemory((letterColection) => {
+				const updated = letterColection.shift();
+				return updated ? [...updated] : [];
 			});
+			setCurrentLetterPointer((prev) => prev - 1);
 		}
-		// compare words action
-		if (nextWordActionKey.includes(e.key)) {
-			if (currentWord?.word.trim() === wordToLogic[0]) {
-				addWordToCollection(true);
-			} else {
-				addWordToCollection(false);
-			}
+		// check if key pressed is same as currentLetterPointer
+		if (keyPressed === currentWord[currentLetterPointer]) {
+			setLetterMemory([...letterMemory, keyPressed]);
+			setCurrentLetterPointer((prev) => prev + 1);
 		}
-	};
-
-	const addWordToCollection = (valid: boolean) => {
-		// add word to collection
-		setWordsChecked([...wordsChecked, { valid, word: currentWord.word.trim() || "" }]);
-		// reset current word
-		setCurrentWord({ valid: true, word: "" });
-		// delete word from sample
-		setWordToCopy((prev) => {
-			const wordCollectionCopy = [...prev];
-			wordCollectionCopy.shift();
-			return [...wordCollectionCopy];
-		});
-		setWordsLeft((prev) => {
-			const wordsLeftCopy = [...prev];
-			wordsLeftCopy.shift();
-			return [...wordsLeftCopy];
-		});
-		setWordToCompare(wordToLogic[1]);
 	};
 
 	useEffect(() => {
-		userInputRef.current?.focus();
 		return () => {};
 	}, []);
 
@@ -102,38 +103,41 @@ const Tester = ({ finishTest }: TesterProps) => {
 				<div className={style.sectionWrapper}>
 					<div className={style.userInputAnswer}>
 						<div className={style.userAnswers}>
-							{wordsChecked?.map((word, key) => (
-								<span key={key} className={`${word.valid ? style.validAnswer : style.wrongAnswer}`}>
-									{`${word.word}`}&nbsp;
+							{/* words checked collection */}
+							{wordsChecked.map((word, key) => (
+								<span key={key} className={word.valid ? style.validAnswer : style.wrongAnswer}>
+									{word.word}&#160;
 								</span>
 							))}
 						</div>
 
 						<div className={style.currentWord}>
-							{currentWord.valid ? (
-								<span className={style.validWord}>{currentWord.word}</span>
-							) : (
-								<span className={style.wrongWord}>{currentWord.word}</span>
-							)}
+							{/* displayed user input */}
+							{/* <span className={style.wrongWord}>palabra_correcta</span> */}
+							<span className={userInput.valid ? style.validWord : style.wrongWord}>{userInput.word}</span>
 						</div>
 
 						<div className={style.inputWrapper}>
 							<input
 								type="text"
 								autoComplete="off"
-								value={currentWord.word}
+								value={userInput.word}
+								onChange={checkWord}
+								onKeyDown={checkKey}
 								ref={userInputRef}
-								onChange={handleUserInput}
-								onKeyDown={checkKeyPressed}
 							/>
 						</div>
 					</div>
 				</div>
 				{/* next words */}
 				<div className={style.sectionWrapper}>
-					{wordToCompare}{" "}
-					{wordsLeft.map((word, key) => (
-						<span key={key}>{word} </span>
+					{/* comparing word */}
+					{currentWord.slice(currentLetterPointer, currentWord.length)}
+					{/* upcoming words */}
+					{wordsCollection.slice(currentWordPointer, wordsCollection.length).map((word, key) => (
+						<>
+							<span>{word}</span>{" "}
+						</>
 					))}
 				</div>
 			</div>
