@@ -28,7 +28,7 @@ const NavbarMenu = () => {
 	}, []);
 
 	return (
-		<Navbar expand="md" className={style.navbarContainer} sticky="top">
+		<Navbar expand="md" className={style.navbarContainer} sticky="top" collapseOnSelect>
 			<Container>
 				<Navbar.Toggle aria-controls="navbarScroll" />
 				<Navbar.Collapse id="navbarScroll">
@@ -69,7 +69,7 @@ const NavbarMenu = () => {
 				<div className={style.rightButtons}>
 					{auth?.isLogged() && (
 						<div className={style.auth}>
-							<Link to="/" className={style.logoContainerLink}>
+							<Link to="/profile" className={style.logoContainerLink}>
 								<img src={User} alt="Inicio logo" />
 							</Link>
 							<Button className={style.logoContainerButton} onClick={handleLogout}>

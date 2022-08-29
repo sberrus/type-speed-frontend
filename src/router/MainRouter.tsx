@@ -8,6 +8,7 @@ import PageNotFound from "@pages/PageNotFound";
 import ProtectedRoute from "./ProtectedRoute";
 import PublicRoute from "./PublicRoute";
 import AppTemplate from "templates/AppTemplate";
+import Profile from "@pages/profile/Profile";
 
 const MainRouter = () => {
 	return (
@@ -34,8 +35,11 @@ const MainRouter = () => {
 					<Route index element={<SpeedTest />} />
 					<Route path="ranking" element={<>ranking</>} />
 				</Route>
+				<Route path="profile" element={<ProtectedRoute />}>
+					<Route index element={<Profile />} />
+				</Route>
+				<Route path="*" element={<PageNotFound />} />
 			</Route>
-			<Route path="*" element={<PageNotFound />} />
 		</Routes>
 	);
 };
