@@ -24,25 +24,43 @@
 	}
 
 	.dancingLetters {
+		position: relative;
 		margin: auto;
 		font-size: 1.75em;
 		font-weight: 600;
+		overflow: hidden;
+		.jetLayer {
+			position: absolute;
+			height: 100%;
+			width: 100%;
+			top: 0;
+			background-color: #fff;
+			z-index: 10;
+			animation: flyOut 1.5s ease forwards;
+			.jet {
+				height: 100%;
+				z-index: 11;
+			}
+		}
 		.letter {
 			position: relative;
 			display: inline-block;
 			color: transparent;
-			text-shadow: 0 0 2px $orange, -2.5px 2.5px red, -5px 5px blue;
+
 			margin-right: 0.1em;
 
 			@for $i from 1 through 21 {
+				&:nth-child(#{$i}) {
+					animation: colorUp 0.1s ease;
+					animation-delay: #{$i * 0.05}s;
+					animation-fill-mode: both;
+				}
+			}
+			@for $i from 1 through 21 {
 				&:nth-child(#{$i}) > .layer {
-					// animation-name: letterPop;
-					// animation-duration: 1s;
-					// animation-delay: #{$i * 0.5};
-					// animation-timing-function: ease;
-					// animation-fill-mode: forwards;
-
-					animation: letterPop 1s ease #{$i * 0.1};
+					animation: letterPop 0.5s ease;
+					animation-delay: #{$i * 0.025}s;
+					animation-fill-mode: both;
 				}
 			}
 
@@ -87,15 +105,31 @@
 
 @keyframes letterPop {
 	0% {
-		left: 0;
 		bottom: 0;
 	}
 	50% {
-		left: -2.5px;
 		bottom: -2.5px;
 	}
 	100% {
-		left: 0;
 		bottom: 0;
+	}
+}
+@keyframes colorUp {
+	0% {
+		text-shadow: 0 0 red, 0 0 blue;
+	}
+
+	100% {
+		text-shadow: -2.5px 2.5px red;
+	}
+
+	100% {
+		text-shadow: -2.5px 2.5px red, -5px 5px blue;
+	}
+}
+
+@keyframes flyOut {
+	100% {
+		transform: translateX(100%);
 	}
 }

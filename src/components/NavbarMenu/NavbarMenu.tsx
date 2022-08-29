@@ -12,6 +12,7 @@ import Stats from "@assets/icons/stats.svg";
 import Pizza from "@assets/icons/pizza.svg";
 import User from "@assets/icons/user.svg";
 import Logout from "@assets/icons/logout.svg";
+import Jet from "@assets/icons/jet.svg";
 // styles
 import style from "./NavbarMenu.module.scss";
 
@@ -29,8 +30,8 @@ const NavbarMenu = () => {
 	return (
 		<Navbar expand="md" className={style.navbarContainer} sticky="top" collapseOnSelect>
 			<Container>
-				<Navbar.Toggle aria-controls="navbarScroll" />
 				<div className="d-flex justify-content-evenly align-items-center w-100">
+					<Navbar.Toggle aria-controls="navbarScroll" />
 					<div>
 						<Navbar.Collapse id="navbarScroll">
 							<Nav className={`${style.navbar} my-2 my-lg-0`} navbarScroll>
@@ -68,7 +69,11 @@ const NavbarMenu = () => {
 							</Nav>
 						</Navbar.Collapse>
 					</div>
-					<div className={style.dancingLetters}>
+					<div className={`${style.dancingLetters} d-sm-none d-lg-block ps-1`}>
+						<div className={style.jetLayer}>
+							<img src={Jet} alt="" className={style.jet} />
+						</div>
+
 						<span className={style.letter}>
 							J <span className={style.layer}>J</span>
 						</span>
@@ -135,7 +140,7 @@ const NavbarMenu = () => {
 							! <span className={style.layer}>!</span>
 						</span>
 					</div>
-					<div className={style.rightButtons}>
+					<div className={`${style.rightButtons}`}>
 						{auth?.isLogged() && (
 							<div className={style.auth}>
 								<Link to="/profile" className={style.logoContainerLink}>
