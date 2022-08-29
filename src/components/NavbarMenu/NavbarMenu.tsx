@@ -37,7 +37,7 @@ const NavbarMenu = () => {
 							<Nav className={`${style.navbar} my-2 my-lg-0`} navbarScroll>
 								{auth?.isLogged() ? (
 									<>
-										<Link to="/app" className={style.link}>
+										<Link to="/" className={style.link}>
 											<div className={style.iconContainer}>
 												<img src={Store} alt="Inicio logo" />
 											</div>
@@ -69,7 +69,7 @@ const NavbarMenu = () => {
 							</Nav>
 						</Navbar.Collapse>
 					</div>
-					<div className={`${style.dancingLetters} d-sm-none d-lg-block ps-1`}>
+					<div className={`${style.dancingLetters} d-none d-lg-block ps-1`}>
 						<div className={style.jetLayer}>
 							<img src={Jet} alt="" className={style.jet} />
 						</div>
