@@ -1,9 +1,10 @@
 import { useState } from "react";
+import Menu from "./Menu";
 // components
 import Stats from "./Stats";
 import Tester from "./Tester";
 // types
-export type TestStateType = "WARMUP" | "TESTING" | "SHOWSTATS";
+export type TestStateType = "MENU" | "TESTING" | "SHOWSTATS";
 export type StatsType = {
 	id: string;
 	words_per_minute: number;
@@ -12,11 +13,8 @@ export type StatsType = {
 };
 
 const SpeedTest = () => {
-	// Warm up logic
-	const [isCounting, setIsCounting] = useState(false);
-	const [readyTime, setReadyTime] = useState(3);
 	// Testing type
-	const [testState, setTestState] = useState<TestStateType>("WARMUP");
+	const [testState, setTestState] = useState<TestStateType>("MENU");
 	// Show Stats
 	const [stats, setStats] = useState<StatsType>({
 		id: "",
@@ -38,29 +36,12 @@ const SpeedTest = () => {
 	 * Manage App warmup logic and starts the test.
 	 */
 	const startTest = () => {
-		setIsCounting(true);
-
-		const interval = setInterval(() => {
-			console.log("contando");
-			setReadyTime((prev) => prev - 1);
-		}, 1000);
-
-		setTimeout(() => {
-			console.log("Empezo el test");
-			clearInterval(interval);
-			setIsCounting(false);
-			setTestState("TESTING");
-		}, 0);
+		setTestState("TESTING");
 	};
 
 	return (
 		<>
-			{testState === "WARMUP" && (
-				<>
-					<button onClick={startTest}>Empezar test</button>
-					{isCounting && readyTime}
-				</>
-			)}
+			{testState === "MENU" && <Menu setTestState={setTestState} />}
 			{testState === "TESTING" && <Tester finishTest={finishTest} />}
 			{testState === "SHOWSTATS" && <Stats setTestState={setTestState} stats={stats} />}
 		</>
