@@ -27,7 +27,6 @@ const MainRouter = () => {
 				{/* Public Only */}
 				<Route path="auth" element={<PublicRoute />}>
 					<Route index element={<Auth />} />
-					<Route path="profile" element={<>profile</>} />
 				</Route>
 
 				{/* Protected */}

@@ -1,28 +1,52 @@
 @import "../../styles/titles";
-.navbar {
+.navbarContainer {
 	position: absolute;
 	top: 0;
 	left: 0;
 	background-color: #fff;
-	border: 1px solid #000;
-	.authButtons {
-		.button {
-			@extend .textDecoratorPrimary;
+	box-shadow: 0 1px 5px 0 #00000080;
+	.navbar {
+		.link {
 			border: none;
-			text-shadow: #ff8000 -0.5px 0.5px, #ff8000 -1px 1px;
+			display: flex;
+			align-items: center;
+			font-size: 18px;
+			text-decoration: none;
+			.iconContainer {
+				position: relative;
+				img {
+					margin-right: 0.5em;
+					height: 1.5em;
+				}
+			}
 		}
 	}
-	.logoContainerLink {
-		position: relative;
+	.rightButtons {
 		margin-left: auto;
-		padding-left: 1em;
 		display: flex;
 		align-items: center;
-		justify-content: center;
-		height: 2.5em;
-		img {
-			display: block;
-			height: 100%;
+		.auth {
+			margin-right: 0.5em;
+			margin-bottom: -4px;
+			align-self: flex-end;
+			.logoContainerLink {
+				padding: 0.5em;
+				img {
+					height: 2.5em;
+				}
+			}
+			.logoContainerButton {
+				@extend .logoContainerLink;
+				background-color: transparent;
+				border: none;
+			}
+		}
+		.logo {
+			.logoContainerLink {
+				img {
+					height: 3em;
+				}
+			}
 		}
 	}
 }
