@@ -9,7 +9,7 @@ type StatsProps = {
 
 const Stats = ({ setTestState, stats }: StatsProps) => {
 	const handleClick = () => {
-		setTestState("WARMUP");
+		setTestState("TESTING");
 	};
 	return (
 		<>
