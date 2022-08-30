@@ -15,6 +15,7 @@ interface AppContextInterface {
 	registerUser: (
 		username: string,
 		password: string,
+		department: string,
 		passwordConfirm: string,
 		secretQuestion: string,
 		secret: string
@@ -67,13 +68,14 @@ const AuthProvider = ({ children }: AuthContextProps) => {
 	const registerUser = async (
 		username: string,
 		password: string,
+		department: string,
 		passwordConfirm: string,
 		secretQuestion: string,
 		secret: string
 	) => {
 		// register
 		try {
-			const session = await register(username, password, passwordConfirm, secretQuestion, secret);
+			const session = await register(username, password, passwordConfirm, department, secretQuestion, secret);
 			if (session) {
 				localStorage.setItem("je-session", JSON.stringify(session));
 				setSession(session);

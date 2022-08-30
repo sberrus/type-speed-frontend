@@ -16,6 +16,7 @@ const RegisterForm = ({ handleSwitchState }: LoginFormProps) => {
 	const [username, setUsername] = useState("");
 	const [password, setPassword] = useState("");
 	const [passwordConfirm, setPasswordConfirm] = useState("");
+	const [department, setDepartment] = useState("support");
 	const [secretQuestion, setSecretQuestion] = useState("");
 	const [secret, setSecret] = useState("");
 
@@ -50,7 +51,7 @@ const RegisterForm = ({ handleSwitchState }: LoginFormProps) => {
 		}
 
 		// try to register
-		auth?.registerUser(username, password, passwordConfirm, secretQuestion, secret);
+		auth?.registerUser(username, password, passwordConfirm, department, secretQuestion, secret);
 		setIsLoading(false);
 	};
 
@@ -79,6 +80,14 @@ const RegisterForm = ({ handleSwitchState }: LoginFormProps) => {
 						<TextDecoratorSecondary>Confirmar contraseña</TextDecoratorSecondary>
 					</Form.Label>
 					<Form.Control type="password" value={passwordConfirm} onChange={handlePasswordConfirm} />
+				</Form.Group>
+				<Form.Group className="mb-3">
+					<Form.Label className={style.label}>
+						<TextDecoratorSecondary>Departamento</TextDecoratorSecondary>
+					</Form.Label>
+					<Form.Select>
+						<option>support</option>
+					</Form.Select>
 				</Form.Group>
 				<Form.Group className="mb-3" controlId="secretQuestion">
 					<Form.Label className={style.label}>

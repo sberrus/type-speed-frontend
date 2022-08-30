@@ -36,6 +36,7 @@ export const login = async (username: string, password: string) => {
 export const register = async (
 	username: string,
 	password: string,
+	department: string,
 	passwordConfirm: string,
 	secretQuestion: string,
 	secret: string
@@ -50,6 +51,7 @@ export const register = async (
 			body: JSON.stringify({
 				username,
 				password,
+				department,
 				password_confirm: passwordConfirm,
 				secret_question: secretQuestion,
 				secret,
