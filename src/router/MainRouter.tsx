@@ -1,14 +1,15 @@
 // imports
-import { Outlet, Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 // pages
 import Index from "@pages/index/Index";
-import SpeedTest from "@pages/speedTest/SpeedTest";
+import SpeedTest from "@pages/app/SpeedTest";
 import Auth from "@pages/auth/Auth";
 import PageNotFound from "@pages/PageNotFound";
 import ProtectedRoute from "./ProtectedRoute";
 import PublicRoute from "./PublicRoute";
 import AppTemplate from "templates/AppTemplate";
 import Profile from "@pages/profile/Profile";
+import UserRanking from "@pages/app/UserRanking";
 
 const MainRouter = () => {
 	return (
@@ -33,7 +34,7 @@ const MainRouter = () => {
 				{/* Protected */}
 				<Route path="app" element={<ProtectedRoute />}>
 					<Route index element={<SpeedTest />} />
-					<Route path="ranking" element={<>ranking</>} />
+					<Route path="ranking" element={<UserRanking />} />
 				</Route>
 				<Route path="profile" element={<ProtectedRoute />}>
 					<Route index element={<Profile />} />

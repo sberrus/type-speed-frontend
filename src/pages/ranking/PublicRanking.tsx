@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 
-const Ranking = () => {
+const PublicRanking = () => {
 	useEffect(() => {
 		console.log("rendered");
 
@@ -10,4 +10,4 @@ const Ranking = () => {
 	return <div>Ranking</div>;
 };
 
-export default Ranking;
+export default PublicRanking;

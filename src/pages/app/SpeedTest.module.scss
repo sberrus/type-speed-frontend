@@ -20,6 +20,10 @@
 			width: 80%;
 			padding: 2em;
 			.button {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				text-decoration: none;
 				height: 50%;
 				width: 50%;
 				border: none;

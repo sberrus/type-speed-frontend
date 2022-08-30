@@ -1,0 +1,73 @@
+// animation wrapper
+.animationWrapper {
+	position: relative;
+	height: 5em;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	//
+	.textContainer {
+		position: relative;
+		z-index: 10;
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+		.text {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			color: #ff8000;
+			&:nth-child(1) {
+				top: 1px;
+				left: -1px;
+				transform: translateY(100%);
+				animation: showup 0.5s 1.25s ease forwards;
+			}
+			&:nth-child(2) {
+				top: 2px;
+				left: -2px;
+				transform: translateY(100%);
+				animation: showup 0.5s 1.35s ease forwards;
+			}
+			&:nth-child(3) {
+				color: #ffbf80;
+				transform: translateY(100%);
+				animation: showup 0.5s 1.05s ease forwards;
+			}
+		}
+	}
+	//
+	.natureContainer {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		display: flex;
+		justify-content: center;
+		overflow: hidden;
+		.leafL {
+			height: 100%;
+			width: 50%;
+			border: 1px solid red;
+			transform: translateY(100%);
+			animation: showup 0.75s 0.5s ease forwards;
+		}
+		.leafR {
+			height: 100%;
+			width: 50%;
+			border: 1px solid red;
+			transform: translateY(100%);
+			animation: showup 0.75s 0.75s ease forwards;
+		}
+	}
+}
+
+@keyframes showup {
+	100% {
+		transform: translate(0%);
+	}
+}

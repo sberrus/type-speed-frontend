@@ -1,4 +1,5 @@
 import { TextDecoratorSecondary } from "@components/Decorators/CustomText";
+import { Link } from "react-router-dom";
 import { TestStateType } from "./SpeedTest";
 import style from "./SpeedTest.module.scss";
 
@@ -11,11 +12,11 @@ const Menu = ({ setTestState }: MenuProps) => {
 		<div className={style.menuWrapper}>
 			<div className={style.menuContainer}>
 				<div className={style.buttons}>
-					<button className={style.button}>
+					<Link to="/app/ranking" className={style.button}>
 						<TextDecoratorSecondary>Historial</TextDecoratorSecondary>
-					</button>
+					</Link>
 					<button className={style.button}>
-						<TextDecoratorSecondary>Empezar test</TextDecoratorSecondary>
+						<TextDecoratorSecondary>Empezar test!</TextDecoratorSecondary>
 					</button>
 				</div>
 			</div>
