@@ -1,0 +1,18 @@
+.ranking {
+	.rankingWrapper {
+		background-color: #fff;
+		border-radius: 1rem;
+		.rankingSection {
+			.imgContainer {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				height: 17em;
+			}
+			.imgContainerCenter {
+				@extend .imgContainer;
+				align-items: flex-start;
+			}
+		}
+	}
+}

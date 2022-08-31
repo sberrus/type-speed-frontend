@@ -10,6 +10,7 @@ import PublicRoute from "./PublicRoute";
 import AppTemplate from "templates/AppTemplate";
 import Profile from "@pages/profile/Profile";
 import UserRanking from "@pages/app/UserRanking";
+import GeneralRanking from "@pages/ranking/GeneralRanking";
 
 const MainRouter = () => {
 	return (
@@ -17,14 +18,7 @@ const MainRouter = () => {
 			<Route path="/" element={<AppTemplate />}>
 				{/* Public */}
 				<Route index element={<Index />} />
-				<Route
-					path="ranking"
-					element={
-						<>
-							<h5>Ranking</h5>
-						</>
-					}
-				/>
+				<Route path="ranking" element={<GeneralRanking />} />
 
 				{/* Public Only */}
 				<Route path="auth" element={<PublicRoute />}>
