@@ -1,7 +1,9 @@
 // animation wrapper
 .animationWrapper {
+	margin: auto;
 	position: relative;
 	height: 5em;
+	max-width: 15em;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -52,14 +54,12 @@
 		.leafL {
 			height: 100%;
 			width: 50%;
-			border: 1px solid red;
 			transform: translateY(100%);
 			animation: showup 0.75s 0.5s ease forwards;
 		}
 		.leafR {
 			height: 100%;
 			width: 50%;
-			border: 1px solid red;
 			transform: translateY(100%);
 			animation: showup 0.75s 0.75s ease forwards;
 		}

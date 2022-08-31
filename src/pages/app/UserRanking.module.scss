@@ -1,2 +1,10 @@
 .userRanking {
+	.wrapper {
+		margin: auto;
+		background-color: #fff;
+		border-radius: 1rem;
+		.tableContainer {
+			overflow: auto;
+		}
+	}
 }

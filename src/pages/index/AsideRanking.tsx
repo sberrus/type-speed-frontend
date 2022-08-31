@@ -1,7 +1,7 @@
 // imports
 import { useEffect, useState } from "react";
 // api
-import { getRanking } from "@api/ranking.api";
+import { getTopTen } from "@api/ranking.api";
 // components
 import { TextDecoratorSecondary } from "@components/Decorators/CustomText";
 import { Col, ListGroup } from "react-bootstrap";
@@ -9,17 +9,13 @@ import AnimatedTitle from "@components/AnimatedTitle";
 // styles
 import style from "./AsideRanking.module.scss";
 // types
-type ScoresTypes = {
-	id: string;
-	words_per_minute: number;
-	valid_words: number;
-	wrong_words: number;
-};
+import { ScoresType } from "types/ranking";
+
 const AsideRanking = () => {
-	const [scores, setScores] = useState<ScoresTypes[]>([]);
+	const [scores, setScores] = useState<ScoresType[]>([]);
 
 	const fetchTopTen = async () => {
-		const scores = await getRanking();
+		const scores = await getTopTen();
 		setScores(scores);
 	};
 	useEffect(() => {

@@ -13,7 +13,7 @@ const Menu = ({ setTestState }: MenuProps) => {
 			<div className={style.menuContainer}>
 				<div className={style.buttons}>
 					<Link to="/app/ranking" className={style.button}>
-						<TextDecoratorSecondary>Historial</TextDecoratorSecondary>
+						<TextDecoratorSecondary>Mi Ranking</TextDecoratorSecondary>
 					</Link>
 					<button className={style.button}>
 						<TextDecoratorSecondary>Empezar test!</TextDecoratorSecondary>
