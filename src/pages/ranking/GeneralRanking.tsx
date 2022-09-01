@@ -4,9 +4,9 @@ import { useEffect, useState } from "react";
 import AnimatedTitle from "@components/AnimatedTitle";
 import { Col, Container, ListGroup, Row } from "react-bootstrap";
 // assets
-import Ppm from "@assets/decorators/words_per_minute.svg";
-import Lps from "@assets/decorators/letters_per_second.svg";
-import Acc from "@assets/decorators/accuracy.svg";
+// import "Ppm" from "@assets/decorators/words_per_minute.svg";
+// import "Lps" from "@assets/decorators/letters_per_second.svg";
+// import "Acc" from "@assets/decorators/accuracy.svg";
 // types
 import { ScoresType } from "types/ranking";
 import { getRankingByCategory } from "@api/ranking.api";
@@ -47,7 +47,7 @@ const GeneralRanking = () => {
 					{/* Letters Per Second Ranking */}
 					<Col as="section" className={style.rankingSection}>
 						<div className={style.imgContainer}>
-							<img src={Lps} alt="" className={style.img} />
+							<img src={"Lps"} alt="" className={style.img} />
 						</div>
 						<div className={style.listWrapper}>
 							<ListGroup>
@@ -69,7 +69,7 @@ const GeneralRanking = () => {
 					{/* Words Per Minute Ranking */}
 					<Col as="section" className={style.rankingSection}>
 						<div className={`${style.imgContainer} align-items-lg-start`}>
-							<img src={Ppm} alt="" className={style.img} />
+							<img src={"Ppm"} alt="" className={style.img} />
 						</div>
 						<div className={style.listWrapper}>
 							<ListGroup>
@@ -91,7 +91,7 @@ const GeneralRanking = () => {
 					{/* Accuracy Ranking */}
 					<Col as="section" className={style.rankingSection}>
 						<div className={style.imgContainer}>
-							<img src={Acc} alt="" className={style.img} />
+							<img src={"Acc"} alt="" className={style.img} />
 						</div>
 						<div className={style.listWrapper}>
 							<ListGroup>
