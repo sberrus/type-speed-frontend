@@ -2,12 +2,12 @@
 	"compilerOptions": {
 		"baseUrl": "src",
 		"paths": {
-			"@components/*": ["/components/*"],
-			"@pages/*": ["/pages/*"],
-			"@styles/*": ["/styles/*"],
-			"@utils/*": ["/utils/*"],
-			"@assets/*": ["/assets/*"],
-			"@api/*": ["/api/*"]
+			"@components/*": ["components/*"],
+			"@pages/*": ["pages/*"],
+			"@styles/*": ["styles/*"],
+			"@utils/*": ["utils/*"],
+			"@assets/*": ["assets/*"],
+			"@api/*": ["api/*"]
 		},
 		"target": "ESNext",
 		"useDefineForClassFields": true,
