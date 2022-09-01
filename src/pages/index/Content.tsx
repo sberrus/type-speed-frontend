@@ -8,6 +8,7 @@ import DECORATOR from "@assets/img/DECORATOR.svg";
 import TROPHIE from "@assets/icons/TROPHIE.svg";
 import REGISTER from "@assets/icons/REGISTER.svg";
 import PIZZA from "@assets/icons/PIZZA.svg";
+//
 import PPM from "@assets/decorators/PPM.svg";
 import LPS from "@assets/decorators/LPS.svg";
 import ACCU from "@assets/decorators/ACCU.svg";
