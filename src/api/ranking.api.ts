@@ -1,9 +1,10 @@
-import useAuth from "context/useAuth";
-
+// const
 const baseUrl = "http://localhost:8080/api/ranking";
+// types
+import { RankingCategoriesTypes } from "types/ranking";
 
 /**
- * retrieves the top ten scores from all players
+ * get the top ten scores from all players
  * @returns array with the current top ten
  */
 export const getTopTen = async () => {
@@ -23,7 +24,7 @@ export const getTopTen = async () => {
 };
 
 /**
- * retrieves current player top ten scores
+ * get current player top ten scores
  * @param uid username
  * @returns
  */
@@ -50,4 +51,15 @@ export const getUserScores = async (uid: string) => {
 	} catch (error: any) {
 		throw new Error(error);
 	}
+};
+
+/**
+ * Get ranking top ten scores sorted by category
+ * @param category Category to sort by
+ */
+export const getRankingByCategory = async (category: RankingCategoriesTypes) => {
+	const endpoint = `${baseUrl}/category/${category}`;
+	const response = await fetch(endpoint);
+	const { result } = await response.json();
+	return result;
 };

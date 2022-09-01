@@ -51,17 +51,32 @@
 		display: flex;
 		justify-content: center;
 		overflow: hidden;
-		.leafL {
+
+		.leafs {
+			display: flex;
+			align-items: center;
+			justify-content: center;
 			height: 100%;
 			width: 50%;
-			transform: translateY(100%);
-			animation: showup 0.75s 0.5s ease forwards;
+			@for $i from 1 to 3 {
+				& > img:nth-child(#{$i}) {
+					animation-delay: #{$i * 0.12}s;
+				}
+			}
+			img {
+				transform: translateY(100%);
+				animation: showup 0.75s ease forwards;
+				position: absolute;
+				height: 80%;
+			}
+		}
+		.leafL {
+			@extend .leafs;
+			animation-delay: 0.5s;
 		}
 		.leafR {
-			height: 100%;
-			width: 50%;
-			transform: translateY(100%);
-			animation: showup 0.75s 0.75s ease forwards;
+			@extend .leafs;
+			animation-delay: 0.75s;
 		}
 	}
 }

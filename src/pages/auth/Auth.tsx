@@ -28,7 +28,6 @@ const Auth = () => {
 	};
 
 	useEffect(() => {
-		console.log(state);
 		if (state?.loginState) {
 			return setLoginState(state?.loginState);
 		}

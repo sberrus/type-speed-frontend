@@ -1,17 +1,17 @@
+@import "../../styles/variables";
+
 .ranking {
 	.rankingWrapper {
 		background-color: #fff;
 		border-radius: 1rem;
+		padding: 2.5em 5em;
 		.rankingSection {
+			margin: 0 1em;
 			.imgContainer {
 				display: flex;
 				align-items: center;
 				justify-content: center;
 				height: 17em;
-			}
-			.imgContainerCenter {
-				@extend .imgContainer;
-				align-items: flex-start;
 			}
 		}
 	}

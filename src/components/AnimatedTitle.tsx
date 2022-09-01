@@ -1,3 +1,8 @@
+// assets
+import LEAF_L from "@assets/decorators/LEAF_L.svg";
+import LEAF_R from "@assets/decorators/LEAF_R.svg";
+
+// styles
 import style from "./AnimatedTitle.module.scss";
 
 const AnimatedTitle = () => {
@@ -14,11 +19,15 @@ const AnimatedTitle = () => {
 			<div className={style.natureContainer}>
 				{/* hojas izquierda */}
 				<div className={style.leafL}>
-					<img src="" alt="" />
+					<img src={LEAF_L} alt="" />
+					<img src={LEAF_L} alt="" />
+					<img src={LEAF_L} alt="" />
 				</div>
 				{/* hojas derecha */}
 				<div className={style.leafR}>
-					<img src="" alt="" />
+					<img src={LEAF_R} alt="" />
+					<img src={LEAF_R} alt="" />
+					<img src={LEAF_R} alt="" />
 				</div>
 			</div>
 		</div>

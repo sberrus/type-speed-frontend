@@ -14,13 +14,14 @@ const UserRanking = () => {
 	const auth = useAuth();
 
 	// methods
-	const fetchScores = async () => {
+	const fetchUserScores = async () => {
 		const uid = auth?.session?.user.username as string;
 		const _scores = await getUserScores(uid);
 		setScores(_scores);
 	};
 	useEffect(() => {
-		fetchScores();
+		fetchUserScores();
+
 		return () => {};
 	}, []);
 
@@ -45,8 +46,8 @@ const UserRanking = () => {
 								<tr key={key}>
 									<td>{key + 1}</td>
 									<td>{score.words_per_minute}</td>
-									<td>{(Number(score.wrong_words / score.valid_words) * 100).toFixed(1)}%</td>
-									<td>**Por definir**</td>
+									<td>{score.accuracy * 100}%</td>
+									<td>{score.letters_per_second}</td>
 								</tr>
 							))}
 						</tbody>

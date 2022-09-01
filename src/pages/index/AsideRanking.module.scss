@@ -19,7 +19,7 @@
 		}
 		@for $i from 1 through 10 {
 			.topTenParticipant:nth-child(#{$i}) {
-				animation: showup 0.5s #{$i * 0.35s} ease forwards;
+				animation: showup 0.5s #{1 + ($i * 0.5)}s ease forwards;
 			}
 		}
 	}
