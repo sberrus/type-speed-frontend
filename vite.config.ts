@@ -8,5 +8,5 @@ export default defineConfig({
 	server: {
 		port: 3000,
 	},
-	plugins: [react(), tsconfigPaths(), image()],
+	plugins: [react(), tsconfigPaths(), image({ dom: true })],
 });
