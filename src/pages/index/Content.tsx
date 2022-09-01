@@ -3,15 +3,15 @@ import { Col, Container, Row } from "react-bootstrap";
 // components
 import { TextDecoratorPrimary, TextDecoratorSecondary } from "@components/Decorators/CustomText";
 // assets
-import Banner from "../../assets/img/Banner.jpg";
-import Decorator from "../../assets/img/Decorator.svg";
-import Trophie from "../../assets/icons/Trophie.svg";
-import Register from "../../assets/icons/Register.svg";
-import Pizza from "../../assets/icons/Pizza.svg";
+import Banner from "@assets/img/Banner.jpg";
+import Decorator from "@assets/img/Decorator.svg";
+import Trophie from "@assets/icons/Trophie.svg";
+import Register from "@assets/icons/Register.svg";
+import Pizza from "@assets/icons/Pizza.svg";
 //
-import Ppm from "../../assets/decorators/Ppm.svg";
-import Lps from "../../assets/decorators/Lps.svg";
-import Acc from "../../assets/decorators/Acc.svg";
+import Ppm from "@assets/decorators/Ppm.svg";
+import Lps from "@assets/decorators/Lps.svg";
+import Acc from "@assets/decorators/Acc.svg";
 // styles
 import style from "./Index.module.scss";
 

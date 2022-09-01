@@ -4,9 +4,9 @@ import { useEffect, useState } from "react";
 import AnimatedTitle from "@components/AnimatedTitle";
 import { Col, Container, ListGroup, Row } from "react-bootstrap";
 // assets
-import Ppm from "../../assets/decorators/Ppm.svg";
-import Lps from "../../assets/decorators/Lps.svg";
-import Acc from "../../assets/decorators/Acc.svg";
+import Ppm from "@assets/decorators/Ppm.svg";
+import Lps from "@assets/decorators/Lps.svg";
+import Acc from "@assets/decorators/Acc.svg";
 // types
 import { ScoresType } from "types/ranking";
 import { getRankingByCategory } from "@api/ranking.api";
