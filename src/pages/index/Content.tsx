@@ -8,9 +8,9 @@ import { TextDecoratorPrimary, TextDecoratorSecondary } from "@components/Decora
 // import Trophie from "@assets/icons/trophie.svg";
 // import Register from "@assets/icons/register.svg";
 // import Pizza from "@assets/icons/pizza.svg";
-// import Ppm from "@assets/decorators/words_per_minute.svg";
-// import Lps from "@assets/decorators/letters_per_second.svg";
-// import Acc from "@assets/decorators/accuracy.svg";
+import Wpm from "@assets/categories/Wpm.svg";
+import Lps from "@assets/categories/Lps.svg";
+import Acc from "@assets/categories/Acc.svg";
 // styles
 import style from "./Index.module.scss";
 
@@ -126,13 +126,13 @@ const Content = () => {
 
 						<Row className={`${style.categories}`}>
 							<Col xs={4} className={style.categoriesImgContainer}>
-								<img src={"Ppm"} alt="PPM" />
+								<img src={Wpm} alt="PPM" />
 							</Col>
 							<Col xs={4} className={style.categoriesImgContainer}>
-								<img src={"Lps"} alt="LPS" />
+								<img src={Lps} alt="LPS" />
 							</Col>
 							<Col xs={4} className={style.categoriesImgContainer}>
-								<img src={"Acc"} alt="%PRECISION" />
+								<img src={Acc} alt="%PRECISION" />
 							</Col>
 						</Row>
 						<p>
