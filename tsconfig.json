@@ -6,7 +6,8 @@
 			"@pages/*": ["pages/*"],
 			"@styles/*": ["styles/*"],
 			"@utils/*": ["utils/*"],
-			"@api/*": ["api/*"]
+			"@api/*": ["api/*"],
+			"@assets/*": ["assets/*"]
 		},
 		"target": "ESNext",
 		"useDefineForClassFields": true,
