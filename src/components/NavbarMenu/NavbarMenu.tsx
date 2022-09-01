@@ -6,13 +6,13 @@ import { Button, Container, Nav, Navbar } from "react-bootstrap";
 import useAuth from "context/useAuth";
 import { TextDecoratorPrimary, TextDecoratorSecondary } from "@components/Decorators/CustomText";
 // assets
-// import "JE_Logo" from "@assets/img/je_logo.svg";
-// import "Store" from "@assets/icons/store.svg";
-// import "Stats" from "@assets/icons/stats.svg";
-// import "Pizza" from "@assets/icons/pizza.svg";
-// import "User" from "@assets/icons/user.svg";
-// import "Logout" from "@assets/icons/logout.svg";
-// import "Jet" from "@assets/icons/jet.svg";
+import JE_Logo from "@assets/img/je_logo.svg";
+import Store from "@assets/icons/store.svg";
+import Stats from "@assets/icons/stats.svg";
+import Pizza from "@assets/icons/pizza.svg";
+import User from "@assets/icons/user.svg";
+import Logout from "@assets/icons/logout.svg";
+import Jet from "@assets/icons/jet.svg";
 // styles
 import style from "./NavbarMenu.module.scss";
 
@@ -39,19 +39,19 @@ const NavbarMenu = () => {
 									<>
 										<Link to="/" className={style.link}>
 											<div className={style.iconContainer}>
-												<img src={"Store"} alt="Inicio logo" />
+												<img src={Store} alt="Inicio logo" />
 											</div>
 											<TextDecoratorSecondary>Inicio</TextDecoratorSecondary>
 										</Link>
 										<Link to="ranking" className={style.link}>
 											<div className={style.iconContainer}>
-												<img src={"Stats"} alt="Inicio logo" />
+												<img src={Stats} alt="Inicio logo" />
 											</div>
 											<TextDecoratorSecondary>Ranking</TextDecoratorSecondary>
 										</Link>
 										<Link to="/app" className={style.link}>
 											<div className={style.iconContainer}>
-												<img src={"Pizza"} alt="Inicio logo" />
+												<img src={Pizza} alt="Inicio logo" />
 											</div>
 											<TextDecoratorSecondary>Participar</TextDecoratorSecondary>
 										</Link>
@@ -71,7 +71,7 @@ const NavbarMenu = () => {
 					</div>
 					<div className={`${style.dancingLetters} d-none d-lg-block ps-1`}>
 						<div className={style.jetLayer}>
-							<img src={"Jet"} alt="" className={style.jet} />
+							<img src={Jet} alt="" className={style.jet} />
 						</div>
 
 						<span className={style.letter}>
@@ -144,16 +144,16 @@ const NavbarMenu = () => {
 						{auth?.isLogged() && (
 							<div className={style.auth}>
 								<Link to="/profile" className={style.logoContainerLink}>
-									<img src={"User"} alt="Inicio logo" />
+									<img src={User} alt="Inicio logo" />
 								</Link>
 								<Button className={style.logoContainerButton} onClick={handleLogout}>
-									<img src={"Logout"} alt="Inicio logo" />
+									<img src={Logout} alt="Inicio logo" />
 								</Button>
 							</div>
 						)}
 						<div className={style.logo}>
 							<Link to="/" className={style.logoContainerLink}>
-								<img src={"JE_Logo"} alt="Inicio logo" />
+								<img src={JE_Logo} alt="Inicio logo" />
 							</Link>
 						</div>
 					</div>
