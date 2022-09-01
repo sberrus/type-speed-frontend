@@ -6,19 +6,21 @@
 	align-items: center;
 	justify-content: center;
 }
-.menuWrapper {
+.landing {
 	@extend .elementsCentered;
 	min-height: 100vh;
 
 	.menuContainer {
 		@extend .elementsCentered;
-		width: 100%;
+		background-color: #fff;
+		border-radius: 1rem;
+		width: 80%;
+		min-height: 50vh;
 		.buttons {
 			@extend .elementsCentered;
-			background-color: #fff;
 			height: 20em;
-			width: 80%;
 			padding: 2em;
+			width: 100%;
 			.button {
 				display: flex;
 				align-items: center;

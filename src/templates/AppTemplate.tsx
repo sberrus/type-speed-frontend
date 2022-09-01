@@ -4,7 +4,7 @@ import { Outlet } from "react-router-dom";
 // styles
 import style from "./AppTemplete.module.scss";
 // assets
-import Footer from "@pages/index/Footer";
+import Footer from "@components/Footer";
 const AppTemplate = () => {
 	return (
 		<>

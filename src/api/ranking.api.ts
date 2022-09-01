@@ -1,5 +1,5 @@
 // const
-const baseUrl = "http://localhost:8080/api/ranking";
+const baseUrl = "https://typespeed.samdev.es/api/ranking";
 // types
 import { RankingCategoriesTypes } from "types/ranking";
 

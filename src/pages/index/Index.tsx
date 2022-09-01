@@ -8,7 +8,7 @@ import style from "./Index.module.scss";
 
 const Index = () => {
 	return (
-		<div className={style.wrapper}>
+		<div className={style.index}>
 			{/* main */}
 			<Container className="p-lg-4">
 				<Row className={`${style.mainWrapper}`}>

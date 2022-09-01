@@ -3,7 +3,7 @@
 @import "../../styles/titles";
 @import "../../styles/customBorders";
 // globals
-.wrapper {
+.index {
 	color: $dark;
 	h2 {
 		line-height: 1.75rem;
@@ -105,11 +105,4 @@
 			}
 		}
 	}
-}
-// footer
-.footer {
-	padding: 0.5em;
-	text-align: center;
-	color: $light;
-	background-color: $dark;
 }

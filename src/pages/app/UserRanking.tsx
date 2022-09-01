@@ -4,6 +4,7 @@ import { TextDecoratorPrimary } from "@components/Decorators/CustomText";
 import useAuth from "context/useAuth";
 import { useEffect, useState } from "react";
 import { Container, Table } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import { ScoresType } from "types/ranking";
 // styles
 import style from "./UserRanking.module.scss";
@@ -32,26 +33,34 @@ const UserRanking = () => {
 					<TextDecoratorPrimary>Mi Historial</TextDecoratorPrimary>
 				</h1>
 				<div className={style.tableContainer}>
-					<Table striped bordered hover>
-						<thead>
-							<tr>
-								<th>#</th>
-								<th>Palabras Por Minuto(PPM)</th>
-								<th>Precisión(%)</th>
-								<th>Letras por segundo(LPS)</th>
-							</tr>
-						</thead>
-						<tbody>
-							{scores.map((score, key) => (
-								<tr key={key}>
-									<td>{key + 1}</td>
-									<td>{score.words_per_minute}</td>
-									<td>{score.accuracy * 100}%</td>
-									<td>{score.letters_per_second}</td>
-								</tr>
-							))}
-						</tbody>
-					</Table>
+					{scores.length > 0 ? (
+						<>
+							<Table striped bordered hover>
+								<thead>
+									<tr>
+										<th>#</th>
+										<th>Palabras Por Minuto(PPM)</th>
+										<th>Precisión(%)</th>
+										<th>Letras por segundo(LPS)</th>
+									</tr>
+								</thead>
+								<tbody>
+									{scores.map((score, key) => (
+										<tr key={key}>
+											<td>{key + 1}</td>
+											<td>{score.words_per_minute}</td>
+											<td>{score.accuracy * 100}%</td>
+											<td>{score.letters_per_second}</td>
+										</tr>
+									))}
+								</tbody>
+							</Table>
+						</>
+					) : (
+						<h2 className="text-center">
+							Parece que no hay registros aún. Deseas intentarlo? <Link to="/app">Ir al test</Link>
+						</h2>
+					)}
 				</div>
 			</Container>
 		</div>
