@@ -2,11 +2,17 @@
 import { Col, Container, Row } from "react-bootstrap";
 // components
 import { TextDecoratorPrimary, TextDecoratorSecondary } from "@components/Decorators/CustomText";
+// assets
+import BANNER from "@assets/img/BANNER.jpg";
+import DECORATOR from "@assets/img/DECORATOR.svg";
+import TROPHIE from "@assets/icons/TROPHIE.svg";
+import REGISTER from "@assets/icons/REGISTER.svg";
+import PIZZA from "@assets/icons/PIZZA.svg";
+import PPM from "@assets/decorators/PPM.svg";
+import LPS from "@assets/decorators/LPS.svg";
+import ACCU from "@assets/decorators/ACCU.svg";
 // styles
 import style from "./Index.module.scss";
-// assets
-import Trophie from "@assets/img/Trophie.svg";
-import Banner from "@assets/img/Banner.jpg";
 
 // TODO: Componetizar botones para contenido
 // TODO: INCORPORAR COPY DE FIGMA
@@ -19,9 +25,11 @@ const Content = () => {
 				<h2>
 					<TextDecoratorPrimary>TORNEO JET SPEED</TextDecoratorPrimary>
 				</h2>
+
+				{/* REGLAS Y COMO PARTICIPAR CTA */}
 				<div className={style.cta}>
 					<div className={style.ctaImgContainer}>
-						<img src="" alt="JE cta Image" />
+						<img src={REGISTER} alt="JE cta Image" />
 					</div>
 					<div className={style.ctaContent}>
 						<h5>
@@ -32,32 +40,36 @@ const Content = () => {
 							<li>Espera a que el torneo este activo</li>
 							<li>Participa en el evento</li>
 						</ol>
-						<a href="#reglas" className="float-end">
+						<a href="#reglas" className={`${style.buttonPrimary} float-end`}>
 							<TextDecoratorSecondary>Ver más</TextDecoratorSecondary>
 						</a>
 					</div>
 				</div>
+
+				{/* PREMIOS CTA */}
 				<div className={style.cta}>
 					<div className={style.ctaContent}>
 						<h5>
 							<TextDecoratorPrimary>PREMIOS Y RECOMPENSAS</TextDecoratorPrimary>
 						</h5>
-						<ul>
+						<ol>
 							<li>El primer lugar recibira.....</li>
 							<li>Los primero 3 en el ranking recibiran..... </li>
-							<li>Los primero 100 participantes tendran recompensa una...</li>
-						</ul>
-						<a href="#premios">
+							<li>Los primero 100 participantes tendran una recompensa...</li>
+						</ol>
+						<a href="#premios" className={style.buttonPrimary}>
 							<TextDecoratorSecondary>Ver más</TextDecoratorSecondary>
 						</a>
 					</div>
 					<div className={style.ctaImgContainer}>
-						<img src="" alt="JE cta Image" />
+						<img src={TROPHIE} alt="JE cta Image" />
 					</div>
 				</div>
+
+				{/* ABOUT CTA */}
 				<div className={style.cta}>
-					<div className={style.ctaImgContainer}>
-						<img src="" alt="JE cta Image" />
+					<div className={`${style.ctaImgContainer} ${style.pizza}`}>
+						<img src={PIZZA} alt="JE cta Image" />
 					</div>
 					<div className={style.ctaContent}>
 						<h5>
@@ -67,7 +79,7 @@ const Content = () => {
 							El torneo empezará un dia lunes desde inicio de horario laboral hasta el dia viernes que se
 							presentarán los........
 						</p>
-						<a href="#about" className="float-end">
+						<a href="#about" className={`${style.buttonPrimary} float-end`}>
 							<TextDecoratorSecondary>Ver más</TextDecoratorSecondary>
 						</a>
 					</div>
@@ -76,7 +88,7 @@ const Content = () => {
 
 			{/* gif decorattion center */}
 			<section className={style.gifContainer}>
-				<img src="" alt="[GIF DECORATOR]" />
+				<img src={DECORATOR} alt="[GIF DECORATOR]" />
 			</section>
 
 			{/* description */}
@@ -84,50 +96,42 @@ const Content = () => {
 				<article id="explicacion">
 					<div id="reglas" style={{ position: "absolute", top: "-100px" }}></div>
 					<h2 className="text-center">
-						<TextDecoratorPrimary>REGLAS Y COMO PARTICIPAR</TextDecoratorPrimary>
+						<div className={style.titleImgContainer}>
+							<img src={REGISTER} alt="" />
+						</div>
+						<TextDecoratorPrimary>PREMIOS Y RECOMPENSAS</TextDecoratorPrimary>
 					</h2>
 					<Container>
-						<Row>
-							<Col xs={2}>
-								<div className={style.imgContainer}>
-									<img src="" alt="Decoration" />
-								</div>
-							</Col>
-							<Col xs={10}>
-								<div className={style.list}>
-									<ol>
+						<div className={style.list}>
+							<ol>
+								<li>
+									<span>Crea tu cuenta con lo siguientes parámetros.</span>
+									<ul>
+										<li>Apodo</li>
+										<li>Contraseña</li>
 										<li>
-											<span>Crea tu cuenta con lo siguientes parámetros.</span>
-											<ul>
-												<li>Apodo</li>
-												<li>Contraseña</li>
-												<li>
-													PIN{" "}
-													<small>
-														<b>*importante para recuperar su contraseña</b>
-													</small>
-												</li>
-											</ul>
+											PIN{" "}
+											<small>
+												<b>*importante para recuperar su contraseña</b>
+											</small>
 										</li>
-										<li>Esperar a que el evento este activo.</li>
-										<li>Participa en el torneo y gana premios.</li>
-									</ol>
-									<p>Una vez presentes el Test se guardara tu mejor resultado en 3 categorias diferentes:</p>
-								</div>
+									</ul>
+								</li>
+								<li>Esperar a que el evento este activo.</li>
+								<li>Participa en el torneo y gana premios.</li>
+							</ol>
+							<p>Una vez presentes el Test se guardara tu mejor resultado en 3 categorias diferentes:</p>
+						</div>
+
+						<Row className={`${style.categories}`}>
+							<Col xs={4} className={style.categoriesImgContainer}>
+								<img src={PPM} alt="PPM" />
 							</Col>
-						</Row>
-						<Row className="my-3">
-							<Col>
-								{" "}
-								<img src="" alt="PPM" />
+							<Col xs={4} className={style.categoriesImgContainer}>
+								<img src={LPS} alt="LPS" />
 							</Col>
-							<Col>
-								{" "}
-								<img src="" alt="LPS" />
-							</Col>
-							<Col>
-								{" "}
-								<img src="" alt="%PRECISION" />
+							<Col xs={4} className={style.categoriesImgContainer}>
+								<img src={ACCU} alt="%PRECISION" />
 							</Col>
 						</Row>
 						<p>
@@ -142,7 +146,7 @@ const Content = () => {
 					<div id="premios" style={{ position: "absolute", top: "-100px" }}></div>
 					<h2 className="text-center">
 						<div className={style.titleImgContainer}>
-							<img src={Trophie} alt="" />
+							<img src={TROPHIE} alt="" />
 						</div>
 						<TextDecoratorPrimary>PREMIOS Y RECOMPENSAS</TextDecoratorPrimary>
 					</h2>
@@ -189,7 +193,7 @@ const Content = () => {
 					</p>
 				</article>
 				<article className={style.bannerContainer}>
-					<img src={Banner} alt="Tournment Banner" />
+					<img src={BANNER} alt="Tournment Banner" />
 				</article>
 			</section>
 		</Col>

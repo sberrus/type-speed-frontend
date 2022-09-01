@@ -36,30 +36,31 @@
 					justify-content: space-between;
 					.ctaContent {
 						width: 70%;
-						a {
-							text-decoration: none;
-							border: 1px solid black;
-							border-radius: 1rem;
-							padding: 0.5em 1em;
-							&:hover {
-								background-color: $dark;
-							}
-						}
 					}
 					.ctaImgContainer {
-						border: 1px solid black;
-						margin: 0.5em;
 						width: 30%;
+						display: flex;
+						align-items: flex-start;
+						justify-content: center;
 						img {
-							width: 100%;
+							width: 60%;
+						}
+
+						&.pizza {
+							width: 25%;
+							img {
+								width: 100%;
+							}
 						}
 					}
 				}
 			}
 			// middle gif decoration
 			.gifContainer {
-				border: 1px dashed black;
-				height: 10em;
+				margin-bottom: 5em;
+				img {
+					width: 100%;
+				}
 			}
 			// description section
 			.descriptionSection {
@@ -69,6 +70,7 @@
 					position: relative;
 					margin-bottom: 3em;
 					.titleImgContainer {
+						margin-bottom: 0.5em;
 						height: 2em;
 						img {
 							height: 100%;
@@ -83,6 +85,15 @@
 						}
 						& > ul {
 							padding: 0;
+						}
+					}
+
+					.categories {
+						margin: 2em 0;
+						.categoriesImgContainer {
+							img {
+								width: 90%;
+							}
 						}
 					}
 				}

@@ -6,15 +6,13 @@
 		color: $light;
 	}
 }
+
 .buttonPrimary {
-	@extend .linkReset;
-	display: inline-block;
-	background-color: $dark;
-	color: $light;
-	border: 1px solid $light;
-	font-weight: 700;
-	padding: 0.5em;
-	border-radius: 0.5rem;
-	font-size: 1.5em;
-	margin: 0.5em;
+	text-decoration: none;
+	border: 1px solid $orange;
+	border-radius: 1rem;
+	padding: 0.5em 1em;
+	&:hover {
+		background-color: $orange10;
+	}
 }
