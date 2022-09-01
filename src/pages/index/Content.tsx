@@ -3,15 +3,15 @@ import { Col, Container, Row } from "react-bootstrap";
 // components
 import { TextDecoratorPrimary, TextDecoratorSecondary } from "@components/Decorators/CustomText";
 // assets
-import BANNER from "@assets/img/_BANNER.jpg";
-import DECORATOR from "@assets/img/DECORATOR.svg";
-import TROPHIE from "@assets/icons/TROPHIE.svg";
-import REGISTER from "@assets/icons/REGISTER.svg";
-import PIZZA from "@assets/icons/PIZZA.svg";
+import Banner from "@assets/img/Banner.jpg";
+import Decorator from "@assets/img/Decorator.svg";
+import Trophie from "@assets/icons/Trophie.svg";
+import Register from "@assets/icons/Register.svg";
+import Pizza from "@assets/icons/Pizza.svg";
 //
-import PPM from "@assets/decorators/PPM.svg";
-import LPS from "@assets/decorators/LPS.svg";
-import ACCU from "@assets/decorators/ACCU.svg";
+import Ppm from "@assets/decorators/Ppm.svg";
+import Lps from "@assets/decorators/Lps.svg";
+import Acc from "@assets/decorators/Acc.svg";
 // styles
 import style from "./Index.module.scss";
 
@@ -31,7 +31,7 @@ const Content = () => {
 				{/* REGLAS Y COMO PARTICIPAR CTA */}
 				<div className={style.cta}>
 					<div className={style.ctaImgContainer}>
-						<img src={REGISTER} alt="JE cta Image" />
+						<img src={Register} alt="JE cta Image" />
 					</div>
 					<div className={style.ctaContent}>
 						<h5>
@@ -64,14 +64,14 @@ const Content = () => {
 						</a>
 					</div>
 					<div className={style.ctaImgContainer}>
-						<img src={TROPHIE} alt="JE cta Image" />
+						<img src={Trophie} alt="JE cta Image" />
 					</div>
 				</div>
 
 				{/* ABOUT CTA */}
 				<div className={style.cta}>
 					<div className={`${style.ctaImgContainer} ${style.pizza}`}>
-						<img src={PIZZA} alt="JE cta Image" />
+						<img src={Pizza} alt="JE cta Image" />
 					</div>
 					<div className={style.ctaContent}>
 						<h5>
@@ -90,7 +90,7 @@ const Content = () => {
 
 			{/* gif decorattion center */}
 			<section className={style.gifContainer}>
-				<img src={DECORATOR} alt="[GIF DECORATOR]" />
+				<img src={Decorator} alt="[GIF DECORATOR]" />
 			</section>
 
 			{/* description */}
@@ -99,7 +99,7 @@ const Content = () => {
 					<div id="reglas" style={{ position: "absolute", top: "-100px" }}></div>
 					<h2 className="text-center">
 						<div className={style.titleImgContainer}>
-							<img src={REGISTER} alt="" />
+							<img src={Register} alt="" />
 						</div>
 						<TextDecoratorPrimary>PREMIOS Y RECOMPENSAS</TextDecoratorPrimary>
 					</h2>
@@ -127,13 +127,13 @@ const Content = () => {
 
 						<Row className={`${style.categories}`}>
 							<Col xs={4} className={style.categoriesImgContainer}>
-								<img src={PPM} alt="PPM" />
+								<img src={Ppm} alt="PPM" />
 							</Col>
 							<Col xs={4} className={style.categoriesImgContainer}>
-								<img src={LPS} alt="LPS" />
+								<img src={Lps} alt="LPS" />
 							</Col>
 							<Col xs={4} className={style.categoriesImgContainer}>
-								<img src={ACCU} alt="%PRECISION" />
+								<img src={Acc} alt="%PRECISION" />
 							</Col>
 						</Row>
 						<p>
@@ -148,7 +148,7 @@ const Content = () => {
 					<div id="premios" style={{ position: "absolute", top: "-100px" }}></div>
 					<h2 className="text-center">
 						<div className={style.titleImgContainer}>
-							<img src={TROPHIE} alt="" />
+							<img src={Trophie} alt="" />
 						</div>
 						<TextDecoratorPrimary>PREMIOS Y RECOMPENSAS</TextDecoratorPrimary>
 					</h2>
@@ -195,7 +195,7 @@ const Content = () => {
 					</p>
 				</article>
 				<article className={style.bannerContainer}>
-					<img src={BANNER} alt="Tournment Banner" />
+					<img src={Banner} alt="Tournment Banner" />
 				</article>
 			</section>
 		</Col>

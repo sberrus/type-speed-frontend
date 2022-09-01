@@ -4,9 +4,9 @@ import { useEffect, useState } from "react";
 import AnimatedTitle from "@components/AnimatedTitle";
 import { Col, Container, ListGroup, Row } from "react-bootstrap";
 // assets
-import PPM from "@assets/decorators/PPM.svg";
-import LPS from "@assets/decorators/LPS.svg";
-import ACCU from "@assets/decorators/ACCU.svg";
+import Ppm from "@assets/decorators/Ppm.svg";
+import Lps from "@assets/decorators/Lps.svg";
+import Acc from "@assets/decorators/Acc.svg";
 // types
 import { ScoresType } from "types/ranking";
 import { getRankingByCategory } from "@api/ranking.api";
@@ -47,7 +47,7 @@ const GeneralRanking = () => {
 					{/* Letters Per Second Ranking */}
 					<Col as="section" className={style.rankingSection}>
 						<div className={style.imgContainer}>
-							<img src={LPS} alt="" className={style.img} />
+							<img src={Lps} alt="" className={style.img} />
 						</div>
 						<div className={style.listWrapper}>
 							<ListGroup>
@@ -69,7 +69,7 @@ const GeneralRanking = () => {
 					{/* Words Per Minute Ranking */}
 					<Col as="section" className={style.rankingSection}>
 						<div className={`${style.imgContainer} align-items-lg-start`}>
-							<img src={PPM} alt="" className={style.img} />
+							<img src={Ppm} alt="" className={style.img} />
 						</div>
 						<div className={style.listWrapper}>
 							<ListGroup>
@@ -91,7 +91,7 @@ const GeneralRanking = () => {
 					{/* Accuracy Ranking */}
 					<Col as="section" className={style.rankingSection}>
 						<div className={style.imgContainer}>
-							<img src={ACCU} alt="" className={style.img} />
+							<img src={Acc} alt="" className={style.img} />
 						</div>
 						<div className={style.listWrapper}>
 							<ListGroup>
