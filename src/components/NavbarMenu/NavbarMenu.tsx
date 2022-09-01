@@ -6,7 +6,7 @@ import { Button, Container, Nav, Navbar } from "react-bootstrap";
 import useAuth from "context/useAuth";
 import { TextDecoratorPrimary, TextDecoratorSecondary } from "@components/Decorators/CustomText";
 // assets
-import JE_Logo from "@assets/img/JE_Logo_white.svg";
+import JE_Logo from "@assets/img/je_logo.svg";
 import Store from "@assets/icons/store.svg";
 import Stats from "@assets/icons/stats.svg";
 import Pizza from "@assets/icons/pizza.svg";
