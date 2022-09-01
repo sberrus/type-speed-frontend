@@ -8,9 +8,4 @@ export default defineConfig({
 		port: 3000,
 	},
 	plugins: [react(), tsconfigPaths()],
-	build: {
-		rollupOptions: {
-			external: ["/src/assets/*.jpg", "/src/assets/*.svg", "/src/assets/*.png"],
-		},
-	},
 });

@@ -6,13 +6,13 @@ import { Button, Container, Nav, Navbar } from "react-bootstrap";
 import useAuth from "context/useAuth";
 import { TextDecoratorPrimary, TextDecoratorSecondary } from "@components/Decorators/CustomText";
 // assets
-import JE_Logo from "@assets/img/JE_Logo_white.svg";
-import Store from "@assets/icons/store.svg";
-import Stats from "@assets/icons/stats.svg";
-import Pizza from "@assets/icons/pizza.svg";
-import User from "@assets/icons/user.svg";
-import Logout from "@assets/icons/logout.svg";
-import Jet from "@assets/icons/jet.svg";
+import JE_Logo from "../../assets/img/JE_Logo_white.svg";
+import Store from "../../assets/icons/store.svg";
+import Stats from "../../assets/icons/stats.svg";
+import Pizza from "../../assets/icons/pizza.svg";
+import User from "../../assets/icons/user.svg";
+import Logout from "../../assets/icons/logout.svg";
+import Jet from "../../assets/icons/jet.svg";
 // styles
 import style from "./NavbarMenu.module.scss";
 
