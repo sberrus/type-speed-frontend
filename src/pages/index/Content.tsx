@@ -16,6 +16,7 @@ import style from "./Index.module.scss";
 
 // TODO: Componetizar botones para contenido
 // TODO: INCORPORAR COPY DE FIGMA
+//
 
 const Content = () => {
 	return (
