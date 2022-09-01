@@ -3,11 +3,12 @@ import { Col, Container, Row } from "react-bootstrap";
 // components
 import { TextDecoratorPrimary, TextDecoratorSecondary } from "@components/Decorators/CustomText";
 // assets
-// import Banner from "@assets/img/banner.svg";
-// import Decorator from "@assets/img/decorator.svg";
-// import Trophie from "@assets/icons/trophie.svg";
-// import Register from "@assets/icons/register.svg";
-// import Pizza from "@assets/icons/pizza.svg";
+import Banner from "@assets/content/banner.svg";
+import Decorator from "@assets/content/decorator.svg";
+import Trophie from "@assets/art/trophie.svg";
+import Register from "@assets/art/register.svg";
+import Pizza from "@assets/art/pizza.svg";
+
 import Wpm from "@assets/categories/Wpm.svg";
 import Lps from "@assets/categories/Lps.svg";
 import Acc from "@assets/categories/Acc.svg";
@@ -30,7 +31,7 @@ const Content = () => {
 				{/* REGLAS Y COMO PARTICIPAR CTA */}
 				<div className={style.cta}>
 					<div className={style.ctaImgContainer}>
-						<img src={"Register"} alt="JE cta Image" />
+						<img src={Register} alt="JE cta Image" />
 					</div>
 					<div className={style.ctaContent}>
 						<h5>
@@ -63,14 +64,14 @@ const Content = () => {
 						</a>
 					</div>
 					<div className={style.ctaImgContainer}>
-						<img src={"Trophie"} alt="JE cta Image" />
+						<img src={Trophie} alt="JE cta Image" />
 					</div>
 				</div>
 
 				{/* ABOUT CTA */}
 				<div className={style.cta}>
 					<div className={`${style.ctaImgContainer} ${style.pizza}`}>
-						<img src={"Pizza"} alt="JE cta Image" />
+						<img src={Pizza} alt="JE cta Image" />
 					</div>
 					<div className={style.ctaContent}>
 						<h5>
@@ -89,7 +90,7 @@ const Content = () => {
 
 			{/* gif decorattion center */}
 			<section className={style.gifContainer}>
-				<img src={"Decorator"} alt="[GIF DECORATOR]" />
+				<img src={Decorator} alt="[GIF DECORATOR]" />
 			</section>
 
 			{/* description */}
@@ -98,7 +99,7 @@ const Content = () => {
 					<div id="reglas" style={{ position: "absolute", top: "-100px" }}></div>
 					<h2 className="text-center">
 						<div className={style.titleImgContainer}>
-							<img src={"Register"} alt="" />
+							<img src={Register} alt="" />
 						</div>
 						<TextDecoratorPrimary>PREMIOS Y RECOMPENSAS</TextDecoratorPrimary>
 					</h2>
@@ -147,7 +148,7 @@ const Content = () => {
 					<div id="premios" style={{ position: "absolute", top: "-100px" }}></div>
 					<h2 className="text-center">
 						<div className={style.titleImgContainer}>
-							<img src={"Trophie"} alt="" />
+							<img src={Trophie} alt="" />
 						</div>
 						<TextDecoratorPrimary>PREMIOS Y RECOMPENSAS</TextDecoratorPrimary>
 					</h2>
@@ -193,7 +194,7 @@ const Content = () => {
 						mejor % de precisión. Estas 3 categorias seran premiadas a los 3 primeros lugares.
 					</p>
 				</article>
-				<article className={style.bannerContainer}>{/* <img src={Banner} alt="Tournment Banner" /> */}</article>
+				<article className={style.bannerContainer}>{/* <img src={anner alt="Tournment Banner" /> */}</article>
 			</section>
 		</Col>
 	);
