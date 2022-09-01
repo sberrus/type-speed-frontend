@@ -3,7 +3,7 @@ import { Col, Container, Row } from "react-bootstrap";
 // components
 import { TextDecoratorPrimary, TextDecoratorSecondary } from "@components/Decorators/CustomText";
 // assets
-import Banner from "/assets/img/banner.svg";
+// import Banner from "/assets/img/banner.svg";
 import Decorator from "/assets/img/decorator.svg";
 import Trophie from "/assets/icons/trophie.svg";
 import Register from "/assets/icons/register.svg";
@@ -194,9 +194,7 @@ const Content = () => {
 						mejor % de precisión. Estas 3 categorias seran premiadas a los 3 primeros lugares.
 					</p>
 				</article>
-				<article className={style.bannerContainer}>
-					<img src={Banner} alt="Tournment Banner" />
-				</article>
+				<article className={style.bannerContainer}>{/* <img src={Banner} alt="Tournment Banner" /> */}</article>
 			</section>
 		</Col>
 	);
