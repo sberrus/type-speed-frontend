@@ -1,6 +1,6 @@
 // assets
-import LEAF_L from "@assets/decorators/leaf_l.svg";
-import LEAF_R from "@assets/decorators/leaf_r.svg";
+import LEAF_L from "@assets/decorators/LEAF_L.svg";
+import LEAF_R from "@assets/decorators/LEAF_R.svg";
 
 // styles
 import style from "./AnimatedTitle.module.scss";
