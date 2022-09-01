@@ -7,12 +7,12 @@ import useAuth from "context/useAuth";
 import { TextDecoratorPrimary, TextDecoratorSecondary } from "@components/Decorators/CustomText";
 // assets
 import JE_Logo from "@assets/img/je_logo.svg";
-import Store from "@assets/icons/store.svg";
-import Stats from "@assets/icons/stats.svg";
-import Pizza from "@assets/icons/pizza.svg";
-import User from "@assets/icons/user.svg";
-import Logout from "@assets/icons/logout.svg";
-import Jet from "@assets/icons/jet.svg";
+import Store from "@assets/art/store.svg";
+import Stats from "@assets/art/stats.svg";
+import Pizza from "@assets/art/pizza.svg";
+import User from "@assets/art/user.svg";
+import Logout from "@assets/art/logout.svg";
+import Jet from "@assets/art/jet.svg";
 // styles
 import style from "./NavbarMenu.module.scss";
 
