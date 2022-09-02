@@ -3,16 +3,16 @@ import React, { useEffect, useRef, useState } from "react";
 // styles
 import style from "./SpeedTest.module.scss";
 // types
-import { StatsType } from "./SpeedTest";
 import useDelay from "hooks/useDelay";
 import useAuth from "context/useAuth";
+import { StatsType } from "types/test";
 type TesterProps = { finishTest: (stats: StatsType) => void };
 type WordsType = {
 	valid: boolean;
 	word: string;
 };
 
-const Tester = ({ finishTest }: TesterProps) => {
+const Tester = () => {
 	// hooks
 	const delay = useDelay();
 	const auth = useAuth();
@@ -103,7 +103,7 @@ const Tester = ({ finishTest }: TesterProps) => {
 	};
 
 	const start = async () => {
-		const TESTING_TIME = 50000; //Cambiar a 60000 cuando vaya a producción
+		const TESTING_TIME = 5000000000; //Cambiar a 60000 cuando vaya a producción
 		// test time
 		await delay(TESTING_TIME);
 		// Remove the input to avoid user interactions after timeout
@@ -122,8 +122,6 @@ const Tester = ({ finishTest }: TesterProps) => {
 			valid_words: wordsChecked.filter((words) => words.valid).length,
 			wrong_words: wordsChecked.filter((words) => !words.valid).length,
 		};
-		// send data to SpeedTest component
-		finishTest(stats);
 	};
 	useEffect(() => {
 		start();

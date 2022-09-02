@@ -1,6 +1,7 @@
 @import "../../styles/variables";
-//
+@import "../../styles/buttons";
 
+//
 .elementsCentered {
 	display: flex;
 	align-items: center;
@@ -10,28 +11,32 @@
 	@extend .elementsCentered;
 	min-height: 100vh;
 
+	//
 	.menuContainer {
 		@extend .elementsCentered;
+		align-items: flex-start;
+		position: relative;
 		background-color: #fff;
 		border-radius: 1rem;
 		width: 80%;
 		min-height: 50vh;
-		.buttons {
-			@extend .elementsCentered;
-			height: 20em;
+		.buttonsContainer {
+			height: 100%;
 			padding: 2em;
 			width: 100%;
+			.rankingContainer {
+				margin-bottom: 5em;
+				.rankingButton {
+					@extend .linkReset, .buttonPrimary;
+					width: auto;
+					float: right;
+				}
+			}
 			.button {
-				display: flex;
-				align-items: center;
-				justify-content: center;
-				text-decoration: none;
-				height: 50%;
-				width: 50%;
-				border: none;
-				background-color: transparent;
-				border-left: 1px solid $orange;
-				border-bottom: 1px solid $orange;
+				@extend .buttonPrimary;
+				display: block;
+				margin: auto;
+				width: auto;
 				font-size: 2.5em;
 			}
 		}
