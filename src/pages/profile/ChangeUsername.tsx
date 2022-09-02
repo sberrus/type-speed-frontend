@@ -10,23 +10,16 @@ import style from "./Profile.module.scss";
 // context
 import useAuth from "context/useAuth";
 // types
-import { ConfigStateProps } from "./Profile";
 
-const ChangeUsername = ({ changeConfigState }: ConfigStateProps) => {
-	// hooks
-	const auth = useAuth();
-
+const ChangeUsername = () => {
 	// states
-	const [isEditingUsername, setIsEditingUsername] = useState(false);
-	const [username, setUsername] = useState(() => auth?.session?.user.username);
+	const [username, setUsername] = useState("");
 
 	// methods
 	const handleUsernameChange = (e: ChangeEvent<HTMLInputElement>) => {
 		setUsername(e.target.value);
 	};
-	const handleEditUsername = () => {
-		setIsEditingUsername((prev) => !prev);
-	};
+
 	const handleSubmit = (e: FormEvent) => {
 		e.preventDefault();
 	};
@@ -34,30 +27,25 @@ const ChangeUsername = ({ changeConfigState }: ConfigStateProps) => {
 		<div className={style.profile}>
 			<div className={style.wrapper}>
 				<h2 className="text-center">
-					<TextDecoratorPrimary>Perfil</TextDecoratorPrimary>
+					<TextDecoratorPrimary>Cambiar username</TextDecoratorPrimary>
 				</h2>
 				<Container fluid className={style.formContainer}>
 					<Row>
-						<Col md={6} className="m-auto">
+						<Col md={6} className="m-auto text-center">
 							<Form onSubmit={handleSubmit}>
 								<Form.Group className="mb-3" controlId="formBasicEmail">
-									<Form.Label>Email address</Form.Label>
 									<div className={style.inputContainer}>
 										<Form.Control
 											type="text"
-											placeholder="Enter new Username"
+											placeholder="Escribe nuevo username"
 											value={username}
-											disabled={!isEditingUsername}
 											onChange={handleUsernameChange}
 										/>
-										<button className={style.actionButtonContainer} onClick={handleEditUsername}>
-											<img src={isEditingUsername ? CloseButton : EditButton} alt="" />
-										</button>
 									</div>
 								</Form.Group>
 
-								<Button variant="primary" type="submit">
-									Submit
+								<Button variant="primary" type="submit" className="m-auto">
+									Cambiar username
 								</Button>
 							</Form>
 						</Col>

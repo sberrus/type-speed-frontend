@@ -12,6 +12,8 @@ import ChangeUsername from "@pages/profile/ChangeUsername";
 import UserRanking from "@pages/app/UserRanking";
 import GeneralRanking from "@pages/ranking/GeneralRanking";
 import Profile from "@pages/profile/Profile";
+import ChangePassword from "@pages/profile/ChangePassword";
+import ChangeSecret from "@pages/profile/ChangeSecret";
 
 const MainRouter = () => {
 	return (
@@ -33,6 +35,9 @@ const MainRouter = () => {
 				</Route>
 				<Route path="profile" element={<ProtectedRoute />}>
 					<Route index element={<Profile />} />
+					<Route path="change-username" element={<ChangeUsername />} />
+					<Route path="change-password" element={<ChangePassword />} />
+					<Route path="change-secret" element={<ChangeSecret />} />
 				</Route>
 				<Route path="*" element={<PageNotFound />} />
 			</Route>
