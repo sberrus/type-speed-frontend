@@ -16,7 +16,7 @@ export const TestContext = createContext<TestContextInterface | null>(null);
 //
 const TestProvider = ({ children }: TestContextProps) => {
 	// Testing type
-	const [testState, setTestState] = useState<TestStateType>("MENU");
+	const [testState, setTestState] = useState<TestStateType>("WARMUP");
 	// Show Stats
 	const [stats, setStats] = useState<StatsType>({
 		id: "",

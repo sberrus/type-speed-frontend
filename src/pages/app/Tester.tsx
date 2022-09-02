@@ -1,15 +1,12 @@
 // imports
 import React, { useEffect, useRef, useState } from "react";
-// components
-import { Col, Container, Row } from "react-bootstrap";
 // hooks
 import useDelay from "hooks/useDelay";
-// context
-import useAuth from "context/useAuth";
 // styles
 import style from "./SpeedTest.module.scss";
 // types
-import { StatsType } from "types/test";
+import { TextDecoratorPrimary, TextDecoratorSecondary } from "@components/Decorators/CustomText";
+import { Container } from "react-bootstrap";
 type WordsType = {
 	valid: boolean;
 	word: string;
@@ -18,7 +15,11 @@ type WordsType = {
 const Tester = () => {
 	// hooks
 	const delay = useDelay();
-	const auth = useAuth();
+
+	// STATES
+	// logic state
+	const [isTesting, setIsTesting] = useState(true);
+
 	// words input to use for the test
 	const [incomingText, setIncomingText] = useState(
 		"Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maxime est doloremque odio deleniti quasi itaque repellendus ipsam ad. Laboriosam adipisci alias deleniti? Blanditiis sequi in nobis incidunt error recusandae adipisci. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maxime est doloremque odio deleniti quasi itaque repellendus ipsam ad. Laboriosam adipisci alias deleniti? Blanditiis sequi in nobis incidunt error recusandae adipisci.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maxime est doloremque odio deleniti quasi itaque repellendus ipsam ad. Laboriosam adipisci alias deleniti? Blanditiis sequi in nobis incidunt error recusandae adipisci.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maxime est doloremque odio deleniti quasi itaque repellendus ipsam ad. Laboriosam adipisci alias deleniti? Blanditiis sequi in nobis incidunt error recusandae adipisci.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maxime est doloremque odio deleniti quasi itaque repellendus ipsam ad. Laboriosam adipisci alias deleniti? Blanditiis sequi in nobis incidunt error recusandae adipisci.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maxime est doloremque odio deleniti quasi itaque repellendus ipsam ad. Laboriosam adipisci alias deleniti? Blanditiis sequi in nobis incidunt error recusandae adipisci.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maxime est doloremque odio deleniti quasi itaque repellendus ipsam ad. Laboriosam adipisci alias deleniti? Blanditiis sequi in nobis incidunt error recusandae adipisci.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maxime est doloremque odio deleniti quasi itaque repellendus ipsam ad. Laboriosam adipisci alias deleniti? Blanditiis sequi in nobis incidunt error recusandae adipisci.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maxime est doloremque odio deleniti quasi itaque repellendus ipsam ad. Laboriosam adipisci alias deleniti? Blanditiis sequi in nobis incidunt error recusandae adipisci.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maxime est doloremque odio deleniti quasi itaque repellendus ipsam ad. Laboriosam adipisci alias deleniti? Blanditiis sequi in nobis incidunt error recusandae adipisci."
@@ -44,6 +45,7 @@ const Tester = () => {
 
 	// refs
 	const userInputRef = useRef<HTMLInputElement>(null);
+	const wordsCheckedRef = useRef<WordsType[]>([]);
 
 	// methods
 	const focusToInput = () => {
@@ -78,9 +80,13 @@ const Tester = () => {
 		// check if action key
 		if (actionKeys.includes(keyPressed)) {
 			if (userInput.word === wordsCollection[currentWordPointer]) {
-				setWordsChecked([...wordsChecked, userInput]);
+				const payload = [...wordsChecked, userInput];
+				setWordsChecked(payload);
+				wordsCheckedRef.current = payload;
 			} else {
-				setWordsChecked([...wordsChecked, { ...userInput, valid: false }]);
+				const payload = [...wordsChecked, { ...userInput, valid: false }];
+				setWordsChecked(payload);
+				wordsCheckedRef.current = payload;
 			}
 			setUserInput({ valid: true, word: "" });
 			const _wordPointer = currentWordPointer + 1;
@@ -105,29 +111,17 @@ const Tester = () => {
 		}
 	};
 
-	const start = async () => {
-		const TESTING_TIME = 5000000000; //Cambiar a 60000 cuando vaya a producción
+	const initTest = async () => {
+		const TESTING_TIME = 10000; //Cambiar a 60000 cuando vaya a producción
 		// test time
 		await delay(TESTING_TIME);
 		// Remove the input to avoid user interactions after timeout
-
-		// get user stats to send to backend
-		/**
-		 * palabras por minuto
-		 * letras por minuto
-		 * precision
-		 */
-		const words_per_minute = wordsChecked.filter((words) => words.valid === true).length;
-		console.log(words_per_minute);
-		const stats: StatsType = {
-			id: auth?.session?.user.username || "ERROR",
-			words_per_minute,
-			valid_words: wordsChecked.filter((words) => words.valid).length,
-			wrong_words: wordsChecked.filter((words) => !words.valid).length,
-		};
+		setIsTesting(false);
+		console.log(wordsCheckedRef);
+		await delay(5000);
 	};
 	useEffect(() => {
-		start();
+		initTest();
 		userInputRef.current?.focus();
 		return () => {};
 	}, []);
@@ -135,54 +129,83 @@ const Tester = () => {
 	return (
 		<div className={style.tester}>
 			<Container>
-				<Row className={style.statsContainer}>
-					<Col>hola</Col>
-					<Col>hola</Col>
-					<Col>hola</Col>
-				</Row>
-			</Container>
-			<div className={style.testWrapper} onClick={focusToInput}>
-				<div className={style.sectionWrapper}>
-					<div className={style.userInputAnswer}>
-						<div className={style.userAnswers}>
-							{/* words checked collection */}
-							{wordsChecked.map((word, key) => (
-								<span key={key} className={word.valid ? style.validAnswer : style.wrongAnswer}>
-									{word.word}&#160;
-								</span>
-							))}
-						</div>
-
-						<div className={style.currentWord}>
-							{/*  user input */}
-							<span className={userInput.valid ? style.validWord : style.wrongWord}>{userInput.word}</span>
-						</div>
-
-						<div className={style.inputWrapper}>
-							<input
-								type="text"
-								autoComplete="off"
-								value={userInput.word}
-								onChange={checkWord}
-								onKeyDown={checkKey}
-								ref={userInputRef}
-							/>
-						</div>
+				{/* Stats */}
+				<div className={style.statsContainer}>
+					<div className={style.PCSection}>
+						<h5>
+							<TextDecoratorSecondary>Palabras Correctas</TextDecoratorSecondary>
+						</h5>
+						<hr />
+						<span className={style.stat}>{wordsChecked.filter((word) => word.valid).length} ✅</span>
+					</div>
+					<div className={style.PPMSection}>
+						<h5>
+							<TextDecoratorSecondary>Total Palabras</TextDecoratorSecondary>
+						</h5>
+						<hr />
+						<span className={style.stat}>{wordsChecked.length} 🔠</span>
+					</div>
+					<div className={style.PESection}>
+						<h5>
+							<TextDecoratorSecondary>Palabras Erroneas</TextDecoratorSecondary>
+						</h5>
+						<hr />
+						<span className={style.stat}>{wordsChecked.filter((word) => !word.valid).length} ⛔</span>
 					</div>
 				</div>
-				{/* next words */}
-				<div className={style.sectionWrapper}>
-					{/* word to compare */}
-					{currentWord.slice(currentLetterPointer, currentWord.length)}
-					{/* upcoming words */}{" "}
-					{wordsCollection
-						.slice(1, wordsCollection.length)
-						.slice(currentWordPointer, wordsCollection.length)
-						.map((word, key) => (
-							<span key={key}>{word} </span>
-						))}
-				</div>
-			</div>
+
+				{/* Test Wrapper */}
+				{isTesting ? (
+					<div className={style.testWrapper} onClick={focusToInput}>
+						<div className={style.sectionWrapper}>
+							<div className={style.userInputAnswer}>
+								<div className={style.userAnswers}>
+									{/* words checked collection */}
+									{wordsChecked.map((word, key) => (
+										<span key={key} className={word.valid ? style.validAnswer : style.wrongAnswer}>
+											{word.word}&#160;
+										</span>
+									))}
+								</div>
+
+								<div className={style.currentWord}>
+									{/*  user input */}
+									<span className={userInput.valid ? style.validWord : style.wrongWord}>{userInput.word}</span>
+								</div>
+
+								<div className={style.inputWrapper}>
+									<input
+										type="text"
+										autoComplete="off"
+										value={userInput.word}
+										onChange={checkWord}
+										onKeyDown={checkKey}
+										ref={userInputRef}
+									/>
+								</div>
+							</div>
+						</div>
+						{/* next words */}
+						<div className={style.sectionWrapper}>
+							{/* word to compare */}
+							{currentWord.slice(currentLetterPointer, currentWord.length)}
+							{/* upcoming words */}{" "}
+							{wordsCollection
+								.slice(1, wordsCollection.length)
+								.slice(currentWordPointer, wordsCollection.length)
+								.map((word, key) => (
+									<span key={key}>{word} </span>
+								))}
+						</div>
+					</div>
+				) : (
+					<div className={style.finishMessage}>
+						<h2 className="text-center w-100">
+							<TextDecoratorPrimary>Test finalizado gracias por participar!</TextDecoratorPrimary>
+						</h2>
+					</div>
+				)}
+			</Container>
 		</div>
 	);
 };

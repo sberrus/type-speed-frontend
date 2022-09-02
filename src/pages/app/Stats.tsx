@@ -3,17 +3,13 @@ import { Table } from "react-bootstrap";
 import { StatsType, TestStateType } from "types/test";
 // types
 type StatsProps = {
-	setTestState: React.Dispatch<React.SetStateAction<TestStateType>>;
 	stats: StatsType;
 };
 
-const Stats = ({ setTestState, stats }: StatsProps) => {
-	const handleClick = () => {
-		setTestState("TESTING");
-	};
+const Stats = ({ stats }: StatsProps) => {
 	return (
 		<>
-			<button onClick={handleClick}>Try Again</button>
+			<button>Try Again</button>
 			<div>
 				<div>
 					Palabras por minuto: {(stats.words_per_minute / 60).toFixed(2)} LPS <br />

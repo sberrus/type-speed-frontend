@@ -4,9 +4,7 @@ import Tester from "./Tester";
 const JETest = () => {
 	return (
 		<TestProvider>
-			<>
-				<Tester />
-			</>
+			<Tester />
 		</TestProvider>
 	);
 };

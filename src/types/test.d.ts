@@ -1,4 +1,4 @@
-export type TestStateType = "MENU" | "TESTING" | "SHOWSTATS";
+export type TestStateType = "WARMUP" | "TESTING" | "SHOWSTATS";
 export type StatsType = {
 	id: string;
 	words_per_minute: number;

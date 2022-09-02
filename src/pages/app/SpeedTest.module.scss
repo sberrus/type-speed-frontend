@@ -45,17 +45,42 @@
 
 //
 .tester {
+	min-height: 71vh;
 	.statsContainer {
+		margin: 5em auto;
+		display: flex;
+		justify-content: space-evenly;
+		background-color: #fff;
+		border-radius: 1rem;
+		.sections {
+			margin: 1em 0;
+			color: $orange;
+			text-align: center;
+			font-weight: 600;
+			font-size: 1.25em;
+		}
+		.PCSection {
+			@extend .sections;
+			color: $success;
+		}
+		.PPMSection {
+			@extend .sections;
+		}
+		.PESection {
+			@extend .sections;
+			color: $danger;
+		}
 	}
 
 	.testWrapper {
-		background-color: $light;
+		background-color: #fff;
+		border-radius: 1rem;
 		padding: 1.5em 0;
-		margin: 0 1em;
 		position: relative;
 		display: flex;
 		color: $dark;
 		font-size: 25px;
+		margin: auto;
 		.sectionWrapper {
 			width: 50%;
 			overflow: hidden;
@@ -87,6 +112,12 @@
 				}
 			}
 		}
+	}
+
+	.finishMessage {
+		background-color: #fff;
+		border-radius: 1rem;
+		padding: 1.5em 0;
 	}
 }
 
