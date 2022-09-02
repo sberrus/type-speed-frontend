@@ -6,15 +6,18 @@
 	border: 3px solid #000;
 	border-top-right-radius: 1rem;
 	border-top-left-radius: 1rem;
+	width: 100%;
 }
 .authWrapper {
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	width: 100%;
 	min-height: 100vh;
 	//
 	.formWrapper {
 		margin: auto;
+		width: 100%;
 		.form {
 			@extend .container;
 

@@ -8,9 +8,10 @@ import PageNotFound from "@pages/PageNotFound";
 import ProtectedRoute from "./ProtectedRoute";
 import PublicRoute from "./PublicRoute";
 import AppTemplate from "templates/AppTemplate";
-import Profile from "@pages/profile/Profile";
+import ChangeUsername from "@pages/profile/ChangeUsername";
 import UserRanking from "@pages/app/UserRanking";
 import GeneralRanking from "@pages/ranking/GeneralRanking";
+import Profile from "@pages/profile/Profile";
 
 const MainRouter = () => {
 	return (

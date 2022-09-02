@@ -1,0 +1,35 @@
+@import "../../styles/variables";
+.profile {
+	min-height: 100vh;
+	display: flex;
+	align-items: flex-start;
+	justify-content: center;
+	.wrapper {
+		margin-top: 1em;
+		min-height: 50vh;
+		width: 100%;
+		padding: 1em;
+		background-color: #fff;
+		border-radius: 1rem;
+		.formContainer {
+			.inputContainer {
+				display: flex;
+				position: relative;
+				align-items: center;
+				.actionButtonContainer {
+					display: flex;
+					align-items: center;
+					position: absolute;
+					height: 60%;
+					right: 10px;
+					border: 1px solid $orange50;
+					border-radius: 1rem;
+					padding: 0 0.5em;
+					img {
+						height: 100%;
+					}
+				}
+			}
+		}
+	}
+}
