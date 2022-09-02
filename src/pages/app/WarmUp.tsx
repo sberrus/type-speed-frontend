@@ -49,13 +49,11 @@ const WarmUp = () => {
 		<div className={style.landing}>
 			<div className={style.menuContainer}>
 				{isCounting ? (
-					<>
-						<h2>
-							<TextDecoratorSecondary>
-								<>El test empieza en {count}</>
-							</TextDecoratorSecondary>
-						</h2>
-					</>
+					<h2 className="mt-5">
+						<TextDecoratorSecondary>
+							<>El test empieza en {count}</>
+						</TextDecoratorSecondary>
+					</h2>
 				) : (
 					<div className={style.buttonsContainer}>
 						<Container>

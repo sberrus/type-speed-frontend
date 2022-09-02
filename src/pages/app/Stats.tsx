@@ -1,7 +1,7 @@
 // imports
 import { Table } from "react-bootstrap";
+import { StatsType, TestStateType } from "types/test";
 // types
-import { StatsType, TestStateType } from "./Landing";
 type StatsProps = {
 	setTestState: React.Dispatch<React.SetStateAction<TestStateType>>;
 	stats: StatsType;

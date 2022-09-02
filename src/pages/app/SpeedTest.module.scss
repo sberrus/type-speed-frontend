@@ -44,41 +44,46 @@
 }
 
 //
-.testWrapper {
-	background-color: $light;
-	padding: 1.5em 0;
-	margin: 0 1em;
-	position: relative;
-	display: flex;
-	color: $dark;
-	font-size: 25px;
-	.sectionWrapper {
-		width: 50%;
-		overflow: hidden;
-		white-space: nowrap;
+.tester {
+	.statsContainer {
+	}
 
-		// user input wrapper
-		.userInputAnswer {
-			float: right;
-			text-align: right;
-			display: flex;
+	.testWrapper {
+		background-color: $light;
+		padding: 1.5em 0;
+		margin: 0 1em;
+		position: relative;
+		display: flex;
+		color: $dark;
+		font-size: 25px;
+		.sectionWrapper {
+			width: 50%;
+			overflow: hidden;
 			white-space: nowrap;
-			.userAnswers {
-				.validAnswer {
-					color: blue;
+
+			// user input wrapper
+			.userInputAnswer {
+				float: right;
+				text-align: right;
+				display: flex;
+				white-space: nowrap;
+				.userAnswers {
+					.validAnswer {
+						color: blue;
+					}
+					.wrongAnswer {
+						color: red;
+					}
 				}
-				.wrongAnswer {
-					color: red;
-				}
-			}
-			.currentWord {
-				display: inline;
-				width: fit-content;
-				.validWord {
-					color: blue;
-				}
-				.wrongWord {
-					color: red;
+				.currentWord {
+					display: inline;
+					width: fit-content;
+					.validWord {
+						color: blue;
+					}
+					.wrongWord {
+						color: red;
+					}
 				}
 			}
 		}

@@ -1,12 +1,15 @@
 // imports
 import React, { useEffect, useRef, useState } from "react";
+// components
+import { Col, Container, Row } from "react-bootstrap";
+// hooks
+import useDelay from "hooks/useDelay";
+// context
+import useAuth from "context/useAuth";
 // styles
 import style from "./SpeedTest.module.scss";
 // types
-import useDelay from "hooks/useDelay";
-import useAuth from "context/useAuth";
 import { StatsType } from "types/test";
-type TesterProps = { finishTest: (stats: StatsType) => void };
 type WordsType = {
 	valid: boolean;
 	word: string;
@@ -130,7 +133,14 @@ const Tester = () => {
 	}, []);
 
 	return (
-		<>
+		<div className={style.tester}>
+			<Container>
+				<Row className={style.statsContainer}>
+					<Col>hola</Col>
+					<Col>hola</Col>
+					<Col>hola</Col>
+				</Row>
+			</Container>
 			<div className={style.testWrapper} onClick={focusToInput}>
 				<div className={style.sectionWrapper}>
 					<div className={style.userInputAnswer}>
@@ -173,7 +183,7 @@ const Tester = () => {
 						))}
 				</div>
 			</div>
-		</>
+		</div>
 	);
 };
 
