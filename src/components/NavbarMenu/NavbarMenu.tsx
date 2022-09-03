@@ -1,5 +1,5 @@
 // imports
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 // components
 import { Button, Container, Nav, Navbar } from "react-bootstrap";
@@ -17,10 +17,16 @@ import Jet from "@assets/art/jet.svg";
 import style from "./NavbarMenu.module.scss";
 
 const NavbarMenu = () => {
+	const [isCollapse, setIsCollapse] = useState(false);
 	const auth = useAuth();
 
+	// methods
 	const handleLogout = () => {
 		auth?.logout();
+	};
+
+	const toggleNav = () => {
+		setIsCollapse((prev) => !prev);
 	};
 
 	useEffect(() => {
@@ -28,28 +34,28 @@ const NavbarMenu = () => {
 	}, []);
 
 	return (
-		<Navbar expand="md" className={style.navbarContainer} sticky="top" collapseOnSelect>
+		<Navbar expand="md" className={style.navbarContainer} sticky="top" expanded={isCollapse}>
 			<Container>
-				<div className="d-flex justify-content-evenly align-items-center w-100 px-3">
-					<Navbar.Toggle aria-controls="navbarScroll" />
+				<div className="d-flex justify-content-evenly align-items-center w-100 px-lg-3 ">
+					<Navbar.Toggle aria-controls="navbarScroll" onClick={toggleNav} />
 					<div>
 						<Navbar.Collapse id="navbarScroll">
 							<Nav className={`${style.navbar} my-2 my-lg-0`} navbarScroll>
 								{auth?.isLogged() ? (
 									<>
-										<Link to="/" className={style.link}>
+										<Link to="/" className={style.link} onClick={toggleNav}>
 											<div className={style.iconContainer}>
 												<img src={Store} alt="Inicio logo" />
 											</div>
 											<TextDecoratorSecondary>Inicio</TextDecoratorSecondary>
 										</Link>
-										<Link to="ranking" className={style.link}>
+										<Link to="ranking" className={style.link} onClick={toggleNav}>
 											<div className={style.iconContainer}>
 												<img src={Stats} alt="Inicio logo" />
 											</div>
 											<TextDecoratorSecondary>Ranking</TextDecoratorSecondary>
 										</Link>
-										<Link to="/app" className={style.link}>
+										<Link to="/app" className={style.link} onClick={toggleNav}>
 											<div className={style.iconContainer}>
 												<img src={Pizza} alt="Inicio logo" />
 											</div>
@@ -58,10 +64,22 @@ const NavbarMenu = () => {
 									</>
 								) : (
 									<>
-										<Link to="/auth" className={style.link} state={{ loginState: "Login" }} replace>
+										<Link
+											to="/auth"
+											className={style.link}
+											state={{ loginState: "Login" }}
+											replace
+											onClick={toggleNav}
+										>
 											<TextDecoratorPrimary>Login</TextDecoratorPrimary>
 										</Link>
-										<Link to="/auth" className={style.link} state={{ loginState: "Register" }} replace>
+										<Link
+											to="/auth"
+											className={style.link}
+											state={{ loginState: "Register" }}
+											replace
+											onClick={toggleNav}
+										>
 											<TextDecoratorPrimary>Register</TextDecoratorPrimary>
 										</Link>
 									</>
@@ -151,7 +169,8 @@ const NavbarMenu = () => {
 								</Button>
 							</div>
 						)}
-						<div className={style.logo}>
+
+						<div className={style.logo} onClick={toggleNav}>
 							<Link to="/" className={style.logoContainerLink}>
 								<img src={JE_Logo} alt="Inicio logo" />
 							</Link>
