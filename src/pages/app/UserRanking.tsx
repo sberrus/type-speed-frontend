@@ -49,7 +49,7 @@ const UserRanking = () => {
 										<tr key={key}>
 											<td>{key + 1}</td>
 											<td>{score.words_per_minute}</td>
-											<td>{score.accuracy * 100}%</td>
+											<td>{(score.accuracy * 100).toFixed(2)}%</td>
 											<td>{score.letters_per_second}</td>
 										</tr>
 									))}

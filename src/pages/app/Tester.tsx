@@ -112,7 +112,7 @@ const Tester = () => {
 	};
 
 	const initTest = async () => {
-		const TESTING_TIME = 10000000;
+		const TESTING_TIME = 60000;
 		// test time
 		await delay(TESTING_TIME);
 		// Remove the input to avoid user interactions after timeout
@@ -134,24 +134,38 @@ const Tester = () => {
 				<div className={style.statsContainer}>
 					<div className={style.PCSection}>
 						<h5>
-							<TextDecoratorSecondary>Palabras Correctas</TextDecoratorSecondary>
+							<TextDecoratorSecondary>Palabras/min</TextDecoratorSecondary>
 						</h5>
 						<hr />
-						<span className={style.stat}>{wordsChecked.filter((word) => word.valid).length} ✅</span>
+						<span className={style.stat}>{wordsChecked.filter((word) => word.valid).length}</span>
 					</div>
 					<div className={style.PPMSection}>
 						<h5>
-							<TextDecoratorSecondary>Total Palabras</TextDecoratorSecondary>
+							<TextDecoratorSecondary>Letras/min</TextDecoratorSecondary>
 						</h5>
 						<hr />
-						<span className={style.stat}>{wordsChecked.length} 🔠</span>
+						<span className={style.stat}>
+							{
+								wordsChecked
+									.filter((word) => word.valid)
+									.map((word) => word.word)
+									.join("").length
+							}
+						</span>
 					</div>
 					<div className={style.PESection}>
 						<h5>
-							<TextDecoratorSecondary>Palabras Erroneas</TextDecoratorSecondary>
+							<TextDecoratorSecondary>Precisión%</TextDecoratorSecondary>
 						</h5>
 						<hr />
-						<span className={style.stat}>{wordsChecked.filter((word) => !word.valid).length} ⛔</span>
+						<span className={style.stat}>
+							{wordsChecked.length > 0
+								? Number(
+										((wordsChecked.filter((word) => word.valid).length / wordsChecked.length) * 100).toFixed()
+								  )
+								: 0}
+							%
+						</span>
 					</div>
 				</div>
 

@@ -103,7 +103,7 @@ const GeneralRanking = () => {
 												<span>
 													{key + 1}. {score.id}
 												</span>{" "}
-												<span className="float-end">{score.accuracy * 100}%</span>
+												<span className="float-end">{(score.accuracy * 100).toFixed(2)}%</span>
 											</>
 										</TextDecoratorSecondary>
 									</ListGroup.Item>

@@ -30,7 +30,7 @@ const NavbarMenu = () => {
 	return (
 		<Navbar expand="md" className={style.navbarContainer} sticky="top" collapseOnSelect>
 			<Container>
-				<div className="d-flex justify-content-evenly align-items-center w-100">
+				<div className="d-flex justify-content-evenly align-items-center w-100 px-3">
 					<Navbar.Toggle aria-controls="navbarScroll" />
 					<div>
 						<Navbar.Collapse id="navbarScroll">

@@ -10,7 +10,7 @@ const Index = () => {
 	return (
 		<div className={style.index}>
 			{/* main */}
-			<Container className="p-lg-4">
+			<Container>
 				<Row className={`${style.mainWrapper}`}>
 					{/* sticky ranking */}
 					<AsideRanking />
