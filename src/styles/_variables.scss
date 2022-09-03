@@ -1,8 +1,12 @@
 $dark: #1d1d1d;
 $light: #d1d1d1;
-$success: green;
-$danger: red;
+$success: #008000;
+$danger: #ff0000;
 //
 $orange: #ff9811;
 $orange50: #ff981180;
 $orange10: #ff970f1a;
+
+//
+$wrong_answer: $light;
+$valid_answer: #ff9811;

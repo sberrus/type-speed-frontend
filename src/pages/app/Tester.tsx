@@ -2,10 +2,10 @@
 import React, { useEffect, useRef, useState } from "react";
 // hooks
 import useDelay from "hooks/useDelay";
-// styles
-import style from "./SpeedTest.module.scss";
 // context
 import useTest from "context/useTest";
+// styles
+import style from "./SpeedTest.module.scss";
 // types
 import { TextDecoratorPrimary, TextDecoratorSecondary } from "@components/Decorators/CustomText";
 import { Container } from "react-bootstrap";
@@ -112,7 +112,7 @@ const Tester = () => {
 	};
 
 	const initTest = async () => {
-		const TESTING_TIME = 60000;
+		const TESTING_TIME = 10000000;
 		// test time
 		await delay(TESTING_TIME);
 		// Remove the input to avoid user interactions after timeout
@@ -163,8 +163,9 @@ const Tester = () => {
 								<div className={style.userAnswers}>
 									{/* words checked collection */}
 									{wordsChecked.map((word, key) => (
-										<span key={key} className={word.valid ? style.validAnswer : style.wrongAnswer}>
-											{word.word}&#160;
+										<span key={key}>
+											<span className={word.valid ? style.validAnswer : style.wrongAnswer}>{word.word}</span>{" "}
+											&#160;
 										</span>
 									))}
 								</div>

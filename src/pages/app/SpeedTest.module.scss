@@ -75,6 +75,7 @@
 	.testWrapper {
 		background-color: #fff;
 		border-radius: 1rem;
+		box-shadow: 0 0 10px 0 $dark;
 		padding: 1.5em 0;
 		position: relative;
 		display: flex;
@@ -94,20 +95,21 @@
 				white-space: nowrap;
 				.userAnswers {
 					.validAnswer {
-						color: blue;
+						color: $valid_answer;
 					}
 					.wrongAnswer {
-						color: red;
+						text-decoration: line-through;
+						color: $wrong_answer;
 					}
 				}
 				.currentWord {
 					display: inline;
 					width: fit-content;
 					.validWord {
-						color: blue;
+						color: $valid_answer;
 					}
 					.wrongWord {
-						color: red;
+						color: $valid_answer;
 					}
 				}
 			}
