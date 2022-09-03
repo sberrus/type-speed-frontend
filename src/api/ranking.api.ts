@@ -1,7 +1,9 @@
 // const
 const baseUrl = "https://typespeed.samdev.es/api/ranking";
+import getStats from "helpers/getStats";
 // types
-import { RankingCategoriesTypes } from "types/ranking";
+import { RankingCategoriesTypes, ScoresType } from "types/ranking";
+import { WordsType } from "types/test";
 
 /**
  * get the top ten scores from all players
@@ -62,4 +64,23 @@ export const getRankingByCategory = async (category: RankingCategoriesTypes) => 
 	const response = await fetch(endpoint);
 	const { result } = await response.json();
 	return result;
+};
+
+export const saveNewScore = async (score: WordsType[], id: string, token: string) => {
+	const rawData = getStats(score, id);
+	try {
+		const response = await fetch(baseUrl, {
+			method: "POST",
+			headers: { "content-type": "application/json", "x-token": token },
+			body: JSON.stringify(rawData),
+		});
+		const res = await response.json();
+		if (response.status !== 200) {
+			console.log(res.errors);
+		}
+		console.log(res);
+		return res;
+	} catch (error: any) {
+		throw new Error(error);
+	}
 };

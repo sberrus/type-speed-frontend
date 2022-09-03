@@ -5,3 +5,8 @@ export type StatsType = {
 	valid_words: number;
 	wrong_words: number;
 };
+
+export type WordsType = {
+	valid: boolean;
+	word: string;
+};

@@ -4,17 +4,17 @@ import React, { useEffect, useRef, useState } from "react";
 import useDelay from "hooks/useDelay";
 // styles
 import style from "./SpeedTest.module.scss";
+// context
+import useTest from "context/useTest";
 // types
 import { TextDecoratorPrimary, TextDecoratorSecondary } from "@components/Decorators/CustomText";
 import { Container } from "react-bootstrap";
-type WordsType = {
-	valid: boolean;
-	word: string;
-};
+import { WordsType } from "types/test";
 
 const Tester = () => {
 	// hooks
 	const delay = useDelay();
+	const test = useTest();
 
 	// STATES
 	// logic state
@@ -112,12 +112,13 @@ const Tester = () => {
 	};
 
 	const initTest = async () => {
-		const TESTING_TIME = 10000; //Cambiar a 60000 cuando vaya a producción
+		const TESTING_TIME = 60000;
 		// test time
 		await delay(TESTING_TIME);
 		// Remove the input to avoid user interactions after timeout
 		setIsTesting(false);
-		console.log(wordsCheckedRef);
+		// save user score
+		test?.saveTest(wordsCheckedRef.current);
 		await delay(5000);
 	};
 	useEffect(() => {

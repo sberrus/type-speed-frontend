@@ -14,7 +14,7 @@ import ChangeSecret from "@pages/profile/ChangeSecret";
 import WarmUp from "@pages/app/WarmUp";
 import JETest from "@pages/app/JETest";
 // routes config
-import ProtectedRoute from "./ProtectedRoute";
+import ProtectedAppRoute from "./ProtectedAppRoute";
 import PublicRoute from "./PublicRoute";
 // context
 
@@ -32,12 +32,12 @@ const MainRouter = () => {
 				</Route>
 
 				{/* Protected */}
-				<Route path="app" element={<ProtectedRoute />}>
+				<Route path="app" element={<ProtectedAppRoute />}>
 					<Route index element={<WarmUp />} />
 					<Route path="test" element={<JETest />} />
 					<Route path="user-ranking" element={<UserRanking />} />
 				</Route>
-				<Route path="profile" element={<ProtectedRoute />}>
+				<Route path="profile" element={<ProtectedAppRoute />}>
 					<Route index element={<Profile />} />
 					<Route path="change-username" element={<ChangeUsername />} />
 					<Route path="change-password" element={<ChangePassword />} />

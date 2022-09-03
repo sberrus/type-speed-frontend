@@ -1,11 +1,14 @@
 // imports
+import { saveNewScore } from "@api/ranking.api";
+import getStats from "helpers/getStats";
 import { createContext, useEffect, useState } from "react";
-import { StatsType, TestStateType } from "types/test";
+import { StatsType, TestStateType, WordsType } from "types/test";
+import useAuth from "./useAuth";
 // types
 interface TestContextInterface {
 	testState: TestStateType;
 	stats: StatsType;
-	finishTest: (stats: StatsType) => void;
+	saveTest: (score: WordsType[]) => any;
 }
 type TestContextProps = {
 	children: React.ReactElement;
@@ -15,8 +18,10 @@ export const TestContext = createContext<TestContextInterface | null>(null);
 
 //
 const TestProvider = ({ children }: TestContextProps) => {
+	// hooks
+	const auth = useAuth();
 	// Testing type
-	const [testState, setTestState] = useState<TestStateType>("WARMUP");
+	const [testState, setTestState] = useState<TestStateType>("TESTING");
 	// Show Stats
 	const [stats, setStats] = useState<StatsType>({
 		id: "",
@@ -25,24 +30,21 @@ const TestProvider = ({ children }: TestContextProps) => {
 		wrong_words: 0,
 	});
 
-	/**
-	 * Get user stats after test timeout, send data to backend and finish the test.
-	 */
-	const finishTest = (stats: StatsType) => {
-		console.log("user stats", stats);
-		setStats(stats);
-		setTestState("SHOWSTATS");
+	// methods
+	const saveTest = async (score: WordsType[]) => {
+		const id = auth?.session?.user.username;
+		const token = auth?.session?.token;
+		saveNewScore(score, id as string, token as string);
 	};
 
 	useEffect(() => {
-		console.log("done!");
 		console.log(testState);
 		return () => {};
 	}, []);
 
 	// methods
 
-	return <TestContext.Provider value={{ testState, stats, finishTest }}>{children}</TestContext.Provider>;
+	return <TestContext.Provider value={{ testState, stats, saveTest }}>{children}</TestContext.Provider>;
 };
 
 export default TestProvider;

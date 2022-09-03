@@ -1,7 +1,8 @@
+import TestProvider from "context/TestContext";
 import useAuth from "context/useAuth";
 import { Navigate, Outlet, useLocation } from "react-router-dom";
 
-const ProtectedRoute = () => {
+const ProtectedAppRoute = () => {
 	// auth context
 	const auth = useAuth();
 	const session = auth?.isLogged();
@@ -13,10 +14,10 @@ const ProtectedRoute = () => {
 	}
 
 	return (
-		<>
+		<TestProvider>
 			<Outlet />
-		</>
+		</TestProvider>
 	);
 };
 
-export default ProtectedRoute;
+export default ProtectedAppRoute;
