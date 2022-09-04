@@ -14,7 +14,7 @@ import User from "@assets/art/user.svg";
 import Logout from "@assets/art/logout.svg";
 import Jet from "@assets/art/jet.svg";
 // styles
-import style from "./styles/navbar.module.scss";
+import style from "./Navbar.module.scss";
 
 const NavbarMenu = () => {
 	const [isCollapse, setIsCollapse] = useState(false);
