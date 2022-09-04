@@ -21,7 +21,7 @@ import style from "./Index.module.scss";
 
 const Content = () => {
 	return (
-		<Col as="main" lg={8} className={style.mainContent}>
+		<Col as="main" lg={8} className={`${style.mainContent}`}>
 			{/* hero */}
 			<section className={style.heroSection}>
 				<h2>

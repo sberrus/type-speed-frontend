@@ -11,7 +11,7 @@ const Index = () => {
 		<div className={style.index}>
 			{/* main */}
 			<Container>
-				<Row className={`${style.mainWrapper}`}>
+				<Row className={`${style.mainWrapper} p-2 p-sm-0`}>
 					{/* sticky ranking */}
 					<AsideRanking />
 					<Content />
