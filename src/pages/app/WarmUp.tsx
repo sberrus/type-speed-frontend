@@ -1,6 +1,6 @@
 // imports
 import { useEffect, useRef, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { BrowserView, MobileView } from "react-device-detect";
 // components
 import { Col, Container, Row } from "react-bootstrap";
@@ -76,9 +76,10 @@ const WarmUp = () => {
 							<Container>
 								<Row>
 									<Col lg={12} className={style.center}>
-										<button className={`${style.button}`} onClick={startTest}>
-											<TextDecoratorSecondary>Empezar test!</TextDecoratorSecondary>
-										</button>
+										<p>Actualmente esta app solo es válida para usar en Desktop</p>
+										<Link to="/ranking" className={`${style.button}`} onClick={startTest}>
+											<TextDecoratorSecondary>Ir a Ranking</TextDecoratorSecondary>
+										</Link>
 									</Col>
 								</Row>
 							</Container>

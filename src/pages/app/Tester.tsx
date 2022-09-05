@@ -10,11 +10,14 @@ import style from "./SpeedTest.module.scss";
 import { TextDecoratorPrimary, TextDecoratorSecondary } from "@components/Decorators/CustomText";
 import { Container } from "react-bootstrap";
 import { WordsType } from "types/test";
+import { isMobile } from "react-device-detect";
+import { useNavigate } from "react-router-dom";
 
 const Tester = () => {
 	// hooks
 	const delay = useDelay();
 	const test = useTest();
+	const navigate = useNavigate();
 
 	// STATES
 	// logic state
@@ -122,6 +125,9 @@ const Tester = () => {
 		await delay(5000);
 	};
 	useEffect(() => {
+		if (isMobile) {
+			navigate("/");
+		}
 		initTest();
 		userInputRef.current?.focus();
 		return () => {};
