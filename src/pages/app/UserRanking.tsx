@@ -1,6 +1,6 @@
 // components
 import { getUserScores } from "@api/ranking.api";
-import { TextDecoratorPrimary } from "@components/Decorators/CustomText";
+import { TextDecoratorPrimary, TextDecoratorSecondary } from "@components/Decorators/CustomText";
 import useAuth from "context/useAuth";
 import { useEffect, useState } from "react";
 import { Container, Table } from "react-bootstrap";
@@ -29,6 +29,9 @@ const UserRanking = () => {
 	return (
 		<div className={style.userRanking}>
 			<Container className={style.wrapper}>
+				<Link to="/ranking" className={`${style.backButton}`}>
+					<TextDecoratorSecondary>Volver</TextDecoratorSecondary>
+				</Link>
 				<h1 className="text-center mb-3">
 					<TextDecoratorPrimary>Mi Historial</TextDecoratorPrimary>
 				</h1>

@@ -39,13 +39,13 @@ const MainRouter = () => {
 				<Route path="app" element={<ProtectedAppRoute />}>
 					<Route index element={<WarmUp />} />
 					<Route path="test" element={<JETest />} />
-					<Route path="user-ranking" element={<UserRanking />} />
 				</Route>
 				<Route path="profile" element={<ProtectedAppRoute />}>
 					<Route index element={<Profile />} />
 					<Route path="change-username" element={<ChangeUsername />} />
 					<Route path="change-password" element={<ChangePassword />} />
 					<Route path="change-secret" element={<ChangeSecret />} />
+					<Route path="user-ranking" element={<UserRanking />} />
 				</Route>
 				<Route path="*" element={<PageNotFound />} />
 			</Route>

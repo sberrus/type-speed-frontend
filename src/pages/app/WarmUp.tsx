@@ -1,9 +1,10 @@
 // imports
 import { useEffect, useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { BrowserView, MobileView } from "react-device-detect";
 // components
 import { Col, Container, Row } from "react-bootstrap";
 import { TextDecoratorSecondary } from "@components/Decorators/CustomText";
-import { Link, useNavigate } from "react-router-dom";
 // styles
 import style from "./SpeedTest.module.scss";
 
@@ -46,34 +47,46 @@ const WarmUp = () => {
 
 	//
 	return (
-		<div className={style.landing}>
-			<div className={style.menuContainer}>
-				{isCounting ? (
-					<h2 className="mt-5">
-						<TextDecoratorSecondary>
-							<>El test empieza en {count}</>
-						</TextDecoratorSecondary>
-					</h2>
-				) : (
-					<div className={style.buttonsContainer}>
-						<Container>
-							<Row>
-								<Col xs={12} className={style.rankingContainer}>
-									<Link to="user-ranking" className={style.rankingButton}>
-										Ver mi ranking
-									</Link>
-								</Col>
-								<Col lg={12}>
-									<button className={`${style.button}`} onClick={startTest}>
-										<TextDecoratorSecondary>Empezar test!</TextDecoratorSecondary>
-									</button>
-								</Col>
-							</Row>
-						</Container>
-					</div>
-				)}
+		<Container>
+			<div className={style.landing}>
+				<div className={style.menuContainer}>
+					<BrowserView>
+						{isCounting ? (
+							<h2 className="mt-5">
+								<TextDecoratorSecondary>
+									<>El test empieza en {count}</>
+								</TextDecoratorSecondary>
+							</h2>
+						) : (
+							<div className={style.buttonsContainer}>
+								<Container>
+									<Row>
+										<Col lg={12} className={style.center}>
+											<button className={`${style.button}`} onClick={startTest}>
+												<TextDecoratorSecondary>Empezar test!</TextDecoratorSecondary>
+											</button>
+										</Col>
+									</Row>
+								</Container>
+							</div>
+						)}
+					</BrowserView>
+					<MobileView>
+						<div className={style.buttonsContainer}>
+							<Container>
+								<Row>
+									<Col lg={12} className={style.center}>
+										<button className={`${style.button}`} onClick={startTest}>
+											<TextDecoratorSecondary>Empezar test!</TextDecoratorSecondary>
+										</button>
+									</Col>
+								</Row>
+							</Container>
+						</div>
+					</MobileView>
+				</div>
 			</div>
-		</div>
+		</Container>
 	);
 };
 

@@ -79,7 +79,7 @@ const ForgotPassword = () => {
 							<div className={style.buttonContainer}>
 								<div className="mb-3">
 									<button type="submit" className={`${style.buttonPrimary}`}>
-										<TextDecoratorSecondary>Recover Password</TextDecoratorSecondary>
+										<TextDecoratorSecondary>Recuperar contraseña</TextDecoratorSecondary>
 									</button>
 								</div>
 								<hr />

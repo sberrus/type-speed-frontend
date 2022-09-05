@@ -1,12 +1,26 @@
 @import "../../styles/variables";
+@import "../../styles/borders";
+@import "../../styles/buttons";
 
 .ranking {
+	min-height: 77.6vh;
+	margin-top: 2em;
 	.rankingWrapper {
+		@extend .primaryBorder;
+		position: relative;
 		background-color: #fff;
 		border-radius: 1rem;
-		padding: 2.5em 5em;
+		padding: 1em;
+		.personalRankingContainer {
+			display: flex;
+			justify-content: flex-end;
+			.personalRankingButton {
+				@extend .buttonPrimary;
+				width: fit-content;
+			}
+		}
+
 		.rankingSection {
-			margin: 0 1em;
 			.imgContainer {
 				display: flex;
 				align-items: center;

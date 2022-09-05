@@ -1,5 +1,16 @@
+@import "../../styles/borders";
+@import "../../styles/buttons";
+
 .userRanking {
+	margin-top: 2em;
+	min-height: 77.6vh;
 	.wrapper {
+		padding: 1em;
+		.backButton {
+			@extend .buttonPrimary;
+			width: fit-content;
+		}
+		@extend .primaryBorder;
 		margin: auto;
 		background-color: #fff;
 		border-radius: 1rem;

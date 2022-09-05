@@ -1,18 +1,22 @@
 @import "../../styles/variables";
 @import "../../styles/buttons";
+@import "../../styles/borders";
+@import "../../styles/forms";
+
 .profile {
-	min-height: 100vh;
+	min-height: 77.6vh;
 	display: flex;
 	align-items: flex-start;
 	justify-content: center;
+	margin-top: 2em;
 
 	.wrapper {
-		margin-top: 1em;
+		@extend .primaryBorder;
+		background-color: #fff;
+		border-radius: 1rem;
 		min-height: 50vh;
 		width: 100%;
 		padding: 1em;
-		background-color: #fff;
-		border-radius: 1rem;
 		//profile menu
 		.menuContainer {
 			display: flex;

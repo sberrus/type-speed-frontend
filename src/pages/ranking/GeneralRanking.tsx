@@ -1,5 +1,6 @@
 // imports
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 // components
 import AnimatedTitle from "@components/AnimatedTitle";
 import { Col, Container, ListGroup, Row } from "react-bootstrap";
@@ -7,12 +8,11 @@ import { Col, Container, ListGroup, Row } from "react-bootstrap";
 import Wpm from "@assets/categories/Wpm.svg";
 import Lps from "@assets/categories/Lps.svg";
 import Acc from "@assets/categories/Acc.svg";
-
+// styles
+import style from "./GeneralRanking.module.scss";
 // types
 import { ScoresType } from "types/ranking";
 import { getRankingByCategory } from "@api/ranking.api";
-// styles
-import style from "./GeneralRanking.module.scss";
 import { TextDecoratorSecondary } from "@components/Decorators/CustomText";
 
 const GeneralRanking = () => {
@@ -41,8 +41,13 @@ const GeneralRanking = () => {
 	}, []);
 
 	return (
-		<div className={style.ranking}>
-			<Container className={style.rankingWrapper}>
+		<div className={`${style.ranking}`}>
+			<Container className={`${style.rankingWrapper}`}>
+				<div className={style.personalRankingContainer}>
+					<Link to="/profile/user-ranking" className={`${style.personalRankingButton}`}>
+						<TextDecoratorSecondary>Ver ranking personal</TextDecoratorSecondary>
+					</Link>
+				</div>
 				<AnimatedTitle />
 				<Row>
 					{/* Letters Per Second Ranking */}

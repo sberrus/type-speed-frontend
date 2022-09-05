@@ -42,7 +42,7 @@ const Content = () => {
 							<li>Espera a que el torneo este activo</li>
 							<li>Participa en el evento</li>
 						</ol>
-						<a href="#reglas" className={`${style.buttonPrimary} float-end`}>
+						<a href="#reglas" className={`${style.buttonPrimary} float-end w-25`}>
 							<TextDecoratorSecondary>Ver más</TextDecoratorSecondary>
 						</a>
 					</div>
@@ -59,7 +59,7 @@ const Content = () => {
 							<li>Los primero 3 en el ranking recibiran..... </li>
 							<li>Los primero 100 participantes tendran una recompensa...</li>
 						</ol>
-						<a href="#premios" className={style.buttonPrimary}>
+						<a href="#premios" className={`${style.buttonPrimary} w-25`}>
 							<TextDecoratorSecondary>Ver más</TextDecoratorSecondary>
 						</a>
 					</div>
@@ -81,7 +81,7 @@ const Content = () => {
 							El torneo empezará un dia lunes desde inicio de horario laboral hasta el dia viernes que se
 							presentarán los........
 						</p>
-						<a href="#about" className={`${style.buttonPrimary} float-end`}>
+						<a href="#about" className={`${style.buttonPrimary} float-end w-25`}>
 							<TextDecoratorSecondary>Ver más</TextDecoratorSecondary>
 						</a>
 					</div>
@@ -194,7 +194,9 @@ const Content = () => {
 						mejor % de precisión. Estas 3 categorias seran premiadas a los 3 primeros lugares.
 					</p>
 				</article>
-				<article className={style.bannerContainer}>{/* <img src={anner alt="Tournment Banner" /> */}</article>
+				<article className={style.bannerContainer}>
+					<img src={Banner} alt="Tournment Banner" />
+				</article>
 			</section>
 		</Col>
 	);

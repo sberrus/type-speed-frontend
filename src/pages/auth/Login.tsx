@@ -47,7 +47,7 @@ const Login = () => {
 								<hr />
 								<Form.Group className="mb-3" controlId="username">
 									<Form.Label className={style.label}>
-										<TextDecoratorSecondary>Usuario:</TextDecoratorSecondary>
+										<TextDecoratorSecondary>Usuario</TextDecoratorSecondary>
 									</Form.Label>
 									<Form.Control
 										type="text"
@@ -58,7 +58,7 @@ const Login = () => {
 								</Form.Group>
 								<Form.Group className="mb-3" controlId="password">
 									<Form.Label className={style.label}>
-										<TextDecoratorSecondary>Contraseña:</TextDecoratorSecondary>
+										<TextDecoratorSecondary>Contraseña</TextDecoratorSecondary>
 									</Form.Label>
 									<Form.Control
 										type="password"
