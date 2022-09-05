@@ -38,7 +38,7 @@ const UserRanking = () => {
 				<div className={style.tableContainer}>
 					{scores.length > 0 ? (
 						<>
-							<Table striped bordered hover>
+							<Table hover responsive>
 								<thead>
 									<tr>
 										<th>#</th>

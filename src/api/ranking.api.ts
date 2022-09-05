@@ -64,7 +64,6 @@ export const getRankingByCategory = async (category: RankingCategoriesTypes) => 
 	const endpoint = `${baseUrl}/category/${category}`;
 	const response = await fetch(endpoint);
 	const { result } = await response.json();
-	console.log(result);
 	return result;
 };
 
