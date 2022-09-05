@@ -42,7 +42,7 @@ const Content = () => {
 							<li>Espera a que el torneo este activo</li>
 							<li>Participa en el evento</li>
 						</ol>
-						<a href="#reglas" className={`${style.buttonPrimary} float-end w-25`}>
+						<a href="#reglas" className={`${style.buttonPrimary} float-end col-6 col-md-4`}>
 							<TextDecoratorSecondary>Ver más</TextDecoratorSecondary>
 						</a>
 					</div>
@@ -59,7 +59,7 @@ const Content = () => {
 							<li>Los primero 3 en el ranking recibiran..... </li>
 							<li>Los primero 100 participantes tendran una recompensa...</li>
 						</ol>
-						<a href="#premios" className={`${style.buttonPrimary} w-25`}>
+						<a href="#premios" className={`${style.buttonPrimary} col-6 col-md-4`}>
 							<TextDecoratorSecondary>Ver más</TextDecoratorSecondary>
 						</a>
 					</div>
@@ -81,7 +81,7 @@ const Content = () => {
 							El torneo empezará un dia lunes desde inicio de horario laboral hasta el dia viernes que se
 							presentarán los........
 						</p>
-						<a href="#about" className={`${style.buttonPrimary} float-end w-25`}>
+						<a href="#about" className={`${style.buttonPrimary} float-end col-6 col-md-4`}>
 							<TextDecoratorSecondary>Ver más</TextDecoratorSecondary>
 						</a>
 					</div>

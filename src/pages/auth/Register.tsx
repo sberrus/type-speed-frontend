@@ -80,6 +80,7 @@ const Register = () => {
 									</Form.Label>
 									<Form.Control
 										className={style.input}
+										autoCapitalize="off"
 										type="text"
 										value={username}
 										onChange={handleUsername}
@@ -91,6 +92,7 @@ const Register = () => {
 									</Form.Label>
 									<Form.Control
 										className={style.input}
+										autoCapitalize="off"
 										type="password"
 										value={password}
 										onChange={handlePassword}
@@ -102,6 +104,7 @@ const Register = () => {
 									</Form.Label>
 									<Form.Control
 										className={style.input}
+										autoCapitalize="off"
 										type="password"
 										value={passwordConfirm}
 										onChange={handlePasswordConfirm}
@@ -130,6 +133,7 @@ const Register = () => {
 									</Form.Label>
 									<Form.Control
 										className={style.input}
+										autoCapitalize="off"
 										type="text"
 										value={secretQuestion}
 										onChange={handleSecretQuestion}
@@ -150,6 +154,7 @@ const Register = () => {
 									</Form.Label>
 									<Form.Control
 										className={style.input}
+										autoCapitalize="off"
 										type="password"
 										value={secret}
 										onChange={handleSecret}

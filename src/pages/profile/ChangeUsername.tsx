@@ -47,6 +47,7 @@ const ChangeUsername = () => {
 										<TextDecoratorSecondary>Nuevo nombre de usuario</TextDecoratorSecondary>
 									</Form.Label>
 									<Form.Control
+										autoCapitalize="off"
 										type="text"
 										value={username}
 										onChange={handleUsername}
@@ -58,6 +59,7 @@ const ChangeUsername = () => {
 										<TextDecoratorSecondary>Confirmar nombre de usuario</TextDecoratorSecondary>
 									</Form.Label>
 									<Form.Control
+										autoCapitalize="off"
 										type="text"
 										value={confirmUsername}
 										onChange={handleConfirmUsername}

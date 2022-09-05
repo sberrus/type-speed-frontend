@@ -47,6 +47,7 @@ const ChangePassword = () => {
 										<TextDecoratorSecondary>Contraseña</TextDecoratorSecondary>
 									</Form.Label>
 									<Form.Control
+										autoCapitalize="off"
 										type="text"
 										value={password}
 										onChange={handlePassword}
@@ -58,6 +59,7 @@ const ChangePassword = () => {
 										<TextDecoratorSecondary>Confirmar contraseña</TextDecoratorSecondary>
 									</Form.Label>
 									<Form.Control
+										autoCapitalize="off"
 										type="text"
 										value={confirmPassword}
 										onChange={handleConfirmPassword}

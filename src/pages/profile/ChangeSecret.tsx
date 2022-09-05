@@ -46,13 +46,20 @@ const ChangeSecret = () => {
 									<Form.Label className={style.label}>
 										<TextDecoratorSecondary>Nuevo secreto</TextDecoratorSecondary>
 									</Form.Label>
-									<Form.Control type="text" value={secret} onChange={handleSecret} className={style.input} />
+									<Form.Control
+										autoCapitalize="off"
+										type="text"
+										value={secret}
+										onChange={handleSecret}
+										className={style.input}
+									/>
 								</Form.Group>
 								<Form.Group className="mb-3" controlId="password">
 									<Form.Label className={style.label}>
 										<TextDecoratorSecondary>Confirmar nuevo secreto</TextDecoratorSecondary>
 									</Form.Label>
 									<Form.Control
+										autoCapitalize="off"
 										type="text"
 										value={confirmSecret}
 										onChange={handleConfirmSecret}

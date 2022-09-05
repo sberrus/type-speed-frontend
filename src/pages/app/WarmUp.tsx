@@ -73,10 +73,10 @@ const WarmUp = () => {
 					</BrowserView>
 					<MobileView>
 						<div className={style.buttonsContainer}>
+							<p>Actualmente esta app solo es válida para usar en Desktop</p>
 							<Container>
 								<Row>
 									<Col lg={12} className={style.center}>
-										<p>Actualmente esta app solo es válida para usar en Desktop</p>
 										<Link to="/ranking" className={`${style.button}`} onClick={startTest}>
 											<TextDecoratorSecondary>Ir a Ranking</TextDecoratorSecondary>
 										</Link>

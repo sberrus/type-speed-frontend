@@ -55,25 +55,45 @@ const ForgotPassword = () => {
 									<Form.Label className={style.label}>
 										<TextDecoratorSecondary>Usuario</TextDecoratorSecondary>
 									</Form.Label>
-									<Form.Control className={style.input} type="text" onChange={handleUsername} />
+									<Form.Control
+										className={style.input}
+										autoCapitalize="off"
+										type="text"
+										onChange={handleUsername}
+									/>
 								</Form.Group>
 								<Form.Group className="mb-3" controlId="password">
 									<Form.Label className={style.label}>
 										<TextDecoratorSecondary>Nueva contraseña</TextDecoratorSecondary>
 									</Form.Label>
-									<Form.Control className={style.input} type="password" onChange={handlePassword} />
+									<Form.Control
+										className={style.input}
+										autoCapitalize="off"
+										type="password"
+										onChange={handlePassword}
+									/>
 								</Form.Group>
 								<Form.Group className="mb-3" controlId="confirmPassword">
 									<Form.Label className={style.label}>
 										<TextDecoratorSecondary>Confirmar contraseña</TextDecoratorSecondary>{" "}
 									</Form.Label>
-									<Form.Control className={style.input} type="password" onChange={handlePasswordConfirm} />
+									<Form.Control
+										className={style.input}
+										autoCapitalize="off"
+										type="password"
+										onChange={handlePasswordConfirm}
+									/>
 								</Form.Group>
 								<Form.Group className="mb-3" controlId="secret">
 									<Form.Label className={style.label}>
 										<TextDecoratorSecondary>[pregunta secreta]</TextDecoratorSecondary>{" "}
 									</Form.Label>
-									<Form.Control className={style.input} type="text" onChange={handleSecret} />
+									<Form.Control
+										className={style.input}
+										autoCapitalize="off"
+										type="text"
+										onChange={handleSecret}
+									/>
 								</Form.Group>
 							</div>
 							<div className={style.buttonContainer}>

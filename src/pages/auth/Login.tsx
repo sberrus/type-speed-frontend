@@ -51,6 +51,7 @@ const Login = () => {
 									</Form.Label>
 									<Form.Control
 										type="text"
+										autoCapitalize="off"
 										value={username}
 										onChange={handleUsername}
 										className={style.input}
@@ -62,6 +63,7 @@ const Login = () => {
 									</Form.Label>
 									<Form.Control
 										type="password"
+										autoCapitalize="off"
 										value={password}
 										onChange={handlePassword}
 										className={style.input}
