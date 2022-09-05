@@ -1,6 +1,6 @@
 import config from "./config";
 // data
-const baseUrl = `${config.url.dev}/auth`;
+const baseUrl = `${config.url.prod}/auth`;
 //
 // types
 export type SessionType = {
