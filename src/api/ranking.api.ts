@@ -1,8 +1,9 @@
+import config from "./config";
 // const
-const baseUrl = "https://typespeed.samdev.es/api/ranking";
+const baseUrl = `${config.url.dev}/ranking`;
 import getStats from "helpers/getStats";
 // types
-import { RankingCategoriesTypes, ScoresType } from "types/ranking";
+import { RankingCategoriesTypes } from "types/ranking";
 import { WordsType } from "types/test";
 
 /**

@@ -1,6 +1,6 @@
 // imports
 import { ChangeEvent, FormEvent, useState } from "react";
-import { Button, Col, Container, Form, Row } from "react-bootstrap";
+import { Button, Col, Container, Form, OverlayTrigger, Row, Tooltip } from "react-bootstrap";
 import { TextDecoratorPrimary, TextDecoratorSecondary } from "@components/Decorators/CustomText";
 // context
 import useAuth from "context/useAuth";
@@ -55,6 +55,12 @@ const Register = () => {
 		setIsLoading(false);
 	};
 
+	// tooltip
+	const renderTooltip = (props: any) => (
+		<Tooltip id="button-tooltip" {...props}>
+			Este secreto es necesario para poder recuperar la contraseña. Guardalo en un lugar seguro
+		</Tooltip>
+	);
 	return (
 		<div className={style.authWrapper}>
 			<Container>
@@ -73,8 +79,8 @@ const Register = () => {
 										<TextDecoratorSecondary>Usuario</TextDecoratorSecondary>
 									</Form.Label>
 									<Form.Control
+										className={style.input}
 										type="text"
-										placeholder="tortilla_de_patata"
 										value={username}
 										onChange={handleUsername}
 									/>
@@ -83,13 +89,23 @@ const Register = () => {
 									<Form.Label className={style.label}>
 										<TextDecoratorSecondary>Contraseña</TextDecoratorSecondary>
 									</Form.Label>
-									<Form.Control type="password" value={password} onChange={handlePassword} />
+									<Form.Control
+										className={style.input}
+										type="password"
+										value={password}
+										onChange={handlePassword}
+									/>
 								</Form.Group>
 								<Form.Group className="mb-3" controlId="confirmPassword">
 									<Form.Label className={style.label}>
 										<TextDecoratorSecondary>Confirmar contraseña</TextDecoratorSecondary>
 									</Form.Label>
-									<Form.Control type="password" value={passwordConfirm} onChange={handlePasswordConfirm} />
+									<Form.Control
+										className={style.input}
+										type="password"
+										value={passwordConfirm}
+										onChange={handlePasswordConfirm}
+									/>
 								</Form.Group>
 								{/* <Form.Group className="mb-3">
 						<Form.Label className={style.label}>
@@ -101,11 +117,20 @@ const Register = () => {
 					</Form.Group> */}
 								<Form.Group className="mb-3" controlId="secretQuestion">
 									<Form.Label className={style.label}>
-										<TextDecoratorSecondary>Pregunta secreta</TextDecoratorSecondary>
+										<TextDecoratorSecondary>Pregunta secreta</TextDecoratorSecondary>{" "}
+										<OverlayTrigger
+											placement="right"
+											delay={{ show: 250, hide: 400 }}
+											overlay={renderTooltip}
+										>
+											<button className={style.tooltipTrigger} onClick={(e) => e.preventDefault()}>
+												?
+											</button>
+										</OverlayTrigger>
 									</Form.Label>
 									<Form.Control
+										className={style.input}
 										type="text"
-										placeholder="¿nombre mascota?"
 										value={secretQuestion}
 										onChange={handleSecretQuestion}
 									/>
@@ -113,10 +138,19 @@ const Register = () => {
 								<Form.Group className="mb-3" controlId="secret">
 									<Form.Label className={style.label}>
 										<TextDecoratorSecondary>Secreto</TextDecoratorSecondary>
+										<OverlayTrigger
+											placement="right"
+											delay={{ show: 250, hide: 400 }}
+											overlay={renderTooltip}
+										>
+											<button className={style.tooltipTrigger} onClick={(e) => e.preventDefault()}>
+												?
+											</button>
+										</OverlayTrigger>
 									</Form.Label>
 									<Form.Control
+										className={style.input}
 										type="password"
-										placeholder="hachiko 🐶"
 										value={secret}
 										onChange={handleSecret}
 									/>

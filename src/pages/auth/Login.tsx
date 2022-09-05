@@ -70,17 +70,17 @@ const Login = () => {
 							</div>
 							<div className={style.buttonContainer}>
 								<div className="mb-3">
-									<button className={style.buttonPrimary} type="submit" disabled={isLoading}>
+									<button className={style.buttonPrimary} disabled={isLoading}>
 										<TextDecoratorSecondary>Iniciar Sesión</TextDecoratorSecondary>
 									</button>
 								</div>
 								<hr className="text-warning" />
 								<div>
-									<Link to="forgot-password" className={`${style.buttonPrimary} mb-2`}>
-										<TextDecoratorSecondary>Recuperar contraseña</TextDecoratorSecondary>
-									</Link>
-									<Link to="register" className={`${style.buttonPrimary}`}>
+									<Link to="register" className={`${style.buttonPrimary} mb-2`}>
 										<TextDecoratorSecondary>Registrarse</TextDecoratorSecondary>
+									</Link>
+									<Link to="forgot-password" className={`${style.buttonPrimary}`}>
+										<TextDecoratorSecondary>Recuperar contraseña</TextDecoratorSecondary>
 									</Link>
 								</div>
 							</div>

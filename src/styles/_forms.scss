@@ -1,0 +1,55 @@
+.container {
+	padding: 1em 2em;
+	background-color: #fff;
+	border: 3px solid #000;
+	border-top-right-radius: 1rem;
+	border-top-left-radius: 1rem;
+	width: 100%;
+}
+.authWrapper {
+	display: flex;
+	justify-content: center;
+	width: 100%;
+	min-height: 82.6vh;
+	//
+	.formWrapper {
+		margin: auto;
+		.form {
+			@extend .container;
+
+			.label {
+				font-size: 18px;
+				.tooltipTrigger {
+					display: inline-flex;
+					align-items: center;
+					justify-content: center;
+					width: 1.25em;
+					height: 1.25em;
+					padding: 0.25em;
+					border-radius: 50%;
+					border: 1px solid $dark;
+					background-color: $orange10;
+					color: $dark;
+				}
+			}
+			.input {
+				border: none;
+				border-bottom: 2px solid $orange;
+				border-left: 2px solid $orange;
+				border-radius: 0;
+				outline: 5px solid #fff !important;
+				&::placeholder {
+					color: $orange;
+					opacity: 0.7;
+				}
+			}
+		}
+	}
+	//
+	.buttonContainer {
+		@extend .container;
+		position: relative;
+		margin: auto;
+		margin-top: 2em;
+	}
+}
