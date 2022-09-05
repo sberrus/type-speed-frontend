@@ -96,9 +96,14 @@
 			}
 		}
 		.logo {
+			position: relative;
+			overflow: hidden;
+			margin-left: 0.1em;
 			.logoContainerLink {
 				img {
+					transform: translate(-100%);
 					height: 3em;
+					animation: flyIn 1s 1.75s ease-out forwards;
 				}
 			}
 		}
@@ -155,6 +160,11 @@
 	}
 }
 
+@keyframes flyIn {
+	to {
+		transform: translate(0%);
+	}
+}
 @keyframes flyOut {
 	100% {
 		transform: translateX(100%);
