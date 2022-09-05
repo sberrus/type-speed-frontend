@@ -30,9 +30,6 @@ const Profile = () => {
 						<Col lg={6} className="m-auto">
 							<div className={style.menuContainer}>
 								<div className={style.buttonContainer}>
-									<Link to="change-username" className={style.button}>
-										<TextDecoratorSecondary>Cambiar Username</TextDecoratorSecondary>
-									</Link>
 									<Link to="change-password" className={style.button}>
 										<TextDecoratorSecondary>Cambiar Contraseña</TextDecoratorSecondary>
 									</Link>
