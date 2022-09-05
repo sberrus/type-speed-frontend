@@ -1,6 +1,6 @@
 import config from "./config";
 // const
-const baseUrl = `${config.url.prod}/ranking`;
+const baseUrl = `${config.url.dev}/ranking`;
 import getStats from "helpers/getStats";
 // types
 import { RankingCategoriesTypes } from "types/ranking";
@@ -64,11 +64,13 @@ export const getRankingByCategory = async (category: RankingCategoriesTypes) => 
 	const endpoint = `${baseUrl}/category/${category}`;
 	const response = await fetch(endpoint);
 	const { result } = await response.json();
+	console.log(result);
 	return result;
 };
 
 export const saveNewScore = async (score: WordsType[], id: string, token: string) => {
 	const rawData = getStats(score, id);
+	console.log(rawData);
 	try {
 		const response = await fetch(baseUrl, {
 			method: "POST",

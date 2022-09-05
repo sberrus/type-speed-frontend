@@ -64,7 +64,7 @@ const GeneralRanking = () => {
 												<span>
 													{key + 1}. {score.id}
 												</span>{" "}
-												<span className="float-end">{score.letters_per_second} LPS</span>
+												<span className="float-end">{Number(score.letters_per_second).toFixed(2)} LPS</span>
 											</>
 										</TextDecoratorSecondary>
 									</ListGroup.Item>

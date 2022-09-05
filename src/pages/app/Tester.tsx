@@ -115,7 +115,7 @@ const Tester = () => {
 	};
 
 	const initTest = async () => {
-		const TESTING_TIME = 60000;
+		const TESTING_TIME = 5000;
 		// test time
 		await delay(TESTING_TIME);
 		// Remove the input to avoid user interactions after timeout
