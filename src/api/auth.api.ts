@@ -1,5 +1,6 @@
+import config from "./config";
 // data
-const baseUrl = "https://typespeed.samdev.es/api/auth";
+const baseUrl = `${config.url.prod}/auth`;
 //
 // types
 export type SessionType = {
@@ -54,6 +55,33 @@ export const register = async (
 				department,
 				password_confirm: passwordConfirm,
 				secret_question: secretQuestion,
+				secret,
+			}),
+		});
+
+		const data = await res.json();
+		if (res.status !== 200) {
+			throw data.errors[0].msg;
+		}
+		return data;
+	} catch (error: any) {
+		console.log(error);
+		throw new Error(error);
+	}
+};
+
+export const forgotPassword = async (username: string, password: string, passwordConfirm: string, secret: string) => {
+	const route = "/forgot-password";
+	try {
+		const res = await fetch(baseUrl + route, {
+			method: "POST",
+			headers: {
+				"content-type": "application/json",
+			},
+			body: JSON.stringify({
+				username,
+				password,
+				password_confirm: passwordConfirm,
 				secret,
 			}),
 		});

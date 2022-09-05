@@ -1,6 +1,6 @@
-import { StateType } from "@pages/auth/Auth";
 import useAuth from "context/useAuth";
 import { Navigate, Outlet, useLocation } from "react-router-dom";
+import { StateType } from "types/auth";
 
 const PublicRoute = () => {
 	const auth = useAuth();

@@ -1,4 +1,4 @@
-import { login, register, SessionType } from "@api/auth.api";
+import { forgotPassword, login, register, SessionType } from "@api/auth.api";
 import { createContext, useEffect, useState } from "react";
 // types
 type GetSessionFunction = {
@@ -20,6 +20,7 @@ interface AppContextInterface {
 		secretQuestion: string,
 		secret: string
 	) => void;
+	recoverPassword: (username: string, password: string, passwordConfirm: string, secret: string) => void;
 }
 type AuthContextProps = {
 	children: React.ReactElement;
@@ -86,8 +87,25 @@ const AuthProvider = ({ children }: AuthContextProps) => {
 		}
 	};
 
+	const recoverPassword = async (username: string, password: string, passwordConfirm: string, secret: string) => {
+		// register
+		try {
+			const session = await forgotPassword(username, password, passwordConfirm, secret);
+			alert("Contraseña recuperada correctamente!");
+			// if (session) {
+			// 	localStorage.setItem("je-session", JSON.stringify(session));
+			// 	setSession(session);
+			// }
+		} catch (error) {
+			console.log(error);
+			setLoginError(error + "");
+		}
+	};
+
 	return (
-		<AuthContext.Provider value={{ session, getSession, logout, registerUser, isLogged, loginError, setLoginError }}>
+		<AuthContext.Provider
+			value={{ session, getSession, logout, registerUser, isLogged, loginError, setLoginError, recoverPassword }}
+		>
 			{children}
 		</AuthContext.Provider>
 	);

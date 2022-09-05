@@ -81,7 +81,7 @@ const NavbarMenu = () => {
 														<TextDecoratorSecondary>Login</TextDecoratorSecondary>
 													</Link>
 													<Link
-														to="/auth"
+														to="/auth/register"
 														className={style.link}
 														state={{ loginState: "Register" }}
 														replace
@@ -194,6 +194,7 @@ const NavbarMenu = () => {
 					</div>
 				</Container>
 			</Navbar>
+
 			{/* offcanvas */}
 			<Offcanvas show={isCollapse} onHide={closeNav} className={style.offcanvas}>
 				<Offcanvas.Header closeButton>

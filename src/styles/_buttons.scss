@@ -8,6 +8,9 @@
 }
 
 .buttonPrimary {
+	display: block;
+	text-align: center;
+	width: 100%;
 	text-decoration: none;
 	background-color: transparent;
 	border: 1px solid $orange;
