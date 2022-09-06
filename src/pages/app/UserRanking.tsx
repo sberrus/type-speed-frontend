@@ -22,7 +22,6 @@ const UserRanking = () => {
 	};
 	useEffect(() => {
 		fetchUserScores();
-
 		return () => {};
 	}, []);
 

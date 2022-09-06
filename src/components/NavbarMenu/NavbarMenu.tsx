@@ -184,7 +184,7 @@ const NavbarMenu = () => {
 
 										<div className={style.logo} onClick={closeNav}>
 											<Link to="/" className={style.logoContainerLink}>
-												<img src={JE_Logo} alt="Inicio logo" />
+												<img src={Jet} alt="Inicio logo" />
 											</Link>
 										</div>
 									</div>

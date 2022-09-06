@@ -1,30 +1,7 @@
-import { forgotPassword, login, register, SessionType } from "@api/auth.api";
+import { forgotPassword, login, register, useNewPassword } from "@api/auth.api";
 import { createContext, useEffect, useState } from "react";
-// types
-type GetSessionFunction = {
-	(username: string, password: string): void;
-};
-type LoginErrorType = string | null;
-interface AppContextInterface {
-	session: SessionType | null;
-	getSession: GetSessionFunction;
-	loginError: LoginErrorType;
-	setLoginError: (_error: LoginErrorType) => void;
-	logout: () => void;
-	isLogged: () => boolean;
-	registerUser: (
-		username: string,
-		password: string,
-		department: string,
-		passwordConfirm: string,
-		secretQuestion: string,
-		secret: string
-	) => void;
-	recoverPassword: (username: string, password: string, passwordConfirm: string, secret: string) => void;
-}
-type AuthContextProps = {
-	children: React.ReactElement;
-};
+import { AppContextInterface, AuthContextProps, GetSessionFunction, LoginErrorType, SessionType } from "types/auth";
+
 // context
 export const AuthContext = createContext<AppContextInterface | null>(null);
 
@@ -102,9 +79,48 @@ const AuthProvider = ({ children }: AuthContextProps) => {
 		}
 	};
 
+	const changePassword = async (password: string, passwordConfirm: string, secret: string) => {
+		// register
+		try {
+			const session = await useNewPassword(password, passwordConfirm, secret);
+			alert("Contraseña cambiada correctamente!");
+			if (session.ok) {
+				logout();
+			}
+		} catch (error) {
+			console.log(error);
+			setLoginError(error + "");
+		}
+	};
+	const changeSecret = async (old_secret: string, new_secret: string, secret_confirm: string) => {
+		// register
+		try {
+			const session = await changeSecret(old_secret, new_secret, secret_confirm);
+			alert("Contraseña recuperada correctamente!");
+			// if (session) {
+			// 	localStorage.setItem("je-session", JSON.stringify(session));
+			// 	setSession(session);
+			// }
+		} catch (error) {
+			console.log(error);
+			setLoginError(error + "");
+		}
+	};
+
 	return (
 		<AuthContext.Provider
-			value={{ session, getSession, logout, registerUser, isLogged, loginError, setLoginError, recoverPassword }}
+			value={{
+				session,
+				getSession,
+				logout,
+				registerUser,
+				isLogged,
+				loginError,
+				setLoginError,
+				recoverPassword,
+				changePassword,
+				changeSecret,
+			}}
 		>
 			{children}
 		</AuthContext.Provider>
