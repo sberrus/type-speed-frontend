@@ -12,6 +12,7 @@ import { Link } from "react-router-dom";
 
 const ChangeSecret = () => {
 	// states
+	const [oldSecret, setOldSecret] = useState("");
 	const [secret, setSecret] = useState("");
 	const [confirmSecret, setConfirmSecret] = useState("");
 	// hooks
@@ -23,6 +24,9 @@ const ChangeSecret = () => {
 		alert("secreto cambiado!");
 	};
 
+	const handleOldSecret = (e: ChangeEvent<HTMLInputElement>) => {
+		setOldSecret(() => e.target.value);
+	};
 	const handleSecret = (e: ChangeEvent<HTMLInputElement>) => {
 		setSecret(() => e.target.value);
 	};
@@ -42,6 +46,18 @@ const ChangeSecret = () => {
 								</h3>
 								<ErrorToast />
 								<hr />
+								<Form.Group className="mb-3" controlId="username">
+									<Form.Label className={style.label}>
+										<TextDecoratorSecondary>Secreto antiguo</TextDecoratorSecondary>
+									</Form.Label>
+									<Form.Control
+										autoCapitalize="off"
+										type="text"
+										value={oldSecret}
+										onChange={handleOldSecret}
+										className={style.input}
+									/>
+								</Form.Group>
 								<Form.Group className="mb-3" controlId="username">
 									<Form.Label className={style.label}>
 										<TextDecoratorSecondary>Nuevo secreto</TextDecoratorSecondary>

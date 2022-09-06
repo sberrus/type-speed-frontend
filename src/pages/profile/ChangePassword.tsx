@@ -14,13 +14,14 @@ const ChangePassword = () => {
 	// states
 	const [password, setPassword] = useState("");
 	const [confirmPassword, setConfirmPassword] = useState("");
+	const [secret, setSecret] = useState("");
 	// hooks
 	const auth = useAuth();
 
 	// methods
 	const handleSubmit = (e: FormEvent) => {
 		e.preventDefault();
-		alert("username cambiado!");
+		auth?.changePassword(password, confirmPassword, secret);
 	};
 
 	const handlePassword = (e: ChangeEvent<HTMLInputElement>) => {
@@ -28,6 +29,9 @@ const ChangePassword = () => {
 	};
 	const handleConfirmPassword = (e: ChangeEvent<HTMLInputElement>) => {
 		setConfirmPassword(() => e.target.value);
+	};
+	const handleSecret = (e: ChangeEvent<HTMLInputElement>) => {
+		setSecret(() => e.target.value);
 	};
 
 	return (
@@ -48,7 +52,7 @@ const ChangePassword = () => {
 									</Form.Label>
 									<Form.Control
 										autoCapitalize="off"
-										type="text"
+										type="password"
 										value={password}
 										onChange={handlePassword}
 										className={style.input}
@@ -60,9 +64,30 @@ const ChangePassword = () => {
 									</Form.Label>
 									<Form.Control
 										autoCapitalize="off"
-										type="text"
+										type="password"
 										value={confirmPassword}
 										onChange={handleConfirmPassword}
+										className={style.input}
+									/>
+								</Form.Group>
+								<Form.Group className="mb-3" controlId="secret">
+									<Form.Label className={style.label}>
+										<TextDecoratorSecondary>
+											<>
+												secreto{" "}
+												<i>
+													{auth?.session?.user.secret_question
+														? auth?.session?.user.secret_question
+														: "Error getting secret_question"}
+												</i>
+											</>
+										</TextDecoratorSecondary>
+									</Form.Label>
+									<Form.Control
+										autoCapitalize="off"
+										type="password"
+										value={secret}
+										onChange={handleSecret}
 										className={style.input}
 									/>
 								</Form.Group>

@@ -2,13 +2,6 @@ import config from "./config";
 // data
 const baseUrl = `${config.url.prod}/auth`;
 //
-// types
-export type SessionType = {
-	user: {
-		username: string;
-	};
-	token: string;
-};
 
 export const login = async (username: string, password: string) => {
 	const route = "/login";
@@ -80,6 +73,34 @@ export const forgotPassword = async (username: string, password: string, passwor
 			},
 			body: JSON.stringify({
 				username,
+				password,
+				password_confirm: passwordConfirm,
+				secret,
+			}),
+		});
+
+		const data = await res.json();
+		if (res.status !== 200) {
+			throw data.errors[0].msg;
+		}
+		return data;
+	} catch (error: any) {
+		console.log(error);
+		throw new Error(error);
+	}
+};
+export const useNewPassword = async (password: string, passwordConfirm: string, secret: string) => {
+	const route = "/change-password";
+	const { token } = JSON.parse(localStorage.getItem("je-session") as string);
+
+	try {
+		const res = await fetch(baseUrl + route, {
+			method: "POST",
+			headers: {
+				"content-type": "application/json",
+				"x-token": token,
+			},
+			body: JSON.stringify({
 				password,
 				password_confirm: passwordConfirm,
 				secret,
