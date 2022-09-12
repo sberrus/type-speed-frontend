@@ -8,10 +8,10 @@ import Decorator from "@assets/content/decorator.svg";
 import Trophie from "@assets/art/trophie.svg";
 import Register from "@assets/art/register.svg";
 import Pizza from "@assets/art/pizza.svg";
+import Wpm from "@assets/gif/Wpm.gif";
+import Lps from "@assets/gif/Lps.gif";
+import Acc from "@assets/gif/Acc.gif";
 
-import Wpm from "@assets/categories/Wpm.svg";
-import Lps from "@assets/categories/Lps.svg";
-import Acc from "@assets/categories/Acc.svg";
 // styles
 import style from "./Index.module.scss";
 
