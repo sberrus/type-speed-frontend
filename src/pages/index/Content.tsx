@@ -200,9 +200,9 @@ const Content = () => {
 						segundo) y el mejor % de precisión. Estas 3 categorías serán premiadas a los 3 primeros lugares.
 					</p>
 				</article>
-				<article className={style.bannerContainer}>
+				{/* <article className={style.bannerContainer}>
 					<img src={Banner} alt="Tournment Banner" />
-				</article>
+				</article> */}
 			</section>
 		</Col>
 	);
