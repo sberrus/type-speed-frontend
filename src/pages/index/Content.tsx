@@ -38,11 +38,13 @@ const Content = () => {
 							<TextDecoratorPrimary>REGLAS Y COMO PARTICIPAR</TextDecoratorPrimary>
 						</h5>
 						<ol>
-							<li>Registrate creando tu cuenta en nuestra web</li>
-							<li>Espera a que el torneo este activo</li>
-							<li>Participa en el evento</li>
+							<li>
+								Registrate creando tu cuenta en nuestra web <a href="/">www.jetspeedtest.com</a>
+							</li>
+							<li>Espera a inicios de semana que el torneo este activo</li>
+							<li>Participa en el torneo</li>
 						</ol>
-						<a href="#reglas" className={`${style.buttonPrimary} float-end col-6 col-md-4`}>
+						<a href="#rules" className={`${style.buttonPrimary} float-end col-6 col-md-4`}>
 							<TextDecoratorSecondary>Ver más</TextDecoratorSecondary>
 						</a>
 					</div>
@@ -55,11 +57,11 @@ const Content = () => {
 							<TextDecoratorPrimary>PREMIOS Y RECOMPENSAS</TextDecoratorPrimary>
 						</h5>
 						<ol>
-							<li>El primer lugar recibira.....</li>
-							<li>Los primero 3 en el ranking recibiran..... </li>
-							<li>Los primero 100 participantes tendran una recompensa...</li>
+							<li>El primer lugar de cada categoría ganara...</li>
+							<li>El segundo lugar de cada delegatoria se llevara a casa...</li>
+							<li>El tercer lugar...</li>
 						</ol>
-						<a href="#premios" className={`${style.buttonPrimary} col-6 col-md-4`}>
+						<a href="#rewards" className={`${style.buttonPrimary} col-6 col-md-4`}>
 							<TextDecoratorSecondary>Ver más</TextDecoratorSecondary>
 						</a>
 					</div>
@@ -78,8 +80,8 @@ const Content = () => {
 							<TextDecoratorPrimary>SOBRE EL EVENTO</TextDecoratorPrimary>
 						</h5>
 						<p>
-							El torneo empezará un dia lunes desde inicio de horario laboral hasta el dia viernes que se
-							presentarán los........
+							El torneo empezara a inicios de semana junto a la jornada laboral, recuerda presentar el test en tu
+							tiempo libre y de descanso para no. . .
 						</p>
 						<a href="#about" className={`${style.buttonPrimary} float-end col-6 col-md-4`}>
 							<TextDecoratorSecondary>Ver más</TextDecoratorSecondary>
@@ -95,34 +97,46 @@ const Content = () => {
 
 			{/* description */}
 			<section className={style.descriptionSection}>
-				<article id="explicacion">
+				{/* rules section */}
+				<article id="rules">
 					<div id="reglas" style={{ position: "absolute", top: "-100px" }}></div>
 					<h2 className="text-center">
 						<div className={style.titleImgContainer}>
 							<img src={Register} alt="" />
 						</div>
-						<TextDecoratorPrimary>PREMIOS Y RECOMPENSAS</TextDecoratorPrimary>
+						<TextDecoratorPrimary>REGLAS Y COMO PARTICIPAR</TextDecoratorPrimary>
 					</h2>
 					<Container>
 						<div className={style.list}>
 							<ol>
 								<li>
-									<span>Crea tu cuenta con lo siguientes parámetros.</span>
+									<span>Crea tu cuenta siguiendo los siguientes parámetros:</span>
 									<ul>
-										<li>Apodo</li>
-										<li>Contraseña</li>
+										<li>Usuario (Nombre.Apellido) de 5 a 20 caracteres</li>
+										<li>Contraseña de 5 a 20 caracteres</li>
 										<li>
-											PIN{" "}
+											Pregunta secreta
 											<small>
-												<b>*importante para recuperar su contraseña</b>
+												<b> (Una pregunta que solo puedas tu responder)</b>
 											</small>
 										</li>
+										<li>Respuesta de la pregunta.</li>
 									</ul>
 								</li>
-								<li>Esperar a que el evento este activo.</li>
-								<li>Participa en el torneo y gana premios.</li>
+								<li>Espera que el evento este activo a inicios de la siguiente semana.</li>
+								<li>¡Participa en el torneo y reta a tus compañero para ver quien es el mas rápido!</li>
 							</ol>
-							<p>Una vez presentes el Test se guardara tu mejor resultado en 3 categorias diferentes:</p>
+							<p>
+								Una vez presentes la prueba esta guardara tus 3 mejores resultados en las categorías de palabras
+								por minuto (PPM), letras por segundo (LPS) y precisión de escritura (%). Estos resultados serán
+								medidos junto a los otros participantes para luego poder ver quien ha sido el ganador del cada
+								categoría.
+							</p>
+							<p>
+								Los resultados se podrán observar a finalizar el torneo y serán premiados los ganadores
+								respectivamente.
+							</p>
+							<p>Recuerda que siempre podrás presentar el test una vez mas para mejorar tus resultados.</p>
 						</div>
 
 						<Row className={`${style.categories}`}>
@@ -144,39 +158,28 @@ const Content = () => {
 						</p>
 					</Container>
 				</article>
+				{/* Rewards section */}
 				<article>
-					<div id="premios" style={{ position: "absolute", top: "-100px" }}></div>
+					<div id="rewards" style={{ position: "absolute", top: "-100px" }}></div>
 					<h2 className="text-center">
 						<div className={style.titleImgContainer}>
 							<img src={Trophie} alt="" />
 						</div>
 						<TextDecoratorPrimary>PREMIOS Y RECOMPENSAS</TextDecoratorPrimary>
 					</h2>
-					<Row>
-						<Col>
-							<h4>
-								<TextDecoratorPrimary>Recompensas:</TextDecoratorPrimary>
-							</h4>
-							<p>
-								Los primero 100 participantes tendran recompensa una pegatina conmemorativa que tendras que
-								reclamar contactando con el equipo organizador.
-							</p>
-						</Col>
-						<Col>
-							<h4>
-								<TextDecoratorPrimary>Premios:</TextDecoratorPrimary>
-							</h4>
-							<div className={style.list}>
-								<ul>
-									<li>El primer lugar recibira una GiftCard de 100€</li>
-									<li>
-										Los primero 3 en el ranking recibiran una pequeña KeyCap conmemorativa al respectivo
-										puesto.
-									</li>
-								</ul>
-							</div>
-						</Col>
-					</Row>
+					<h4>
+						<TextDecoratorPrimary>Recompensas:</TextDecoratorPrimary>
+					</h4>
+					<div className={style.list}>
+						<ul>
+							<li>
+								El primer lugar de cada categoría ganara una pegatina conmemorativa al evento y un llavero del
+								torneo.
+							</li>
+							<li>El segundo lugar de cada delegatoria se llevara a casa una pegatina del torneo.</li>
+							<li>El tercer lugar se llevara también una pegatina del torneo. Sobre el evento.</li>
+						</ul>
+					</div>
 				</article>
 				<article>
 					<div id="about" style={{ position: "absolute", top: "-100px" }}></div>
@@ -187,11 +190,14 @@ const Content = () => {
 						<TextDecoratorPrimary>Información:</TextDecoratorPrimary>
 					</h4>
 					<p>
-						El torneo empezará un dia lunes XXX desde inicio de horario laboral (9:00) hasta el dia viernes XXX
-						sobre las 9:00 que se presentarán los resultados, cada participante puede presentar el test el dia que
-						quiera con tal y las veces que quiera con tal y esté entre el plazo de dias establecidos. Se guardaran
-						en el sistema de ranking el mejor PPm (palabras por minuto), el mejor LPS (letras por segundo) y el
-						mejor % de precisión. Estas 3 categorias seran premiadas a los 3 primeros lugares.
+						El torneo se llevara acabo en las oficinas de Just Eat y se presentara en estas mismas, cada
+						participante tendrá que presentarlo en su tiempo libre de manera proactiva. El torneo empezara el día
+						lunes a inicios de horario laboral para luego seguir activo hasta el día Jueves hasta ultima hora para
+						poder dar tiempo a todos los participantes a mejorar sus tiempos.
+					</p>
+					<p>
+						Se guardaran en el sistema de ranking el mejor PPM (palabras por minuto), el mejor LPS (letras por
+						segundo) y el mejor % de precisión. Estas 3 categorías serán premiadas a los 3 primeros lugares.
 					</p>
 				</article>
 				<article className={style.bannerContainer}>

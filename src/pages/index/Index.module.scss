@@ -84,9 +84,6 @@
 						ul {
 							list-style-type: "- ";
 						}
-						& > ul {
-							padding: 0;
-						}
 					}
 
 					.categories {
@@ -99,6 +96,8 @@
 					}
 				}
 				.bannerContainer {
+					border-radius: 1rem;
+					overflow: hidden;
 					img {
 						width: 100%;
 					}
