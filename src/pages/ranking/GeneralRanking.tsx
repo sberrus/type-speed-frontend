@@ -5,9 +5,9 @@ import { Link } from "react-router-dom";
 import AnimatedTitle from "@components/AnimatedTitle";
 import { Col, Container, ListGroup, Row } from "react-bootstrap";
 // assets
-import Wpm from "@assets/categories/Wpm.svg";
-import Lps from "@assets/categories/Lps.svg";
-import Acc from "@assets/categories/Acc.svg";
+import Wpm from "@assets/gif/Wpm.gif";
+import Lps from "@assets/gif/Lps.gif";
+import Acc from "@assets/gif/Acc.gif";
 // styles
 import style from "./GeneralRanking.module.scss";
 // types

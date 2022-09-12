@@ -41,18 +41,34 @@ const UserRanking = () => {
 								<thead>
 									<tr>
 										<th>#</th>
-										<th>Palabras Por Minuto(PPM)</th>
-										<th>Precisión(%)</th>
-										<th>Letras por segundo(LPS)</th>
+										<th>
+											<TextDecoratorSecondary>Palabras Por Minuto(PPM)</TextDecoratorSecondary>
+										</th>
+										<th>
+											<TextDecoratorSecondary>Precisión(%)</TextDecoratorSecondary>
+										</th>
+										<th>
+											<TextDecoratorSecondary>Letras por segundo(LPS)</TextDecoratorSecondary>
+										</th>
 									</tr>
 								</thead>
 								<tbody>
 									{scores.map((score, key) => (
 										<tr key={key}>
-											<td>{key + 1}</td>
-											<td>{score.words_per_minute}</td>
-											<td>{(score.accuracy * 100).toFixed(2)}%</td>
-											<td>{score.letters_per_second}</td>
+											<th>
+												<TextDecoratorSecondary>{`${key + 1}`}</TextDecoratorSecondary>
+											</th>
+											<td>
+												<TextDecoratorSecondary>{`${score.words_per_minute}`}</TextDecoratorSecondary>
+											</td>
+											<td>
+												<TextDecoratorSecondary>
+													{`${(score.accuracy * 100).toFixed(2)}%`}
+												</TextDecoratorSecondary>
+											</td>
+											<td>
+												<TextDecoratorSecondary>{`${score.letters_per_second}`}</TextDecoratorSecondary>
+											</td>
 										</tr>
 									))}
 								</tbody>
