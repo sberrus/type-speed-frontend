@@ -17,38 +17,57 @@ import { TextDecoratorSecondary } from "@components/Decorators/CustomText";
 
 const GeneralRanking = () => {
 	// states
-	const [WPMRanking, setPPMRanking] = useState<ScoresType[]>([]);
+	const [WPMRanking, setWPMRanking] = useState<ScoresType[]>([]);
 	const [LPSRanking, setLPSRanking] = useState<ScoresType[]>([]);
 	const [ACCRanking, setACCRanking] = useState<ScoresType[]>([]);
-	// methods
-	const fetchRankingByPPM = async () => {
-		const PPMScore = await getRankingByCategory("words_per_minute");
-		setPPMRanking(PPMScore);
-	};
-	const fetchRankingByLPS = async () => {
+
+	const fetchRankings = async () => {
+		let leaders: string[] = [];
+		const WPMScore = await getRankingByCategory("words_per_minute");
 		const LPSScore = await getRankingByCategory("letters_per_second");
-		setLPSRanking(LPSScore);
-	};
-	const fetchRankingByACC = async () => {
 		const ACCScore = await getRankingByCategory("accuracy");
-		setACCRanking(ACCScore);
+
+		// get WPM score and leader
+		leaders.push(WPMScore[0].id);
+		setWPMRanking(() => {
+			return WPMScore;
+		});
+
+		// filter duplicated leaders
+		const LPSRanking = LPSScore.filter((score: ScoresType) => {
+			return !leaders.includes(score.id);
+		});
+		leaders.push(LPSRanking[0].id);
+		setLPSRanking(() => {
+			return LPSRanking;
+		});
+
+		// filter duplicated leaders
+		const ACCRanking = ACCScore.filter((score: ScoresType) => {
+			return !leaders.includes(score.id);
+		});
+
+		setACCRanking(() => {
+			return ACCRanking;
+		});
 	};
 	useEffect(() => {
-		fetchRankingByPPM();
-		fetchRankingByLPS();
-		fetchRankingByACC();
+		fetchRankings();
 		return () => {};
 	}, []);
 
 	return (
 		<div className={`${style.ranking}`}>
 			<Container className={`${style.rankingWrapper}`}>
+				{/* user ranking button */}
 				<div className={style.personalRankingContainer}>
 					<Link to="/profile/user-ranking" className={`${style.personalRankingButton}`}>
 						<TextDecoratorSecondary>Ver ranking personal</TextDecoratorSecondary>
 					</Link>
 				</div>
+				{/* title */}
 				<AnimatedTitle />
+				{/* rankings */}
 				<Row>
 					{/* Letters Per Second Ranking */}
 					<Col as="section" className={style.rankingSection}>

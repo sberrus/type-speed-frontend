@@ -1,6 +1,6 @@
 import config from "./config";
 // const
-const baseUrl = `${config.url.prod}/ranking`;
+const baseUrl = `${config.url.dev}/ranking`;
 import getStats from "helpers/getStats";
 // types
 import { RankingCategoriesTypes } from "types/ranking";
