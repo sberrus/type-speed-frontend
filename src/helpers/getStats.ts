@@ -12,7 +12,6 @@ const getStats = (scores: WordsType[], id: string): RawScoreType => {
 		valid_words: scores.filter((word) => word.valid).length,
 		wrong_words: scores.filter((word) => !word.valid).length,
 	};
-	console.log(rawScore);
 	return rawScore;
 };
 

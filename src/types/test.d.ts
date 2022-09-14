@@ -1,3 +1,5 @@
+import { RawScoreType } from "./ranking";
+
 export type TestStateType = "WARMUP" | "TESTING" | "SHOWSTATS";
 export type StatsType = {
 	id: string;
@@ -9,4 +11,15 @@ export type StatsType = {
 export type WordsType = {
 	valid: boolean;
 	word: string;
+};
+
+// types
+interface TestContextInterface {
+	testState: TestStateType;
+	stats: RawScoreType | null;
+	saveTest: (score: WordsType[]) => any;
+	isSending: boolean;
+}
+type TestContextProps = {
+	children: React.ReactElement;
 };

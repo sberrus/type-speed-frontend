@@ -4,20 +4,22 @@ import { Route, Routes } from "react-router-dom";
 import Index from "@pages/index/Index";
 import PageNotFound from "@pages/PageNotFound";
 import AppTemplate from "templates/AppTemplate";
-import ChangeUsername from "@pages/profile/ChangeUsername";
 import UserRanking from "@pages/app/UserRanking";
 import GeneralRanking from "@pages/ranking/GeneralRanking";
 import Profile from "@pages/profile/Profile";
 import ChangePassword from "@pages/profile/ChangePassword";
-import ChangeSecret from "@pages/profile/ChangeSecret";
 import WarmUp from "@pages/app/WarmUp";
 import JETest from "@pages/app/JETest";
 import Login from "@pages/auth/Login";
 import Register from "@pages/auth/Register";
+import Stats from "@pages/app/Stats";
+// import ChangeUsername from "@pages/profile/ChangeUsername";
+// import ChangeSecret from "@pages/profile/ChangeSecret";
 // routes config
 import ProtectedAppRoute from "./ProtectedAppRoute";
 import PublicRoute from "./PublicRoute";
 import ForgotPassword from "@pages/auth/ForgotPassword";
+import TestProvider from "context/TestContext";
 // context
 
 const MainRouter = () => {
@@ -39,6 +41,7 @@ const MainRouter = () => {
 				<Route path="app" element={<ProtectedAppRoute />}>
 					<Route index element={<WarmUp />} />
 					<Route path="test" element={<JETest />} />
+					<Route path="stats" element={<Stats />} />
 				</Route>
 				<Route path="profile" element={<ProtectedAppRoute />}>
 					<Route index element={<Profile />} />

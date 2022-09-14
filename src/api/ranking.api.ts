@@ -69,7 +69,6 @@ export const getRankingByCategory = async (category: RankingCategoriesTypes) => 
 
 export const saveNewScore = async (score: WordsType[], id: string, token: string) => {
 	const rawData = getStats(score, id);
-	console.log(rawData);
 	try {
 		const response = await fetch(baseUrl, {
 			method: "POST",
@@ -80,8 +79,7 @@ export const saveNewScore = async (score: WordsType[], id: string, token: string
 		if (response.status !== 200) {
 			console.log(res.errors);
 		}
-		console.log(res);
-		return res;
+		return { res, data: rawData };
 	} catch (error: any) {
 		throw new Error(error);
 	}

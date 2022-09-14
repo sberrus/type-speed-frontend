@@ -115,15 +115,16 @@ const Tester = () => {
 	};
 
 	const initTest = async () => {
-		const TESTING_TIME = 60000;
+		const TESTING_TIME = 5000;
 		// test time
 		await delay(TESTING_TIME);
 		// Remove the input to avoid user interactions after timeout
 		setIsTesting(false);
 		// save user score
 		test?.saveTest(wordsCheckedRef.current);
-		await delay(5000);
+		navigate("/app/stats");
 	};
+
 	useEffect(() => {
 		if (isMobile) {
 			navigate("/");
@@ -223,7 +224,14 @@ const Tester = () => {
 				) : (
 					<div className={style.finishMessage}>
 						<h2 className="text-center w-100">
-							<TextDecoratorPrimary>Test finalizado gracias por participar!</TextDecoratorPrimary>
+							{test?.isSending ? (
+								<>
+									<TextDecoratorPrimary>Guardando estadisticas...</TextDecoratorPrimary>
+									<small>No cierre esta ventana</small>
+								</>
+							) : (
+								<TextDecoratorPrimary>Test finalizado gracias por participar!</TextDecoratorPrimary>
+							)}
 						</h2>
 					</div>
 				)}
