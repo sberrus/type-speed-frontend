@@ -41,7 +41,9 @@ const Stats = () => {
 								<span className={style.data}>
 									{(test?.stats?.wrong_words ?? 0) / (test?.stats?.valid_words ?? 0) === 0
 										? "100%"
-										: `${((test?.stats?.wrong_words ?? 0) / (test?.stats?.valid_words ?? 0)).toFixed(2)}%`}
+										: `${(((test?.stats?.wrong_words ?? 0) / (test?.stats?.valid_words ?? 0)) * 100).toFixed(
+												2
+										  )}%`}
 								</span>
 							</div>
 							<h5>
