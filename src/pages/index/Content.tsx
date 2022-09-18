@@ -57,7 +57,7 @@ const Content = () => {
 							<TextDecoratorPrimary>PREMIOS Y RECOMPENSAS</TextDecoratorPrimary>
 						</h5>
 						<ol>
-							<li>El primer lugar de cada categoría ganara...</li>
+							<li>El primer lugar de cada categoría ganará...</li>
 							<li>El segundo lugar de cada delegatoria se llevara a casa...</li>
 							<li>El tercer lugar...</li>
 						</ol>
@@ -123,39 +123,32 @@ const Content = () => {
 										<li>Respuesta de la pregunta.</li>
 									</ul>
 								</li>
-								<li>Espera que el evento este activo a inicios de la siguiente semana.</li>
+								<li>Espera que el evento esté activo a inicios de la siguiente semana.</li>
 								<li>¡Participa en el torneo y reta a tus compañero para ver quien es el mas rápido!</li>
 							</ol>
 							<p>
-								Una vez presentes la prueba esta guardara tus 3 mejores resultados en las categorías de palabras
+								Una vez presentes la prueba esta guardará tus 3 mejores resultados en las categorías de palabras
 								por minuto (PPM), letras por segundo (LPS) y precisión de escritura (%). Estos resultados serán
-								medidos junto a los otros participantes para luego poder ver quien ha sido el ganador del cada
+								medidos junto a los otros participantes para luego poder ver quien ha sido el ganador de cada
 								categoría.
 							</p>
+							<Row className={`${style.categories}`}>
+								<Col xs={4} className={style.categoriesImgContainer}>
+									<img src={Wpm} alt="PPM" />
+								</Col>
+								<Col xs={4} className={style.categoriesImgContainer}>
+									<img src={Lps} alt="LPS" />
+								</Col>
+								<Col xs={4} className={style.categoriesImgContainer}>
+									<img src={Acc} alt="%PRECISION" />
+								</Col>
+							</Row>
 							<p>
 								Los resultados se podrán observar a finalizar el torneo y serán premiados los ganadores
-								respectivamente.
+								respectivos.
 							</p>
 							<p>Recuerda que siempre podrás presentar el test una vez mas para mejorar tus resultados.</p>
 						</div>
-
-						<Row className={`${style.categories}`}>
-							<Col xs={4} className={style.categoriesImgContainer}>
-								<img src={Wpm} alt="PPM" />
-							</Col>
-							<Col xs={4} className={style.categoriesImgContainer}>
-								<img src={Lps} alt="LPS" />
-							</Col>
-							<Col xs={4} className={style.categoriesImgContainer}>
-								<img src={Acc} alt="%PRECISION" />
-							</Col>
-						</Row>
-						<p>
-							3.- Una vez precentes el test y este guarde tus mejores datos tendras que esperar hasta la
-							finalización y premiación para saber los resultados. <br />
-							<br />
-							Recuerda que siempre puedes presentar el test otra vez para mejorar tus resultados
-						</p>
 					</Container>
 				</article>
 				{/* Rewards section */}
@@ -176,8 +169,8 @@ const Content = () => {
 								El primer lugar de cada categoría ganara una pegatina conmemorativa al evento y un llavero del
 								torneo.
 							</li>
-							<li>El segundo lugar de cada delegatoria se llevara a casa una pegatina del torneo.</li>
-							<li>El tercer lugar se llevara también una pegatina del torneo. Sobre el evento.</li>
+							<li>El segundo lugar de cada delegatoria se llevará a casa una pegatina del torneo.</li>
+							<li>El tercer lugar se llevará también una pegatina del torneo.</li>
 						</ul>
 					</div>
 				</article>
@@ -190,13 +183,13 @@ const Content = () => {
 						<TextDecoratorPrimary>Información:</TextDecoratorPrimary>
 					</h4>
 					<p>
-						El torneo se llevara acabo en las oficinas de Just Eat y se presentara en estas mismas, cada
-						participante tendrá que presentarlo en su tiempo libre de manera proactiva. El torneo empezara el día
-						lunes a inicios de horario laboral para luego seguir activo hasta el día Jueves hasta ultima hora para
-						poder dar tiempo a todos los participantes a mejorar sus tiempos.
+						El torneo se llevará a cabo en las oficinas de Just Eat y se presentará en estas mismas. Cada
+						participante tendrá que presentarlo en su tiempo libre de manera proactiva. El torneo empezará el día
+						lunes a inicios de horario laboral para luego seguir activo hasta el día jueves hasta última hora para
+						poder dar oportunidad a todos los participantes a mejorar sus tiempos.
 					</p>
 					<p>
-						Se guardaran en el sistema de ranking el mejor PPM (palabras por minuto), el mejor LPS (letras por
+						Se guardarán en el sistema de ranking el mejor PPm (palabras por minuto), el mejor LPS (letras por
 						segundo) y el mejor % de precisión. Estas 3 categorías serán premiadas a los 3 primeros lugares.
 					</p>
 				</article>
