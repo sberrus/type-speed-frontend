@@ -147,7 +147,7 @@ const Content = () => {
 								Los resultados se podrán observar a finalizar el torneo y serán premiados los ganadores
 								respectivos.
 							</p>
-							<p>Recuerda que siempre podrás presentar el test una vez mas para mejorar tus resultados.</p>
+							<p>Recuerda que siempre podrás presentar el test una vez más para mejorar tus resultados.</p>
 						</div>
 					</Container>
 				</article>
