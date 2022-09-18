@@ -124,13 +124,13 @@ const Content = () => {
 									</ul>
 								</li>
 								<li>Espera que el evento esté activo a inicios de la siguiente semana.</li>
-								<li>¡Participa en el torneo y reta a tus compañero para ver quien es el mas rápido!</li>
+								<li>¡Participa en el torneo y reta a tus compañero para ver quién es el más rápido!</li>
 							</ol>
 							<p>
-								Una vez presentes la prueba esta guardará tus 3 mejores resultados en las categorías de palabras
-								por minuto (PPM), letras por segundo (LPS) y precisión de escritura (%). Estos resultados serán
-								medidos junto a los otros participantes para luego poder ver quien ha sido el ganador de cada
-								categoría.
+								Una vez presentes la prueba, esta guardará tus 3 mejores resultados en las categorías de
+								palabras por minuto (PPM), letras por segundo (LPS) y precisión de escritura (%). Estos
+								resultados serán medidos junto a los otros participantes para luego poder ver quien ha sido el
+								ganador de cada categoría.
 							</p>
 							<Row className={`${style.categories}`}>
 								<Col xs={4} className={style.categoriesImgContainer}>
