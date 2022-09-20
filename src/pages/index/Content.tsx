@@ -3,7 +3,7 @@ import { Col, Container, Row } from "react-bootstrap";
 // components
 import { TextDecoratorPrimary, TextDecoratorSecondary } from "@components/Decorators/CustomText";
 // assets
-import Banner from "@assets/content/banner.svg";
+import Banner from "@assets/content/banner.png";
 import Decorator from "@assets/content/decorator.svg";
 import Trophie from "@assets/art/trophie.svg";
 import Register from "@assets/art/register.svg";
