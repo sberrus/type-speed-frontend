@@ -1,5 +1,4 @@
 // imports
-import { useState } from "react";
 // components
 import { Col, Container, Row } from "react-bootstrap";
 import { TextDecoratorPrimary, TextDecoratorSecondary } from "@components/Decorators/CustomText";
@@ -13,8 +12,6 @@ import useAuth from "context/useAuth";
 const Profile = () => {
 	// hooks
 	const auth = useAuth();
-	// states
-	const [username] = useState(() => auth?.session?.user.username);
 
 	//
 	return (
@@ -23,11 +20,23 @@ const Profile = () => {
 				<div className={style.wrapper}>
 					<h2 className="text-center mb-5">
 						<TextDecoratorPrimary>
-							<>Configuración del Perfil [{username}]</>
+							<>Configuración del Perfil </>
 						</TextDecoratorPrimary>
 					</h2>
 					<Row>
 						<Col lg={6} className="m-auto">
+							<div className={style.userData}>
+								<p className={style.data}>
+									<TextDecoratorSecondary>
+										<>Usuario: {auth?.session?.user.username}</>
+									</TextDecoratorSecondary>
+								</p>
+								<p className={style.data}>
+									<TextDecoratorSecondary>
+										<>Ciudad: {auth?.session?.user.city}</>
+									</TextDecoratorSecondary>
+								</p>
+							</div>
 							<div className={style.menuContainer}>
 								<div className={style.buttonContainer}>
 									{/* <Link to="change-username" className={style.button}>
