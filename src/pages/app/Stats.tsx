@@ -14,14 +14,14 @@ const Stats = () => {
 
 	// methods
 	const getAccuracy = () => {
-		const wrong_words = test?.stats?.wrong_words || 0;
+		const total_words = test?.stats?.total_words || 0;
 		const valid_words = test?.stats?.valid_words || 0;
 
 		if (valid_words === 0) {
 			return 0;
 		}
 
-		return ((wrong_words / valid_words) * 100).toFixed(2);
+		return ((valid_words / total_words) * 100).toFixed(2);
 	};
 
 	useEffect(() => {
