@@ -34,7 +34,8 @@ export const register = async (
 	department: string,
 	passwordConfirm: string,
 	secretQuestion: string,
-	secret: string
+	secret: string,
+	city: string
 ) => {
 	const route = "/register";
 	try {
@@ -47,6 +48,7 @@ export const register = async (
 				username,
 				password,
 				department,
+				city,
 				password_confirm: passwordConfirm,
 				secret_question: secretQuestion,
 				secret,

@@ -13,12 +13,13 @@ const Register = () => {
 	// logic states
 	const [isLoading, setIsLoading] = useState(false);
 	// form states
-	const [username, setUsername] = useState("");
-	const [password, setPassword] = useState("");
-	const [passwordConfirm, setPasswordConfirm] = useState("");
+	const [username, setUsername] = useState("samuel.berrus9");
+	const [password, setPassword] = useState("contraseña");
+	const [passwordConfirm, setPasswordConfirm] = useState("contraseña");
 	const [department, setDepartment] = useState("support");
-	const [secretQuestion, setSecretQuestion] = useState("");
-	const [secret, setSecret] = useState("");
+	const [secretQuestion, setSecretQuestion] = useState("contraseña");
+	const [secret, setSecret] = useState("contraseña");
+	const [city, setCity] = useState("madrid");
 
 	const auth = useAuth();
 
@@ -31,6 +32,9 @@ const Register = () => {
 	};
 	const handlePasswordConfirm = (e: ChangeEvent<HTMLInputElement>) => {
 		setPasswordConfirm(e.target.value);
+	};
+	const handleCity = (e: ChangeEvent<HTMLSelectElement>) => {
+		setCity(e.target.value);
 	};
 	const handleSecretQuestion = (e: ChangeEvent<HTMLInputElement>) => {
 		setSecretQuestion(e.target.value);
@@ -51,7 +55,7 @@ const Register = () => {
 		}
 
 		// try to register
-		auth?.registerUser(username, password, passwordConfirm, department, secretQuestion, secret);
+		auth?.registerUser(username, password, passwordConfirm, department, secretQuestion, secret, city);
 		setIsLoading(false);
 	};
 
@@ -66,7 +70,7 @@ const Register = () => {
 			<Container>
 				<Row>
 					<Col xs={12} md={8} lg={6} className={style.formWrapper}>
-						<Form onSubmit={handleSubmit}>
+						<Form onSubmit={handleSubmit} id="registerForm">
 							{/* inputs */}
 							<div className={style.form}>
 								<h3 className="mb-4">
@@ -110,14 +114,15 @@ const Register = () => {
 										onChange={handlePasswordConfirm}
 									/>
 								</Form.Group>
-								{/* <Form.Group className="mb-3">
-						<Form.Label className={style.label}>
-							<TextDecoratorSecondary>Departamento</TextDecoratorSecondary>
-						</Form.Label>
-						<Form.Select>
-							<option>support</option>
-						</Form.Select>
-					</Form.Group> */}
+								<Form.Group className="mb-3">
+									<Form.Label className={style.label}>
+										<TextDecoratorSecondary>Departamento</TextDecoratorSecondary>
+									</Form.Label>
+									<Form.Select onChange={handleCity}>
+										<option>madrid</option>
+										<option>cali</option>
+									</Form.Select>
+								</Form.Group>
 								<Form.Group className="mb-3" controlId="secretQuestion">
 									<Form.Label className={style.label}>
 										<TextDecoratorSecondary>Pregunta secreta</TextDecoratorSecondary>{" "}
@@ -165,7 +170,12 @@ const Register = () => {
 							{/* buttons */}
 							<div className={style.buttonContainer}>
 								<div className="mb-3">
-									<button type="submit" className={`${style.buttonPrimary}`} disabled={isLoading}>
+									<button
+										type="submit"
+										form="registerForm"
+										className={`${style.buttonPrimary}`}
+										disabled={isLoading}
+									>
 										<TextDecoratorSecondary>Register</TextDecoratorSecondary>
 									</button>
 								</div>

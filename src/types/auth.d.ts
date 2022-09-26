@@ -27,7 +27,8 @@ export interface AppContextInterface {
 		department: string,
 		passwordConfirm: string,
 		secretQuestion: string,
-		secret: string
+		secret: string,
+		city: string
 	) => void;
 	recoverPassword: (username: string, password: string, passwordConfirm: string, secret: string) => void;
 	changePassword: (password: string, passwordConfirm: string, secret: string) => void;
