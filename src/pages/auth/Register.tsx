@@ -13,13 +13,13 @@ const Register = () => {
 	// logic states
 	const [isLoading, setIsLoading] = useState(false);
 	// form states
-	const [username, setUsername] = useState("samuel.berrus9");
-	const [password, setPassword] = useState("contraseña");
-	const [passwordConfirm, setPasswordConfirm] = useState("contraseña");
-	const [department, setDepartment] = useState("support");
-	const [secretQuestion, setSecretQuestion] = useState("contraseña");
-	const [secret, setSecret] = useState("contraseña");
+	const [username, setUsername] = useState("");
+	const [password, setPassword] = useState("");
+	const [passwordConfirm, setPasswordConfirm] = useState("");
 	const [city, setCity] = useState("madrid");
+	const [department, setDepartment] = useState("support");
+	const [secretQuestion, setSecretQuestion] = useState("");
+	const [secret, setSecret] = useState("");
 
 	const auth = useAuth();
 
@@ -116,7 +116,7 @@ const Register = () => {
 								</Form.Group>
 								<Form.Group className="mb-3">
 									<Form.Label className={style.label}>
-										<TextDecoratorSecondary>Departamento</TextDecoratorSecondary>
+										<TextDecoratorSecondary>Departamento - Ciudad</TextDecoratorSecondary>
 									</Form.Label>
 									<Form.Select onChange={handleCity}>
 										<option>madrid</option>

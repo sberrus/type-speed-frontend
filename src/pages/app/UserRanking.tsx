@@ -28,7 +28,7 @@ const UserRanking = () => {
 	return (
 		<div className={style.userRanking}>
 			<Container className={style.wrapper}>
-				<Link to="/ranking" className={`${style.backButton}`}>
+				<Link to="/app/ranking" className={`${style.backButton}`}>
 					<TextDecoratorSecondary>Volver</TextDecoratorSecondary>
 				</Link>
 				<h1 className="text-center mb-3">

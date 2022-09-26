@@ -6,10 +6,29 @@ import useTest from "context/useTest";
 // styles
 import style from "./stats.module.scss";
 import { TextDecoratorSecondary } from "@components/Decorators/CustomText";
+import { useEffect } from "react";
 
 const Stats = () => {
+	// hooks
 	const test = useTest();
 
+	// methods
+	const getAccuracy = () => {
+		const wrong_words = test?.stats?.wrong_words || 0;
+		const valid_words = test?.stats?.valid_words || 0;
+
+		if (valid_words === 0) {
+			return 0;
+		}
+
+		return (wrong_words / valid_words) * 100;
+	};
+
+	useEffect(() => {
+		return () => {};
+	}, []);
+
+	//
 	return (
 		<div className={style.stats}>
 			<Container className={style.dataContainer}>
@@ -22,7 +41,7 @@ const Stats = () => {
 					<div className={style.scores}>
 						<div className={style.dataHolder}>
 							<div className={style.circleMask}>
-								<span className={style.data}>{test?.stats?.total_letters}</span>
+								<span className={style.data}>{(test?.stats?.total_letters! / 60).toFixed(2)}</span>
 							</div>
 							<h5>
 								<TextDecoratorSecondary>Letras Por Segundo</TextDecoratorSecondary>
@@ -38,13 +57,7 @@ const Stats = () => {
 						</div>
 						<div className={style.dataHolder}>
 							<div className={style.circleMask}>
-								<span className={style.data}>
-									{(test?.stats?.wrong_words ?? 0) / (test?.stats?.valid_words ?? 0) === 0
-										? "100%"
-										: `${(((test?.stats?.wrong_words ?? 0) / (test?.stats?.valid_words ?? 0)) * 100).toFixed(
-												2
-										  )}%`}
-								</span>
+								<span className={style.data}>{getAccuracy()}%</span>
 							</div>
 							<h5>
 								<TextDecoratorSecondary>Precisión</TextDecoratorSecondary>
