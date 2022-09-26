@@ -209,7 +209,7 @@ const NavbarMenu = () => {
 									</div>
 									<TextDecoratorSecondary>Inicio</TextDecoratorSecondary>
 								</Link>
-								<Link to="ranking" className={style.offcanvasLink} onClick={closeNav}>
+								<Link to="/app/ranking" className={style.offcanvasLink} onClick={closeNav}>
 									<div className={style.iconContainer}>
 										<img src={Stats} alt="Inicio logo" />
 									</div>
