@@ -1,6 +1,12 @@
 import config from "./config";
 // const
 const baseUrl = `${config.url.dev}/ranking`;
+let cityQuery = ``;
+if (localStorage.getItem("je-session")) {
+	const _session = JSON.parse(localStorage.getItem("je-session")!);
+	cityQuery = `?city=${_session.user.city}`;
+}
+
 import getStats from "helpers/getStats";
 // types
 import { RankingCategoriesTypes } from "types/ranking";
@@ -12,7 +18,7 @@ import { WordsType } from "types/test";
  */
 export const getTopTen = async () => {
 	try {
-		const res = await fetch(baseUrl, {
+		const res = await fetch(`${baseUrl}${cityQuery}`, {
 			method: "GET",
 		});
 
@@ -61,7 +67,7 @@ export const getUserScores = async (uid: string) => {
  * @param category Category to sort by
  */
 export const getRankingByCategory = async (category: RankingCategoriesTypes) => {
-	const endpoint = `${baseUrl}/category/${category}`;
+	const endpoint = `${baseUrl}/category/${category}${cityQuery}`;
 	const response = await fetch(endpoint);
 	const { result } = await response.json();
 	return result;

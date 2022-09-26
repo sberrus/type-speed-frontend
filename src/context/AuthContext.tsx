@@ -25,7 +25,7 @@ const AuthProvider = ({ children }: AuthContextProps) => {
 				const session = await login(username, password);
 				if (session) {
 					localStorage.setItem("je-session", JSON.stringify(session));
-					setSession(session);
+					location.reload();
 				}
 			} catch (error) {
 				console.log(error);
@@ -40,7 +40,9 @@ const AuthProvider = ({ children }: AuthContextProps) => {
 
 	const logout = () => {
 		localStorage.removeItem("je-session");
+		localStorage.removeItem("last-try");
 		setSession(null);
+		location.reload();
 	};
 
 	const registerUser = async (
