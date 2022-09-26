@@ -21,7 +21,7 @@ const Stats = () => {
 			return 0;
 		}
 
-		return (wrong_words / valid_words) * 100;
+		return ((wrong_words / valid_words) * 100).toFixed(2);
 	};
 
 	useEffect(() => {
