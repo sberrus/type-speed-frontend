@@ -77,7 +77,7 @@ const WarmUp = () => {
 							<Container>
 								<Row>
 									<Col lg={12} className={style.center}>
-										<Link to="/ranking" className={`${style.button}`} onClick={startTest}>
+										<Link to="/app/ranking" className={`${style.button}`} onClick={startTest}>
 											<TextDecoratorSecondary>Ir a Ranking</TextDecoratorSecondary>
 										</Link>
 									</Col>
