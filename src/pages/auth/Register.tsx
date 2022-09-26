@@ -1,6 +1,6 @@
 // imports
 import { ChangeEvent, FormEvent, useState } from "react";
-import { Button, Col, Container, Form, OverlayTrigger, Row, Tooltip } from "react-bootstrap";
+import { Col, Container, Form, OverlayTrigger, Row, Tooltip } from "react-bootstrap";
 import { TextDecoratorPrimary, TextDecoratorSecondary } from "@components/Decorators/CustomText";
 // context
 import useAuth from "context/useAuth";
@@ -118,7 +118,7 @@ const Register = () => {
 									<Form.Label className={style.label}>
 										<TextDecoratorSecondary>Departamento - Ciudad</TextDecoratorSecondary>
 									</Form.Label>
-									<Form.Select onChange={handleCity}>
+									<Form.Select onChange={handleCity} className={style.input}>
 										<option>madrid</option>
 										<option>cali</option>
 									</Form.Select>

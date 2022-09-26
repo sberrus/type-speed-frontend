@@ -1,7 +1,7 @@
 import { SessionType } from "types/auth";
 import config from "./config";
 // data
-const baseUrl = `${config.url.dev}/auth`;
+const baseUrl = `${config.url.prod}/auth`;
 //
 
 export const login = async (username: string, password: string): Promise<SessionType> => {

@@ -1,6 +1,6 @@
 import config from "./config";
 // const
-const baseUrl = `${config.url.dev}/ranking`;
+const baseUrl = `${config.url.prod}/ranking`;
 let cityQuery = ``;
 if (localStorage.getItem("je-session")) {
 	const _session = JSON.parse(localStorage.getItem("je-session")!);
