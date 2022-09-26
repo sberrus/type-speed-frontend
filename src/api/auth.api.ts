@@ -1,9 +1,10 @@
+import { SessionType } from "types/auth";
 import config from "./config";
 // data
-const baseUrl = `${config.url.prod}/auth`;
+const baseUrl = `${config.url.dev}/auth`;
 //
 
-export const login = async (username: string, password: string) => {
+export const login = async (username: string, password: string): Promise<SessionType> => {
 	const route = "/login";
 	try {
 		const res = await fetch(baseUrl + route, {

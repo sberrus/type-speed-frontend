@@ -6,7 +6,6 @@ import { Button, Col, Container, Nav, Navbar, Offcanvas, Row } from "react-boots
 import useAuth from "context/useAuth";
 import { TextDecoratorPrimary, TextDecoratorSecondary } from "@components/Decorators/CustomText";
 // assets
-import JE_Logo from "@assets/img/je_logo.svg";
 import Store from "@assets/art/store.svg";
 import Stats from "@assets/art/stats.svg";
 import Pizza from "@assets/art/pizza.svg";
@@ -56,7 +55,7 @@ const NavbarMenu = () => {
 														</div>
 														<TextDecoratorSecondary>Inicio</TextDecoratorSecondary>
 													</Link>
-													<Link to="ranking" className={style.link} onClick={closeNav}>
+													<Link to="/app/ranking" className={style.link} onClick={closeNav}>
 														<div className={style.iconContainer}>
 															<img src={Stats} alt="Inicio logo" />
 														</div>

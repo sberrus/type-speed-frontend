@@ -28,7 +28,6 @@ const MainRouter = () => {
 			<Route path="/" element={<AppTemplate />}>
 				{/* Public */}
 				<Route index element={<Index />} />
-				<Route path="ranking" element={<GeneralRanking />} />
 
 				{/* Public Only */}
 				<Route path="auth" element={<PublicRoute />}>
@@ -42,6 +41,7 @@ const MainRouter = () => {
 					<Route index element={<WarmUp />} />
 					<Route path="test" element={<JETest />} />
 					<Route path="stats" element={<Stats />} />
+					<Route path="ranking" element={<GeneralRanking />} />
 				</Route>
 				<Route path="profile" element={<ProtectedAppRoute />}>
 					<Route index element={<Profile />} />

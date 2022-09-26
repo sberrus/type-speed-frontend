@@ -5,6 +5,7 @@ export type SessionType = {
 	user: {
 		username: string;
 		secret_question: string;
+		city: string;
 	};
 	token: string;
 };
