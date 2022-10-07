@@ -10,6 +10,7 @@ import AnimatedTitle from "@components/AnimatedTitle";
 import style from "./AsideRanking.module.scss";
 // types
 import { ScoresType } from "types/ranking";
+import { Link } from "react-router-dom";
 
 const AsideRanking = () => {
 	const [scores, setScores] = useState<ScoresType[]>([]);
@@ -41,7 +42,14 @@ const AsideRanking = () => {
 							</ListGroup.Item>
 						))
 					) : (
-						<h3>No records!</h3>
+						<div className={style.noRecords}>
+							<TextDecoratorSecondary>
+								<h4>No records!</h4>
+							</TextDecoratorSecondary>
+							<p>
+								¿Deseas ser el primero en participar? <Link to="/app">Participa!</Link>
+							</p>
+						</div>
 					)}
 				</ListGroup>
 			</Col>

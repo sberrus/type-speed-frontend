@@ -22,6 +22,11 @@
 				animation: showup 0.5s #{1 + ($i * 0.5)}s ease forwards;
 			}
 		}
+
+		.noRecords {
+			margin: 1em 0;
+			text-align: center;
+		}
 	}
 }
 @keyframes showup {

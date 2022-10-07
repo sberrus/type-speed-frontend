@@ -37,6 +37,9 @@ const GeneralRanking = () => {
 		const LPSRanking = LPSScore.filter((score: ScoresType) => {
 			return !leaders.includes(score.id);
 		});
+
+		//
+		if (!LPSRanking[0]) return;
 		leaders.push(LPSRanking[0].id);
 		setLPSRanking(() => {
 			return LPSRanking;

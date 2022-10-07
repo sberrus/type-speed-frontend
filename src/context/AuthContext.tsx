@@ -59,7 +59,7 @@ const AuthProvider = ({ children }: AuthContextProps) => {
 			const session = await register(username, password, passwordConfirm, department, secretQuestion, secret, city);
 			if (session) {
 				localStorage.setItem("je-session", JSON.stringify(session));
-				setSession(session);
+				location.reload();
 			}
 		} catch (error) {
 			console.log(error);
