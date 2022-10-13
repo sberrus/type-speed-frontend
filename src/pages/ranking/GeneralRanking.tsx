@@ -77,7 +77,17 @@ const GeneralRanking = () => {
 				{/* title */}
 				<AnimatedTitle title="Podio" />
 				{/* copy */}
-				<p className="text-dark text-center">Gracias por participar en el primer torneo de mecanografia JE</p>
+				<p className="text-dark text-center">
+					<TextDecoratorSecondary>
+						Gracias por participar en el primer torneo de mecanografia JE
+					</TextDecoratorSecondary>
+				</p>
+				{!auth?.isLogged() && (
+					<p className="text-dark text-center">
+						Para ver el ranking de su región y su ranking personal, debes <Link to="/auth">iniciar sesión</Link>{" "}
+						con tu cuenta
+					</p>
+				)}
 				{/* rankings */}
 				<Row>
 					{/* Letters Per Second Ranking */}
