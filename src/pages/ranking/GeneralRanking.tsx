@@ -14,8 +14,12 @@ import style from "./GeneralRanking.module.scss";
 import { ScoresType } from "types/ranking";
 import { getRankingByCategory } from "@api/ranking.api";
 import { TextDecoratorPrimary, TextDecoratorSecondary } from "@components/Decorators/CustomText";
+import useAuth from "context/useAuth";
 
 const GeneralRanking = () => {
+	// hooks
+	const auth = useAuth();
+
 	// states
 	const [WPMRanking, setWPMRanking] = useState<ScoresType[]>([]);
 	const [LPSRanking, setLPSRanking] = useState<ScoresType[]>([]);
@@ -63,11 +67,13 @@ const GeneralRanking = () => {
 		<div className={`${style.ranking}`}>
 			<Container className={`${style.rankingWrapper}`}>
 				{/* user ranking button */}
-				<div className={style.personalRankingContainer}>
-					<Link to="/profile/user-ranking" className={`${style.personalRankingButton}`}>
-						<TextDecoratorSecondary>Ver ranking personal</TextDecoratorSecondary>
-					</Link>
-				</div>
+				{auth?.isLogged() && (
+					<div className={style.personalRankingContainer}>
+						<Link to="/profile/user-ranking" className={`${style.personalRankingButton}`}>
+							<TextDecoratorSecondary>Ver ranking personal</TextDecoratorSecondary>
+						</Link>
+					</div>
+				)}
 				{/* title */}
 				<AnimatedTitle />
 				{/* rankings */}

@@ -61,12 +61,12 @@ const NavbarMenu = () => {
 														</div>
 														<TextDecoratorSecondary>Ranking</TextDecoratorSecondary>
 													</Link>
-													<Link to="/app" className={style.link} onClick={closeNav}>
+													{/* <Link to="/app" className={style.link} onClick={closeNav}>
 														<div className={style.iconContainer}>
 															<img src={Pizza} alt="Inicio logo" />
 														</div>
 														<TextDecoratorSecondary>Participar</TextDecoratorSecondary>
-													</Link>
+													</Link> */}
 												</>
 											) : (
 												<>
@@ -79,7 +79,7 @@ const NavbarMenu = () => {
 													>
 														<TextDecoratorSecondary>Login</TextDecoratorSecondary>
 													</Link>
-													<Link
+													{/* <Link
 														to="/auth/register"
 														className={style.link}
 														state={{ loginState: "Register" }}
@@ -87,7 +87,7 @@ const NavbarMenu = () => {
 														onClick={closeNav}
 													>
 														<TextDecoratorSecondary>Register</TextDecoratorSecondary>
-													</Link>
+													</Link> */}
 												</>
 											)}
 										</Nav>
@@ -215,12 +215,12 @@ const NavbarMenu = () => {
 									</div>
 									<TextDecoratorSecondary>Ranking</TextDecoratorSecondary>
 								</Link>
-								<Link to="/app" className={style.offcanvasLink} onClick={closeNav}>
+								{/* <Link to="/app" className={style.offcanvasLink} onClick={closeNav}>
 									<div className={style.iconContainer}>
 										<img src={Pizza} alt="Inicio logo" />
 									</div>
 									<TextDecoratorSecondary>Participar</TextDecoratorSecondary>
-								</Link>
+								</Link> */}
 							</>
 						) : (
 							<>
