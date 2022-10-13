@@ -77,6 +77,11 @@ const GeneralRanking = () => {
 				{/* title */}
 				<AnimatedTitle title="Podio" />
 				{/* copy */}
+				<h5 className="text-dark text-center">
+					<TextDecoratorSecondary>
+						<>Region: {auth?.isLogged() ? auth.session?.user.city : "Global"}</>
+					</TextDecoratorSecondary>
+				</h5>
 				<p className="text-dark text-center">
 					<TextDecoratorSecondary>
 						Gracias por participar en el primer torneo de mecanografia JE
