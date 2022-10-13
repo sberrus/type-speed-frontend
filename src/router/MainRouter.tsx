@@ -1,5 +1,5 @@
 // imports
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 // pages
 import Index from "@pages/index/Index";
 import PageNotFound from "@pages/PageNotFound";
@@ -50,7 +50,7 @@ const MainRouter = () => {
 					{/* <Route path="change-secret" element={<ChangeSecret />} /> */}
 					<Route path="user-ranking" element={<UserRanking />} />
 				</Route>
-				<Route path="*" element={<PageNotFound />} />
+				<Route path="*" element={<Navigate to="/" />} />
 			</Route>
 		</Routes>
 	);

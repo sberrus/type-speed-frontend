@@ -31,6 +31,47 @@
 					height: 80%;
 				}
 			}
+			.listWrapper {
+				.playerData {
+					position: relative;
+					.podium {
+						position: absolute;
+						top: 0;
+						right: 15px;
+						width: fit-content;
+						.positionBadge {
+							position: absolute;
+							top: 0;
+							right: 0;
+							transform: translateX(100%);
+							width: 10px;
+							height: 10px;
+							border: 1px solid transparent;
+							border-radius: 50%;
+							background-color: transparent;
+							display: flex;
+							align-items: center;
+							justify-content: center;
+							&.first {
+								border-color: gold;
+								background-color: gold;
+							}
+							&.second {
+								border-color: silver;
+								background-color: silver;
+							}
+							&.third {
+								border-color: #eb943d;
+								background-color: #eb943d;
+							}
+						}
+					}
+				}
+				margin: 0.5em;
+				p {
+					margin: 0;
+				}
+			}
 		}
 	}
 }

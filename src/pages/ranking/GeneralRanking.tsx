@@ -13,7 +13,7 @@ import style from "./GeneralRanking.module.scss";
 // types
 import { ScoresType } from "types/ranking";
 import { getRankingByCategory } from "@api/ranking.api";
-import { TextDecoratorSecondary } from "@components/Decorators/CustomText";
+import { TextDecoratorPrimary, TextDecoratorSecondary } from "@components/Decorators/CustomText";
 
 const GeneralRanking = () => {
 	// states
@@ -83,10 +83,23 @@ const GeneralRanking = () => {
 									<ListGroup.Item key={score.id}>
 										<TextDecoratorSecondary>
 											<>
-												<span>
-													{key + 1}. {score.id}
-												</span>{" "}
-												<span className="float-end">{Number(score.letters_per_second).toFixed(2)} LPS</span>
+												<div className={style.playerData}>
+													<span>{score.id}</span>
+													{key + 1 <= 3 && (
+														<div className={style.podium}>
+															{key + 1}{" "}
+															<div
+																className={`${style.positionBadge} ${key + 1 === 1 && style.first} ${
+																	key + 1 === 2 && style.second
+																} ${key + 1 === 3 && style.third}`}
+															></div>
+														</div>
+													)}
+												</div>{" "}
+												<p>
+													<span>{Number(score.letters_per_second).toFixed(2)} LPS</span> -{" "}
+													<small>{Number(score.words_per_minute).toFixed(2)} WPM</small>
+												</p>
 											</>
 										</TextDecoratorSecondary>
 									</ListGroup.Item>
@@ -105,10 +118,23 @@ const GeneralRanking = () => {
 									<ListGroup.Item key={score.id}>
 										<TextDecoratorSecondary>
 											<>
-												<span>
-													{key + 1}. {score.id}
-												</span>{" "}
-												<span className="float-end">{score.words_per_minute} PPM</span>
+												<div className={style.playerData}>
+													<span>{score.id}</span>
+													{key + 1 <= 3 && (
+														<div className={style.podium}>
+															{key + 1}{" "}
+															<div
+																className={`${style.positionBadge} ${key + 1 === 1 && style.first} ${
+																	key + 1 === 2 && style.second
+																} ${key + 1 === 3 && style.third}`}
+															></div>
+														</div>
+													)}
+												</div>{" "}
+												<p>
+													<span>{Number(score.words_per_minute).toFixed(2)} PPM</span> -{" "}
+													<small>{Number(score.letters_per_second).toFixed(2)} LPS</small>
+												</p>
 											</>
 										</TextDecoratorSecondary>
 									</ListGroup.Item>
@@ -127,10 +153,21 @@ const GeneralRanking = () => {
 									<ListGroup.Item key={score.id}>
 										<TextDecoratorSecondary>
 											<>
-												<span>
-													{key + 1}. {score.id}
-												</span>{" "}
-												<span className="float-end">{(score.accuracy * 100).toFixed(2)}%</span>
+												<div className={style.playerData}>
+													<span>{score.id}</span>
+													{key + 1 <= 3 && (
+														<div className={style.podium}>
+															{key + 1}{" "}
+															<div
+																className={`${style.positionBadge} ${key + 1 === 1 && style.first} ${
+																	key + 1 === 2 && style.second
+																} ${key + 1 === 3 && style.third}`}
+															></div>
+														</div>
+													)}
+												</div>{" "}
+												<span>{(score.accuracy * 100).toFixed(2)}%</span> -{" "}
+												<small>{Number(score.words_per_minute).toFixed(2)} WPM</small>
 											</>
 										</TextDecoratorSecondary>
 									</ListGroup.Item>
