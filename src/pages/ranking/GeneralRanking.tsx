@@ -75,7 +75,9 @@ const GeneralRanking = () => {
 					</div>
 				)}
 				{/* title */}
-				<AnimatedTitle />
+				<AnimatedTitle title="Podio" />
+				{/* copy */}
+				<p className="text-dark text-center">Gracias por participar en el primer torneo de mecanografia JE</p>
 				{/* rankings */}
 				<Row>
 					{/* Letters Per Second Ranking */}
