@@ -84,8 +84,20 @@ const GeneralRanking = () => {
 										<TextDecoratorSecondary>
 											<>
 												<div className={style.playerData}>
-													<span>{score.id}</span>
-													{key + 1 <= 3 && (
+													<span>
+														{key + 1}{" "}
+														{key + 1 <= 3 && (
+															<>
+																<div
+																	className={`${style.positionBadgeStart} ${
+																		key + 1 === 1 && style.first
+																	} ${key + 1 === 2 && style.second} ${key + 1 === 3 && style.third}`}
+																></div>
+															</>
+														)}
+														{score.id}
+													</span>
+													{/* {key + 1 <= 3 && (
 														<div className={style.podium}>
 															{key + 1}{" "}
 															<div
@@ -94,7 +106,7 @@ const GeneralRanking = () => {
 																} ${key + 1 === 3 && style.third}`}
 															></div>
 														</div>
-													)}
+													)} */}
 												</div>{" "}
 												<p>
 													<span>{Number(score.letters_per_second).toFixed(2)} LPS</span> -{" "}
@@ -119,8 +131,20 @@ const GeneralRanking = () => {
 										<TextDecoratorSecondary>
 											<>
 												<div className={style.playerData}>
-													<span>{score.id}</span>
-													{key + 1 <= 3 && (
+													<span>
+														{key + 1}{" "}
+														{key + 1 <= 3 && (
+															<>
+																<div
+																	className={`${style.positionBadgeStart} ${
+																		key + 1 === 1 && style.first
+																	} ${key + 1 === 2 && style.second} ${key + 1 === 3 && style.third}`}
+																></div>
+															</>
+														)}
+														{score.id}
+													</span>
+													{/* {key + 1 <= 3 && (
 														<div className={style.podium}>
 															{key + 1}{" "}
 															<div
@@ -129,7 +153,7 @@ const GeneralRanking = () => {
 																} ${key + 1 === 3 && style.third}`}
 															></div>
 														</div>
-													)}
+													)} */}
 												</div>{" "}
 												<p>
 													<span>{Number(score.words_per_minute).toFixed(2)} PPM</span> -{" "}
@@ -154,17 +178,19 @@ const GeneralRanking = () => {
 										<TextDecoratorSecondary>
 											<>
 												<div className={style.playerData}>
-													<span>{score.id}</span>
-													{key + 1 <= 3 && (
-														<div className={style.podium}>
-															{key + 1}{" "}
-															<div
-																className={`${style.positionBadge} ${key + 1 === 1 && style.first} ${
-																	key + 1 === 2 && style.second
-																} ${key + 1 === 3 && style.third}`}
-															></div>
-														</div>
-													)}
+													<span>
+														{key + 1}{" "}
+														{key + 1 <= 3 && (
+															<>
+																<div
+																	className={`${style.positionBadgeStart} ${
+																		key + 1 === 1 && style.first
+																	} ${key + 1 === 2 && style.second} ${key + 1 === 3 && style.third}`}
+																></div>
+															</>
+														)}
+														{score.id}
+													</span>
 												</div>{" "}
 												<span>{(score.accuracy * 100).toFixed(2)}%</span> -{" "}
 												<small>{Number(score.words_per_minute).toFixed(2)} WPM</small>
