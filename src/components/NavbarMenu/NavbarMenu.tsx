@@ -79,7 +79,7 @@ const NavbarMenu = () => {
 													>
 														<TextDecoratorSecondary>Login</TextDecoratorSecondary>
 													</Link>
-													{/* <Link
+													<Link
 														to="/auth/register"
 														className={style.link}
 														state={{ loginState: "Register" }}
@@ -87,7 +87,7 @@ const NavbarMenu = () => {
 														onClick={closeNav}
 													>
 														<TextDecoratorSecondary>Register</TextDecoratorSecondary>
-													</Link> */}
+													</Link>
 												</>
 											)}
 										</Nav>
