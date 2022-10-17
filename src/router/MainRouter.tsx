@@ -2,7 +2,6 @@
 import { Navigate, Route, Routes } from "react-router-dom";
 // pages
 import Index from "@pages/index/Index";
-import PageNotFound from "@pages/PageNotFound";
 import AppTemplate from "templates/AppTemplate";
 import UserRanking from "@pages/app/UserRanking";
 import GeneralRanking from "@pages/ranking/GeneralRanking";
@@ -27,22 +26,22 @@ const MainRouter = () => {
 		<Routes>
 			<Route path="/" element={<AppTemplate />}>
 				{/* Public */}
-				<Route index element={<GeneralRanking />} />
+				<Route index element={<Index />} />
 
 				{/* Public Only */}
 				<Route path="auth" element={<PublicRoute />}>
 					<Route index element={<Login />} />
 					<Route path="register" element={<Register />} />
-					{/* <Route path="forgot-password" element={<ForgotPassword />} /> */}
+					<Route path="forgot-password" element={<ForgotPassword />} />
 				</Route>
 
 				{/* Protected */}
-				{/* <Route path="app" element={<ProtectedAppRoute />}>
+				<Route path="app" element={<ProtectedAppRoute />}>
 					<Route index element={<WarmUp />} />
 					<Route path="test" element={<JETest />} />
 					<Route path="stats" element={<Stats />} />
 					<Route path="ranking" element={<GeneralRanking />} />
-				</Route> */}
+				</Route>
 				<Route path="profile" element={<ProtectedAppRoute />}>
 					<Route index element={<Profile />} />
 					{/* <Route path="change-username" element={<ChangeUsername />} /> */}

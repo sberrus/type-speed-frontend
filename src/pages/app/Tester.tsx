@@ -114,11 +114,13 @@ const Tester = () => {
 	};
 
 	const initTest = async () => {
-		const TESTING_TIME = 60000;
 		// test time
+		const TESTING_TIME = 60000;
 		await delay(TESTING_TIME);
+
 		// Remove the input to avoid user interactions after timeout
 		setIsTesting(false);
+
 		// save user score
 		test?.saveTest(wordsCheckedRef.current);
 		navigate("/app/stats");

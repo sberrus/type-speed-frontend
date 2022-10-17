@@ -63,7 +63,7 @@ const WarmUp = () => {
 									<Row>
 										<Col lg={12} className={style.center}>
 											<button className={`${style.button}`} onClick={startTest}>
-												<TextDecoratorSecondary>Ver Ranking!</TextDecoratorSecondary>
+												<TextDecoratorSecondary>Empezar test!</TextDecoratorSecondary>
 											</button>
 										</Col>
 									</Row>
