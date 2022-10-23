@@ -21,20 +21,20 @@ const GeneralRanking = () => {
 	const auth = useAuth();
 
 	// states
-	const [WPMRanking, setWPMRanking] = useState<ScoresType[]>([]);
+	const [PPMRanking, setPPMRanking] = useState<ScoresType[]>([]);
 	const [LPSRanking, setLPSRanking] = useState<ScoresType[]>([]);
 	const [ACCRanking, setACCRanking] = useState<ScoresType[]>([]);
 
 	const fetchRankings = async () => {
 		let leaders: string[] = [];
-		const WPMScore = await getRankingByCategory("words_per_minute");
+		const PPMScore = await getRankingByCategory("words_per_minute");
 		const LPSScore = await getRankingByCategory("letters_per_second");
 		const ACCScore = await getRankingByCategory("accuracy");
 
-		// get WPM score and leader
-		leaders.push(WPMScore[0].id);
-		setWPMRanking(() => {
-			return WPMScore;
+		// get PPM score and leader
+		leaders.push(PPMScore[0].id);
+		setPPMRanking(() => {
+			return PPMScore;
 		});
 
 		// filter duplicated leaders
@@ -133,7 +133,7 @@ const GeneralRanking = () => {
 												</div>{" "}
 												<p>
 													<span>{Number(score.letters_per_second).toFixed(2)} LPS</span> -{" "}
-													<small>{Number(score.words_per_minute).toFixed(2)} WPM</small>
+													<small>{Number(score.words_per_minute).toFixed(2)} PPM</small>
 												</p>
 											</>
 										</TextDecoratorSecondary>
@@ -149,7 +149,7 @@ const GeneralRanking = () => {
 						</div>
 						<div className={style.listWrapper}>
 							<ListGroup>
-								{WPMRanking.map((score, key) => (
+								{PPMRanking.map((score, key) => (
 									<ListGroup.Item key={score.id}>
 										<TextDecoratorSecondary>
 											<>
@@ -216,7 +216,7 @@ const GeneralRanking = () => {
 													</span>
 												</div>{" "}
 												<span>{(score.accuracy * 100).toFixed(2)}%</span> -{" "}
-												<small>{Number(score.words_per_minute).toFixed(2)} WPM</small>
+												<small>{Number(score.words_per_minute).toFixed(2)} PPM</small>
 											</>
 										</TextDecoratorSecondary>
 									</ListGroup.Item>
