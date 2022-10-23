@@ -5,14 +5,14 @@ import LEAF_R from "@assets/decorators/LEAF_R.svg";
 // styles
 import style from "./AnimatedTitle.module.scss";
 
-const AnimatedTitle = () => {
+const AnimatedTitle = ({ title = "Ranking" }) => {
 	return (
 		<div className={style.animationWrapper}>
 			{/* contenedor texto personalizado */}
 			<div className={style.textContainer}>
-				<h2 className={style.text}>Ranking</h2>
-				<h2 className={style.text}>Ranking</h2>
-				<h2 className={style.text}>Ranking</h2>
+				<h2 className={style.text}>{title}</h2>
+				<h2 className={style.text}>{title}</h2>
+				<h2 className={style.text}>{title}</h2>
 			</div>
 
 			{/* contenedor hojas */}
