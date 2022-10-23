@@ -32,8 +32,8 @@ const MainRouter = () => {
 				{/* Public Only */}
 				<Route path="auth" element={<PublicRoute />}>
 					<Route index element={<Login />} />
-					{/* <Route path="register" element={<Register />} /> */}
-					{/* <Route path="forgot-password" element={<ForgotPassword />} /> */}
+					<Route path="register" element={<Register />} />
+					<Route path="forgot-password" element={<ForgotPassword />} />
 				</Route>
 
 				{/* Protected */}
